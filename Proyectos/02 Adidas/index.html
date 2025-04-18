@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas - Tienda Oficial</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./responsive.css" media="(max-width: 768px)">
+    <link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon">
+</head>
+<body>
+
+    <!-- Encabezado con logo y menú -->
+    <header>
+        <div class="logo">
+            <img id="logoImg" src="img/logo-adidas-B.jpg" alt="Adidas Logo">
+        </div>
+        <button id="menu-btn" class="menu-btn">👟</button>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Hombres</a></li>
+                <li><a href="#">Mujeres</a></li>
+                <li><a href="#">Niños</a></li>
+                <li><a href="#">Accesorios</a></li>
+                <li><a href="#">Ofertas</a></li>
+            </ul>
+        </nav>
+        <!-------------------------------------------------------------------->
+        <button id="modoOscuroBtn">🌙</button>
+        <!-------------------------------------------------------------------->
+    </header>
+
+    <!-- Sección de banner principal -->
+    <section class="banner">
+        <h1>Encuentra tu estilo con Adidas</h1>
+        <p>Descubre la última colección de zapatillas y ropa deportiva.</p>
+        <a href="#" class="btn-collec">Ver Colección</a>
+    </section>
+
+    <!-- Sección de productos destacados -->
+    <section class="productos">
+        <h2>Productos Destacados</h2>
+        <div class="producto">
+            <img src="img/zapatilla1.jpg" alt="Zapatilla Adidas 1">
+            <h3>Adidas Grand Court Blanco</h3>
+            <p>$120.00</p>
+            <a href="#" class="btn">Comprar</a>
+        </div>
+        <div class="producto">
+            <img src="img/zapatilla2.jpg" alt="Zapatilla Adidas 2">
+            <h3>Adidas Grand Court Negro</h3>
+            <p>$110.00</p>
+            <a href="#" class="btn">Comprar</a>
+        </div>
+        <div class="producto">
+            <img src="img/zapatilla3.jpg" alt="Zapatilla Adidas 1">
+            <h3>Adidas Grand Court Azul</h3>
+            <p>$100.00</p>
+            <a href="#" class="btn">Comprar</a>
+        </div>
+    </section>
+    <div id="chat-container">
+        <div id="chat-header">Asistente Virtual</div>
+        <div id="chat-box">
+            <div id="messages"></div>
+            <input type="text" id="user-input" placeholder="Escribe tu mensaje..." />
+            <button id="send-btn">Enviar</button>
+        </div>
+    </div>
+    <button id="chat-toggle">💬</button>
+    
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Adidas - Todos los derechos reservados.</p>
+    </footer>
+<!-- Modal de Pago -->
+<div id="modal-pago" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar-modal">&times;</span>
+        <h2>Selecciona un método de pago</h2>
+        <button class="opcion-pago" id="btn-yape">Pagar con Yape 📱</button>
+        <button class="opcion-pago" id="btn-tarjeta">Pagar con Tarjeta 💳</button>
+        <!-- Nueva sección de selección de delivery -->
+    <h3>Selecciona tu servicio de delivery</h3>
+    <div class="opciones-delivery">
+        <button class="btn-delivery" data-delivery="Glovo">🚚 Glovo</button>
+        <button class="btn-delivery" data-delivery="Rappi">🚴‍♂️ Rappi</button>
+        <button class="btn-delivery" data-delivery="Uber Eats">🍔 Uber Eats</button>
+        <button class="btn-delivery" data-delivery="Local">📦 Delivery Local</button>
+    </div>
+        <button id="confirmar-delivery" class="btn-confirmar">Confirmar Envío</button>
+        <!-- Sección de Yape (Oculta por defecto) -->
+        <div id="pago-yape" class="pago-opcion">
+            <p>Escanea el código QR para pagar con Yape:</p>
+            <img src="./img/Yape.jpeg" alt="QR Yape" width="200">
+            <button id="confirmar-yape">Confirmar Pago</button>
+        </div>
+
+        <!-- Sección de Tarjeta (Oculta por defecto) -->
+        <div id="pago-tarjeta" class="pago-opcion">
+            <p>Ingresa los datos de tu tarjeta:</p>
+            <input type="text" id="numero-tarjeta" placeholder="Número de tarjeta">
+            <input type="text" id="nombre-tarjeta" placeholder="Nombre en la tarjeta">
+            <input type="text" id="expiracion" placeholder="MM/YY">
+            <input type="text" id="cvv" placeholder="CVV">
+            <button id="confirmar-tarjeta">Confirmar Pago</button>
+        </div>
+    </div>
+</div>
+    <script src="./script.js"></script>
+</body>
+</html>

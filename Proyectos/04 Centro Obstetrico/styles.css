@@ -1,0 +1,867 @@
+/* === RESET BÁSICO === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --color-principal:#ff6fa2;
+  --color-secundario:#e91e63;
+  --color-fondo: ;
+  --color-texto: ;
+}
+
+html{
+  /* me permite deslizar cuando hago clic en los links del menu */
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Altura de tu header fijo */
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+main {
+  padding-top: 100px; /* o lo que mida tu header */
+}
+
+/* === HEADER === */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que esté encima de todo */
+  background-color: #ff6fa2;
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opcional: sombra para que se note */
+
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo{
+  max-width: 500px;
+  width: auto;
+  height: auto;
+  border-radius: 15px;
+}
+
+/* === MENÚ DE NAVEGACIÓN (ESCRITORIO) === */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+
+.main-nav ul li a:hover {
+  color: #ad1457  ;
+}
+
+/* === BOTÓN HAMBURGUESA === */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilo para la sección Hero */
+.hero {
+  background: linear-gradient(to right, #f9f9f9, #fff);
+  padding: 4rem 1rem;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.hero-text {
+  flex: 1 1 400px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-principal);
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.btn-hero {
+  background-color: var(--color-principal);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-hero:hover {
+  background-color: #c2185b;
+}
+
+.hero-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* SERVICIOS */
+
+.services {
+  background: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2.5rem;
+  color: var(--color-principal);
+  margin-bottom: 40px;
+}
+
+.services ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.services li {
+  background: #ffe6ec;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/*Modal*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 90%;
+  width: 400px;
+  position: relative;
+  text-align: center;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.modal-content h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.modal-content p {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* === Diseño de Botones Modal === */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-container {
+  overflow: hidden;
+  flex: 1;
+}
+
+.services-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.service-card {
+  min-width: 280px;
+  max-width: 280px;
+  flex: 0 0 auto;
+  margin: 0 10px;
+  background: #fff;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+  transition: transform 0.3s;
+}
+
+.service-card img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.carousel-arrow {
+  background-color: #fff;
+  color: #e57373;
+  font-size: 2rem;
+  border: 2px solid #e57373;
+  padding: 0.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.carousel-arrow:hover {
+  background-color: #e57373;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .services-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .service-card {
+    min-width: 90%;
+  }
+}
+
+/* EQUIPO MEDICO*/
+
+/* Estilo para las tarjetas de los doctores */
+.equipo-grid {
+  display: flex;
+  justify-content: center;  /* Centra las tarjetas horizontalmente */
+  align-items: center;  /* Centra las tarjetas verticalmente */
+  gap: 30px; /* Espacio entre tarjetas */
+  flex-wrap: wrap; /* Asegura que las tarjetas se ajusten en varias líneas si es necesario */
+}
+
+
+#equipo h2 {
+  font-size: 2.5rem;  /* Mismo tamaño que en Servicios */
+  text-align: center; /* Centrado */
+  margin-bottom: 10px;
+  color: var(--color-principal);
+}
+
+
+.doctor-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.doctor-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.doctor-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Estilo del modal del equipo médico */
+.modal-doctor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+/* Modal oculto */
+.modal-doctor.hidden {
+  display: none;
+}
+
+/* Contenido del modal */
+.modal-content-doctor {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+#doctor-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+#doctor-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+#doctor-description {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #555;
+}
+
+/* Estilo para el botón de cerrar el modal */
+.close-doctor-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.close-doctor-modal:hover {
+  background-color: darkred;
+}
+
+#doctor-schedule {
+  list-style-type: none; /* Eliminar los puntos de la lista */
+  padding: 0;
+}
+
+#doctor-schedule li {
+  font-size: 1rem;
+  margin-bottom: 10px; /* Espaciado entre filas */
+  color: #555;
+}
+
+/* CONTACTO */
+
+.contacto {
+  background-color: #f9f9f9;
+  padding: 80px 20px;
+  color: #333;
+}
+
+.container-contacto {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.contacto h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: var(--color-principal)
+}
+
+.fila-contacto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.col-contacto {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* --- Formulario --- */
+.form-contacto input,
+.form-contacto textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.form-contacto button {
+  background-color: var(--color-principal);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.form-contacto button:hover {
+  background-color: #e95f91;
+}
+
+.form-contacto button .overlay {
+  display: none; /* Ya no necesitamos overlay rosado extra */
+}
+
+/* --- Mapa con superposición --- */
+.mapa-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.mapa-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.info-superpuesta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-principal); /* rosado translúcido */
+  color: white;
+  padding: 25px 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.info-superpuesta .info-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.info-superpuesta .info-item i {
+  font-size: 18px;
+  color: white;
+}
+
+.info-superpuesta .info-item span,
+.info-superpuesta .info-item a {
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+.info-superpuesta .info-item a:hover {
+  text-decoration: underline;
+}
+
+.info-superpuesta p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.info-superpuesta i {
+  margin-right: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .fila-contacto {
+    flex-direction: column-reverse;
+  }
+
+  .mapa-wrapper {
+    height: 350px;
+  }
+
+  .info-superpuesta {
+    font-size: 15px;
+    padding: 20px;
+  }
+}
+
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 70px;              /* posición debajo del header */
+    right: 0.5rem;            /* pegado a la derecha */
+    background: #f8bbd0;    /* rosado suave */
+    border-radius: 12px;    /* bordes redondeados */
+    padding: 0.5rem 1.2rem; /* espacio interno */
+    width: 178px;           /* <--- AQUÍ defines el tamaño del menú */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    display: none;          /* oculto por defecto */
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .main-nav a:hover {
+    background-color: #fce4ec;
+    border-radius: 5px;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .hero {
+    position: relative;
+    padding: 0;
+  }
+
+  .hero .hero-content {
+    position: relative;
+    display: block;
+  }
+
+  .hero .hero-image {
+    position: relative;
+  }
+
+  .hero .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+  }
+
+  /* Fondo oscuro sobre la imagen */
+  .hero .hero-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* más opaco */
+    z-index: 1;
+  }
+
+  /* Texto encima de la imagen */
+  .hero .hero-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-text h1 {
+    padding-top: 0.9rem; /* o prueba con 1.5rem o 2rem según necesites */
+  }
+
+  .hero .hero-text h1,
+  .hero .hero-text p {
+    color: white;
+    margin: 0.5rem 0;
+  }
+
+  .hero .btn-hero {
+    margin-top: 2.5rem;
+    z-index: 2;
+  }
+
+}
+
+/* BURBUJA FLOTANTE */
+
+.whatsapp-bubble {
+  /* Ícono flotante de WhatsApp en esquina inferior derecha */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+}
+
+.whatsapp-bubble img {
+  /* Ícono de WhatsApp dentro de la burbuja */
+  width: 32px;
+  height: 32px;
+}
+
+.whatsapp-bubble .close-btn {
+  /* Botón para cerrar la burbuja flotante */
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+/* CAJA DEL CHATBOT */
+
+.chatbot-box {
+  /* Caja emergente del chatbot encima de la burbuja */
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 280px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9998;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chatbot-header {
+  /* Encabezado del chatbot con botón de cerrar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #25d366;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.close-btn {
+  /* Botón "X" para cerrar el chatbot */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.chat-messages {
+  /* Contenedor de mensajes del chat */
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-messages .bot {
+  /* Estilo de mensajes del bot */
+  background: #f1f1f1;
+  padding: 8px 10px;
+  border-radius: 10px;
+  align-self: flex-start;
+}
+
+.chat-messages .user {
+  /* Estilo de mensajes del usuario */
+  background: #d1fdd3;
+  padding: 8px 10px;
+  border-radius: 10px;
+  align-self: flex-end;
+}
+
+#user-input {
+  /* Caja de texto para ingresar mensaje */
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#send-btn {
+  /* Botón para enviar el mensaje */
+  background: #25d366;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#chatbot-box {
+  /* Estilo inicial para animación al aparecer el chatbot */
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#chatbot-box.open {
+  /* Animación de aparición */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#whatsapp-bubble {
+  /* Transición al pasar el mouse */
+  transition: transform 0.2s ease;
+}
+
+#whatsapp-bubble:hover {
+  /* Agranda la burbuja al hacer hover */
+  transform: scale(1.1);
+}
+
+/* OPCIONES RAPIDAS */
+
+.opciones-rapidas {
+  /* Botones rápidos para seleccionar preguntas */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.opcion-btn {
+  /* Estilo de cada botón de opción rápida */
+  padding: 8px 12px;
+  background-color: #e0f2f1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.3s;
+}
+
+.opcion-btn:hover {
+  /* Efecto al pasar el mouse por opciones rápidas */
+  background-color: #b2dfdb;
+}
+
+/* PARA EL BOTON BORRAR*/
+
+#clear-chat-btn {
+  /* Botón redondo para limpiar chat */
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+#clear-chat-btn:hover {
+  /* Efecto hover al botón borrar chat */
+  background-color: #ffdddd;
+  transform: scale(1.05);
+}
