@@ -511,7 +511,8 @@ main {
   padding: 25px 30px;
   border-radius: 10px;
   text-align: center;
-  max-width: 90%;
+  width: 90%;
+  max-width: 500px; /* Puedes probar con 800px también */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -525,7 +526,7 @@ main {
 }
 
 .info-superpuesta .info-item i {
-  font-size: 18px;
+  font-size: 20px;
   color: white;
 }
 

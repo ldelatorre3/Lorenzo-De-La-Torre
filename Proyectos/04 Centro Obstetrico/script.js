@@ -208,7 +208,7 @@ const serviciosData = {
     title: "Medicina",
     desc: "La medicina general es la primera línea de atención médica, y un consultorio que ofrece este servicio se llama consultorio de medicina general."
   },
-  pedriatria: {
+  pediatria: {
     img: "./img/pediatria.jpg",
     title: "Pediatria",
     desc: "especialidad médica que se encarga de la salud de los niños desde su nacimiento hasta la adolescencia. Un consultorio de pediatría es un lugar donde se brinda atención médica a los niños."
