@@ -662,6 +662,7 @@ main {
     height: auto; /* La imagen se ajusta al alto disponible */
     width: 100%; /* La imagen ocupa todo el ancho */
     margin-top: 45px;
+    border-radius: 0;
   }
 
   .slide .text h2 {
