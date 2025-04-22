@@ -379,3 +379,33 @@ modalDoctor.addEventListener("click", function (event) {
   }
 });
 
+// HERO
+
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.indicator');
+
+    const backgrounds = [
+      "img/inicio5.jpg",
+      "img/inicio2.jpg",
+      "img/inicio3.jpg",
+      "img/inicio4.jpg"
+    ];
+
+    let current = 0;
+
+    function goToSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        indicators[i].classList.remove('active');
+      });
+      slides[index].classList.add('active');
+      indicators[index].classList.add('active');
+      current = index;
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      goToSlide(current);
+    }
+
+    setInterval(nextSlide, 6000);

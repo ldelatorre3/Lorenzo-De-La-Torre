@@ -29,18 +29,62 @@
   </header>
 
   <main>
-    <section id="inicio" class="hero">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <h1>Bienvenidos al Centro Médico Mujer</h1>
-            <p>Atención integral y especializada para cuidar de ti y tu familia.</p>
-          <a href="#contacto" class="btn-hero">Reserva tu cita</a>
-        </div>
-        <div class="hero-image">
-          <img src="./img/imagen-consultorio-inicio.jpg" alt="Imagen de inicio" />
-        </div>
+
+  <!-- Hero -->
+   
+  <section id="inicio" class="hero-slider">
+    <div class="slide active">
+      <div class="text">
+        <h2>Consulta Obstétrica + Ecografía</h2>
+        <p>Atención personalizada para ti y tu bebé desde solo <strong>S/120</strong>. Agenda tu cita hoy mismo.</p>
+        <a href="#contacto">Agendar cita</a>
       </div>
-    </section>
+      <div class="image">
+        <img src="img/inicio5.jpg" alt="Slide 1">
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="text">
+        <h2>Controles Prenatales</h2>
+        <p>Acompañamos tu embarazo con profesionales comprometidos en cada etapa de tu gestación.</p>
+        <a href="#contacto">Agendar cita</a>
+      </div>
+      <div class="image">
+        <img src="img/inicio2.jpg" alt="Slide 2">
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="text">
+        <h2>Ecografías Especializadas</h2>
+        <p>Contamos con tecnología moderna para un diagnóstico confiable y seguro para tu salud.</p>
+        <a href="#contacto">Agendar cita</a>
+      </div>
+      <div class="image">
+        <img src="img/inicio3.jpg" alt="Slide 3">
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="text">
+        <h2>Atención Pediátrica</h2>
+        <p>Cuidamos a los más pequeños con amor y profesionalismo desde su primer día.</p>
+        <a href="#contacto">Agendar cita</a>
+      </div>
+      <div class="image">
+        <img src="img/inicio4.jpg" alt="Slide 4">
+      </div>
+    </div>
+
+    <!-- Indicadores -->
+    <div class="indicators">
+      <div class="indicator active" onclick="goToSlide(0)"></div>
+      <div class="indicator" onclick="goToSlide(1)"></div>
+      <div class="indicator" onclick="goToSlide(2)"></div>
+      <div class="indicator" onclick="goToSlide(3)"></div>
+    </div>
+  </section>
 
     <section id="servicios" class="services">
       <div class="container">
@@ -182,7 +226,6 @@
               </div>
             </div>
           </section>
-          
 
   </main>
 

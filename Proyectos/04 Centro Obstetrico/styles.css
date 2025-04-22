@@ -6,7 +6,7 @@
 }
 
 :root{
-  --color-principal:#ff6fa2;
+  --color-principal:#e91e63;
   --color-secundario:#e91e63;
   --color-fondo: ;
   --color-texto: ;
@@ -83,60 +83,102 @@ main {
   cursor: pointer;
 }
 
-/* Estilo para la sección Hero */
-.hero {
-  background: linear-gradient(to right, #f9f9f9, #fff);
-  padding: 4rem 1rem;
-}
+/* HERO */
 
-.hero-content {
+.hero-slider {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
 }
 
-.hero-text {
-  flex: 1 1 400px;
+.slide {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  padding: 0 40px;
 }
 
-.hero h1 {
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide .text {
+  flex: 1;
+  color: #333;
+  padding-right: 20px;
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+.slide .text h2 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--color-principal);
+  color: #e91e63;
+  margin-bottom: 20px;
 }
 
-.hero-text p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+.slide .text p {
+  font-size: 1.1rem;
   color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-.btn-hero {
-  background-color: var(--color-principal);
+.slide .text a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #e91e63;
   color: white;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
-.btn-hero:hover {
+.slide .text a:hover {
   background-color: #c2185b;
 }
 
-.hero-image {
-  flex: 1 1 400px;
-  text-align: center;
+.slide .image {
+  flex: 1;
 }
 
-.hero-image img {
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+.slide .image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.indicator.active {
+  width: 30px;
+  background-color: #e91e63;
 }
 
 /* SERVICIOS */
@@ -479,7 +521,7 @@ main {
 }
 
 .form-contacto button:hover {
-  background-color: #e95f91;
+  background-color: #c2185b;
 }
 
 .form-contacto button .overlay {
@@ -603,69 +645,67 @@ main {
     display: flex;
   }
 
-  .hero {
-    position: relative;
-    padding: 0;
+  /* PENDIENTE */
+
+  .slide {
+    flex-direction: column; /* El texto estará encima de la imagen */
+    padding: 20px 0;
   }
 
-  .hero .hero-content {
-    position: relative;
-    display: block;
-  }
-
-  .hero .hero-image {
-    position: relative;
-  }
-
-  .hero .hero-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    display: block;
-  }
-
-  /* Fondo oscuro sobre la imagen */
-  .hero .hero-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* más opaco */
-    z-index: 1;
-  }
-
-  /* Texto encima de la imagen */
-  .hero .hero-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    padding: 2rem;
+  .slide .text {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding-right: 0;
+    width: 100%;
   }
 
-  .hero-text h1 {
-    padding-top: 0.9rem; /* o prueba con 1.5rem o 2rem según necesites */
+  .slide .image img {
+    height: auto; /* La imagen se ajusta al alto disponible */
+    width: 100%; /* La imagen ocupa todo el ancho */
+    margin-top: 45px;
   }
 
-  .hero .hero-text h1,
-  .hero .hero-text p {
+  .slide .text h2 {
+    font-size: 1.8rem;
+  }
+
+  .slide .text p {
+    font-size: 1rem;
+  }
+
+  .slide .text a {
+    padding: 12px 24px;
+    background-color: #e91e63;
     color: white;
-    margin: 0.5rem 0;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease;
   }
 
-  .hero .btn-hero {
-    margin-top: 2.5rem;
-    z-index: 2;
+  .slide .text a:hover {
+    background-color: #c2185b;
   }
 
+    /* PENDIENTE */
+
+}
+
+/* Sección destino (contacto o agendar) */
+#contacto {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: #f8f8f8;
+  margin-top: 100px;
+}
+
+#contacto h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+#contacto p {
+  color: #555;
+  font-size: 1rem;
 }
 
 /* BURBUJA FLOTANTE */
