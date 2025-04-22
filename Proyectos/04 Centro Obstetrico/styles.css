@@ -86,66 +86,69 @@ main {
 /* HERO */
 
 .hero-slider {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  height: 500px;
-  margin: 0 auto;
-  overflow: hidden;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 2rem 1rem;
 }
 
+/* Slides */
 .slide {
-  display: flex;
+  display: none;
+  flex-direction: row;
   align-items: center;
-  width: 100%;
-  position: absolute;
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-  padding: 0 40px;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .slide.active {
-  opacity: 1;
-  z-index: 1;
+  display: flex;
 }
 
+/* Texto */
 .slide .text {
   flex: 1;
-  color: #333;
-  padding-right: 20px;
-  animation: fadeInLeft 1s ease-in-out;
+  text-align: left;
 }
 
 .slide .text h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #e91e63;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .slide .text p {
   font-size: 1.1rem;
   color: #555;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
-.slide .text a {
+/* Botón */
+.cta-button {
   display: inline-block;
-  padding: 12px 24px;
   background-color: #e91e63;
-  color: white;
-  text-decoration: none;
+  color: white;                /* ✅ Color blanco en vez de azul */
+  padding: 10px 20px;
   border-radius: 6px;
   font-weight: bold;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
+  max-width: fit-content;
+  color: #fff;
 }
 
-.slide .text a:hover {
-  background-color: #c2185b;
+.cta-button a{
+  text-decoration: none;       /* ✅ Sin subrayado */
 }
 
+.cta-button:hover {
+  background-color: #c2185b;  /* Un tono más oscuro de rosa */
+}
+
+/* Imagen */
 .slide .image {
   flex: 1;
 }
@@ -153,32 +156,30 @@ main {
 .slide .image img {
   width: 100%;
   height: auto;
+  border-radius: 15px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
+/* Indicadores */
 .indicators {
-  position: absolute;
-  bottom: 20px;
-  left: 40px;
   display: flex;
+  justify-content: center;
   gap: 10px;
-  z-index: 10;
+  margin-top: 2rem;
 }
 
 .indicator {
   width: 12px;
   height: 12px;
   background-color: #ccc;
-  border-radius: 6px;
-  transition: all 0.3s ease;
+  border-radius: 50%;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .indicator.active {
-  width: 30px;
   background-color: #e91e63;
+  transform: scale(1.3);
 }
 
 /* SERVICIOS */
@@ -330,17 +331,6 @@ main {
 .carousel-arrow:hover {
   background-color: #e57373;
   color: #fff;
-}
-
-@media screen and (max-width: 768px) {
-  .services-track {
-    display: flex;
-    transition: transform 0.4s ease-in-out;
-  }
-
-  .service-card {
-    min-width: 90%;
-  }
 }
 
 /* EQUIPO MEDICO*/
@@ -593,22 +583,6 @@ main {
   margin-right: 8px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .fila-contacto {
-    flex-direction: column-reverse;
-  }
-
-  .mapa-wrapper {
-    height: 350px;
-  }
-
-  .info-superpuesta {
-    font-size: 15px;
-    padding: 20px;
-  }
-}
-
 
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
@@ -645,49 +619,38 @@ main {
     display: flex;
   }
 
-  /* PENDIENTE */
+  .fila-contacto {
+    flex-direction: column-reverse;
+  }
+
+  .mapa-wrapper {
+    height: 350px;
+  }
+
+  .info-superpuesta {
+    font-size: 15px;
+    padding: 20px;
+  }
+
+  /* HERO */
 
   .slide {
-    flex-direction: column; /* El texto estará encima de la imagen */
-    padding: 20px 0;
+    flex-direction: column;
+    text-align: center;
   }
 
   .slide .text {
+    order: 2;
     text-align: center;
-    padding-right: 0;
-    width: 100%;
   }
 
-  .slide .image img {
-    height: auto; /* La imagen se ajusta al alto disponible */
-    width: 100%; /* La imagen ocupa todo el ancho */
-    margin-top: 45px;
-    border-radius: 0;
+  .slide .image {
+    order: 1;
   }
 
-  .slide .text h2 {
-    font-size: 1.8rem;
+  .cta-button {
+    margin-top: 1rem;
   }
-
-  .slide .text p {
-    font-size: 1rem;
-  }
-
-  .slide .text a {
-    padding: 12px 24px;
-    background-color: #e91e63;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background 0.3s ease;
-  }
-
-  .slide .text a:hover {
-    background-color: #c2185b;
-  }
-
-    /* PENDIENTE */
 
 }
 
