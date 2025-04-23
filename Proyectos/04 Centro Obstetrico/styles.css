@@ -124,31 +124,29 @@ main {
 .slide .text p {
   font-size: 1.5rem;
   color: #777;
-  margin-bottom: 1.5rem;
 }
 
 /* Botón */
 .cta-button {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+  position: absolute;
+  top: 65%;         /* 🔼 Ajusta este valor según lo necesites para que suba o baje */
+  right: 69.5rem;      /* 🔼 Ajusta la distancia del borde derecho */
 }
 
-.cta-button a {
+.cta-button a{
   background-color: transparent;
   border: 2px solid #e91e63;
   color: #e91e63;
-  padding: 1.5rem 2rem;
+  padding: 0.9rem 2rem;
   font-size: 1rem;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  margin-bottom: 3rem;
 }
 
 .cta-button a:hover {
-  background-color: #e91e63;
+  background-color: #c2185b;  /* Un tono más oscuro de rosa */
   color: white;
 }
 
@@ -168,9 +166,8 @@ main {
 .indicators {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   margin-top: 3rem;
-  margin-bottom: 3rem;
 }
 
 .indicator {
@@ -662,12 +659,13 @@ main {
   }
 
   .cta-button {
-    top: 38vh;
-    right: 9rem;
+    top: 53vh;
+    right: 8.2rem;
   }
 
   .indicators{
-    margin-top: 3rem;
+    margin-top: 1rem;
+    padding-bottom: 11rem;
   }
 
 }
