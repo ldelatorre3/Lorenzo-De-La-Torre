@@ -122,26 +122,28 @@ main {
 }
 
 .slide .text p {
-  font-size: 1.1rem;
-  color: #555;
+  font-size: 1.5rem;
+  color: #777;
   margin-bottom: 1.5rem;
 }
 
 /* Botón */
 .cta-button {
-  display: inline-block;
+  position: absolute;
+  top: 65%;         /* 🔼 Ajusta este valor según lo necesites para que suba o baje */
+  right: 70rem;      /* 🔼 Ajusta la distancia del borde derecho */
   background-color: #e91e63;
-  color: white;                /* ✅ Color blanco en vez de azul */
+  color: white;
   padding: 10px 20px;
   border-radius: 6px;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  max-width: fit-content;
-  color: #fff;
+  z-index: 10;      /* ✅ Por si acaso se superpone algo */
 }
 
 .cta-button a{
   text-decoration: none;       /* ✅ Sin subrayado */
+  color: #fff;
 }
 
 .cta-button:hover {
@@ -165,7 +167,7 @@ main {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .indicator {
@@ -644,12 +646,25 @@ main {
     text-align: center;
   }
 
+  .slide .text p{
+    color: #fff;
+  }
+
+  .slide .text h2 {
+    margin-top: -30vh;
+  }
+
   .slide .image {
     order: 1;
   }
 
   .cta-button {
-    margin-top: 1rem;
+    top: 39vh;
+    right: 9rem;
+  }
+
+  .indicators{
+    margin-top: 3rem;
   }
 
 }
