@@ -129,25 +129,27 @@ main {
 
 /* Botón */
 .cta-button {
-  position: absolute;
-  top: 65%;         /* 🔼 Ajusta este valor según lo necesites para que suba o baje */
-  right: 70rem;      /* 🔼 Ajusta la distancia del borde derecho */
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cta-button a {
+  background-color: transparent;
+  border: 2px solid #e91e63;
+  color: #e91e63;
+  padding: 1.5rem 2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-bottom: 3rem;
+}
+
+.cta-button a:hover {
   background-color: #e91e63;
   color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  z-index: 10;      /* ✅ Por si acaso se superpone algo */
-}
-
-.cta-button a{
-  text-decoration: none;       /* ✅ Sin subrayado */
-  color: #fff;
-}
-
-.cta-button:hover {
-  background-color: #c2185b;  /* Un tono más oscuro de rosa */
 }
 
 /* Imagen */
@@ -166,8 +168,9 @@ main {
 .indicators {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .indicator {
