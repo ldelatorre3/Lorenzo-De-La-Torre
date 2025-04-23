@@ -133,6 +133,12 @@ main {
   right: 69.5rem;      /* 🔼 Ajusta la distancia del borde derecho */
 }
 
+.cta-button {
+  position: absolute;
+  top: 65%;         /* 🔼 Ajusta este valor según lo necesites para que suba o baje */
+  right: 69.5rem;      /* 🔼 Ajusta la distancia del borde derecho */
+}
+
 .cta-button a{
   background-color: transparent;
   border: 2px solid #e91e63;
@@ -499,21 +505,20 @@ main {
 }
 
 .form-contacto button {
-  background-color: var(--color-principal);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  border-radius: 5px;
-  transition: background-color 0.3s ease-in-out;
+  background-color: transparent;
+  border: 2px solid #e91e63;
+  color: #e91e63;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .form-contacto button:hover {
   background-color: #c2185b;
+  color: white;
 }
 
 .form-contacto button .overlay {
