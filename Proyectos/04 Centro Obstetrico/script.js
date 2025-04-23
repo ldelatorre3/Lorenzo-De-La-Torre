@@ -178,11 +178,22 @@ clearChatBtn.addEventListener("click", () => {
 });
 
 // Ocultar Menu Hamburguesa
-const menuToggle = document.querySelector(".menu-toggle");
-const mainNav = document.querySelector(".main-nav");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mainNav = document.querySelector(".main-nav");
 
-menuToggle.addEventListener("click", () => {
+  menuToggle.addEventListener("click", () => {
   mainNav.classList.toggle("active");
+});
+
+// Cerrar el menú si se hace clic fuera
+  document.addEventListener("click", (event) => {
+  const clickedInsideMenu = mainNav.contains(event.target);
+  const clickedToggle = menuToggle.contains(event.target);
+
+// Si el menú está abierto y se hace clic fuera
+  if (mainNav.classList.contains("active") && !clickedInsideMenu && !clickedToggle) {
+  mainNav.classList.remove("active");
+  }
 });
 
 // SERVICIOS

@@ -545,7 +545,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--color-principal); /* rosado translúcido */
+  background-color: var(--color-principal);
   color: white;
   padding: 25px 30px;
   border-radius: 10px;
