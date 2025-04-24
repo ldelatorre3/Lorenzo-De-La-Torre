@@ -6,7 +6,7 @@
 }
 
 :root{
-  --color-principal:#e91e63;
+  --color-principal:#ff6fa2;
   --color-secundario:#e91e63;
   --color-fondo: ;
   --color-texto: ;
@@ -117,7 +117,7 @@ main {
 
 .slide .text h2 {
   font-size: 2rem;
-  color: #e91e63;
+  color: var(--color-principal);
   margin-bottom: 1rem;
 }
 
@@ -141,8 +141,8 @@ main {
 
 .cta-button a{
   background-color: transparent;
-  border: 2px solid #e91e63;
-  color: #e91e63;
+  border: 2px solid var(--color-principal);
+  color: var(--color-principal);
   padding: 0.9rem 2rem;
   font-size: 1rem;
   border-radius: 8px;
@@ -506,8 +506,8 @@ main {
 
 .form-contacto button {
   background-color: transparent;
-  border: 2px solid #e91e63;
-  color: #e91e63;
+  border: 2px solid var(--color-principal);
+  color: var(--color-principal);
   padding: 0.9rem 2rem;
   font-size: 1rem;
   border-radius: 8px;
@@ -674,6 +674,46 @@ main {
   }
 
 }
+
+ /* REDES SOCIALES FLOTANTES */
+
+ .social-floating {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 0.4rem;
+  z-index: 999;
+}
+
+.social-floating a {
+  background-color: var(--color-principal);
+  color: white;
+  font-size: 1.1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.social-floating a:hover {
+  background-color: #c2185b;
+}
+
+.follow-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: var(--color-principal);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
 
 /* Sección destino (contacto o agendar) */
 #contacto {
