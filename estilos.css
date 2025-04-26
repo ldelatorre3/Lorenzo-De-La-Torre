@@ -473,6 +473,7 @@ html{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        
     }
     .portafolio .galeria .proyecto{
         position: relative;
@@ -480,10 +481,12 @@ html{
         height: fit-content;
         margin: 15px;
         cursor: pointer;
+        
     }
     .portafolio .galeria .proyecto img{
         width: 100%;
         display: block;
+        border-radius: 15px;
     }
     .portafolio .galeria .proyecto .overlay{
         position: absolute;
