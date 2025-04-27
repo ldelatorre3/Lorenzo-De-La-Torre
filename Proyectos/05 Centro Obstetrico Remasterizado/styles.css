@@ -1,0 +1,262 @@
+/* RESET GENERAL PARA ELIMINAR MÁRGENES Y PADDINGS POR DEFECTO Y USAR BOX-SIZING: BORDER-BOX */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+  
+  /* DEFINIR QUE HTML Y BODY OCUPEN EL 100% DE ALTO DE LA PANTALLA */
+   html, body {
+    height: 100%;
+   }
+
+/* VARIABLES DE COLORES */
+
+/* Colores principales */
+--color-primario: #2d9cdb;  /* Color principal (por ejemplo, azul) */
+--color-secundario: #ff5733; /* Color secundario (por ejemplo, rojo) */
+--color-terciario: #1b1b1b;  /* Color de fondo oscuro */
+
+/* Colores neutros */
+--color-blanco: #ffffff;
+--color-negro: #000000;
+--color-gris-claro: #f0f0f0;
+--color-gris-oscuro: #555555;
+
+/* Colores de texto */
+--color-texto-principal: #333333;  /* Texto principal */
+--color-texto-secundario: #777777;  /* Texto secundario */
+
+/* Colores de acción */
+--color-boton: #ff9500;  /* Color de botones */
+--color-boton-hover: #e68500;  /* Hover de botones */
+
+/* Colores de fondo */
+--color-fondo-claro: #fafafa;
+--color-fondo-dark: #2c2c2c;
+
+/* HEADER ESTILOS GENERALES */
+  header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* PEQUEÑA SOMBRA AL BAJAR */
+  }
+  
+  /* CONTENEDOR CENTRADO */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* LOGO */
+  .logo img {
+    max-height: 60px;
+  }
+  
+  /* GRUPO DE NAVEGACIÓN Y BOTÓN */
+  .grupo-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* ESPACIO ENTRE MENÚ Y BOTÓN */
+  }
+  
+  /* NAVBAR */
+  .navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    color: #007bff;
+  }
+  
+  /* BOTÓN DE RESERVA TU CITA */
+  .btn-reserva {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-reserva:hover {
+    background-color: #0056b3;
+  }
+  
+/* ------------------------------------------------------------------------------- */
+
+/* SECCIÓN EMOCIONAL */
+#emocional {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 0;
+  }
+  
+  /* Contenedor principal */
+  .emocional-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Asegura que se vea bien en pantallas grandes */
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  /* Contenedor de texto */
+  .text-container {
+    flex: 1;
+    padding-right: 20px;
+    text-align: left;
+  }
+  
+  /* Título */
+  .text-container h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Párrafo */
+  .text-container p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  /* Botón */
+  .btn-servicio {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-servicio:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Contenedor de imagen */
+  .image-container {
+    flex: 1;
+    position: relative;
+  }
+  
+  .image-container .slide {
+    display: none;
+    position: relative;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    filter: opacity(0.7);
+    transition: opacity 0.5s ease;
+  }
+  
+  /* Efecto de opacidad en la imagen */
+  .image-container:hover img {
+    filter: opacity(1);
+  }
+  
+  /* Overlay con texto sobre la imagen */
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%;
+  }
+  
+  .text-overlay h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .text-overlay p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Indicadores del carrusel */
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .indicator.active {
+    background-color: #007bff;
+  }
+  
+  /* Flechas de dirección */
+  .carousel-arrows {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .arrow-left, .arrow-right {
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Flecha hacia abajo */
+  .down-arrow {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .down-arrow a {
+    font-size: 2rem;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .down-arrow a:hover {
+    color: #0056b3;
+  }
+  
