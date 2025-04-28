@@ -1,100 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Consultorio Obstétrico | Inicio</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER Y BARRA DE NAVEGACIÓN FIJA -->
-<header class="header">
-    <div class="container">
-      <!-- LOGO -->
-      <div class="logo">
-        <img src="ruta-de-tu-logo.png" alt="Logo del Consultorio">
-      </div>
-  
-    <!-- GRUPO DE NAVEGACIÓN Y BOTÓN -->
-    <div class="grupo-nav-btn">
-        <nav class="navbar">
-        <a href="#">Inicio</a>
-        <a href="#">Beneficios</a>
-        <a href="#">Servicios</a>
-        <a href="#">Equipo Médico</a>
-        </nav>
-        <a href="#" class="btn-reserva">Reserva tu cita</a>
-    </div>
-    </div>
-  </header>
-<!-- SECCIÓN EMOCIONAL -->
-<section id="emocional">
-    <div class="emocional-container">
-      <div class="text-container">
-        <h3>Cumplí mis metas</h3>
-        <p>Porque te permite cumplir tus sueños sin preocuparte por el reloj biológico.</p>
-        <button class="btn-servicio">Conoce Nuestro Servicio</button>
-      </div>
-      <div class="image-container">
-        <div class="slide">
-          <img src="./img/emocional1.jpg" alt="Imagen emocional 1" />
-          <div class="text-overlay">
-            <h3>Título 1</h3>
-            <p>Frase 1: "Cumple tus sueños sin límites, explora nuevas posibilidades." </p>
-          </div>
+    <!-- === NAVBAR (LOGO IZQUIERDA, NAV+BOTÓN DERECHA) === -->
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <img src="./img/logo.png" alt="Logo Consultorio" width="150">
+            </div>
+            
+            <div class="header__right">
+                <nav class="header__nav">
+                    <ul class="nav__list">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#equipo">Equipo Médico</a></li>
+                    </ul>
+                </nav>
+                <button class="btn-reserva">Reserva tu cita</button>
+            </div>
         </div>
-        <div class="slide">
-          <img src="./img/emocional2.jpg" alt="Imagen emocional 2" />
-          <div class="text-overlay">
-            <h3>Título 2</h3>
-            <p>Frase 2: "Descubre un mundo lleno de oportunidades para ti y tu familia." </p>
-          </div>
+    </header>
+
+    <!-- === SECCIÓN EMOCIONAL === -->
+    <section id="inicio" class="seccion-emocional">
+        <div class="carrusel">
+            <div class="carrusel__texto">
+                <h3 class="titulo-emocional" id="titulo-slide">Conviértete en madre sin preocupaciones</h3>
+                <p class="descripcion-emocional" id="descripcion-slide">Nuestro compromiso es acompañarte en cada paso del camino.</p>
+                <button class="btn-servicios">Conoce Nuestros Servicios</button>
+            </div>
+            <div class="carrusel__imagen">
+                <img src="./img/emocional1.jpg" alt="Paciente feliz" class="imagen-fondo" id="imagen-slide">
+            </div>
         </div>
-        <div class="slide">
-          <img src="./img/emocional3.jpg" alt="Imagen emocional 3" />
-          <div class="text-overlay">
-            <h3>Título 3</h3>
-            <p>Frase 3: "Un lugar donde tus decisiones marcan la diferencia." </p>
-          </div>
+
+        <!-- === CONTROLES (FLECHAS + PUNTOS) === -->
+        <div class="controles">
+            <button class="flecha-control flecha-izquierda">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            
+            <div class="indicadores" id="indicadores"></div>
+            
+            <button class="flecha-control flecha-derecha">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
         </div>
-        <div class="slide">
-          <img src="./img/emocional4.jpg" alt="Imagen emocional 4" />
-          <div class="text-overlay">
-            <h3>Título 4</h3>
-            <p>Frase 4: "Tu bienestar es nuestra prioridad, siempre te apoyamos." </p>
-          </div>
+
+        <!-- === FLECHA HACIA ABAJO === -->
+        <div class="flecha-abajo-container">
+            <a href="#beneficios" class="flecha-abajo">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </a>
         </div>
-        <div class="slide">
-          <img src="./img/emocional5.jpg" alt="Imagen emocional 5" />
-          <div class="text-overlay">
-            <h3>Título 5</h3>
-            <p>Frase 5: "Estamos aquí para hacer realidad tus sueños más importantes." </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Indicadores de carrusel -->
-    <div class="carousel-indicators">
-      <span class="indicator active"></span>
-      <span class="indicator"></span>
-      <span class="indicator"></span>
-      <span class="indicator"></span>
-      <span class="indicator"></span>
-    </div>
-  
-    <!-- Flechas de dirección -->
-    <div class="carousel-arrows">
-      <span class="arrow-left">&#8592;</span>
-      <span class="arrow-right">&#8594;</span>
-    </div>
-  
-    <!-- Flecha hacia abajo para ir al siguiente bloque -->
-    <div class="down-arrow">
-      <a href="#beneficios">&#8595;</a>
-    </div>
-  </section>
-  
-<script src="./script.js"></script> 
+    </section>
+
+    <script src="./script.js"></script>
 </body>
 </html>
