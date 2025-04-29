@@ -1,0 +1,166 @@
+/* ===== ESTILOS GENERALES PARA MÓVIL (max-width: 768px) ===== */
+
+/* 1. HEADER - MENÚ HAMBURGUESA */
+.header {
+    padding: 0.5rem 1rem;
+}
+
+.menu-hamburguesa {
+    display: block;
+    background: none;
+    border: none;
+    padding: 10px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.menu-hamburguesa svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--color-primario);
+    stroke-width: 2;
+}
+
+.header__right {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.header__right.activo {
+    display: flex;
+}
+
+.nav__list {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+.btn-reserva {
+    margin: 1rem auto 0;
+    width: 80%;
+}
+
+/* 2. SECCIÓN EMOCIONAL (CON IMÁGENES ORIGINALES AJUSTADAS) */
+.seccion-emocional {
+    margin: 0;
+    padding: 0.5rem 1rem 2rem;
+}
+
+.carrusel {
+    position: relative;
+    border-radius: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    height: 65vh; /* Altura controlada */
+    margin-bottom: 1rem;
+}
+
+.carrusel__imagen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.carrusel__imagen::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    background: none;
+    border-radius: 0;
+    z-index: 1;
+  }
+
+/* --- IMAGEN SIN OPACIDAD --- */
+.imagen-fondo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%; /* Enfoca el área importante */
+}
+
+/* --- TEXTO REUBICADO MÁS ARRIBA --- */
+.carrusel__texto {
+    position: absolute;
+    top: 50%; /* Cambiado de bottom: 0 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.titulo-emocional {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+}
+
+.descripcion-emocional {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+}
+
+.btn-servicios {
+    background: var(--color-primario);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 280px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* 3. CONTROLES Y FLECHA (EXTERNOS) */
+.controles {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0.5rem auto;
+}
+
+.flecha-abajo-container {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.flecha-abajo {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(106, 27, 154, 0.2);
+    animation: levitar 2s infinite;
+}
+
+.flecha-abajo svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--color-primario);
+    stroke-width: 2;
+}
+
+@keyframes levitar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}

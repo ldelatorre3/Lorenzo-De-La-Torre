@@ -280,70 +280,12 @@ body {
   50% { transform: translateY(-8px); }
 }
 
-/* ------------------------------------------------------------ */
+/* Oculta completamente el botón en desktop */
+.menu-hamburguesa {
+    display: none; /* Oculta siempre en desktop */
+}
 
-/* === RESPONSIVE - MÓVIL (MAX 768PX) === */
-@media (max-width: 768px) {
-  /* NAVBAR */
-  .header__container {
-    padding: 0 1rem;
-    flex-wrap: wrap; /* Permite que los elementos se apilen */
-  }
-
-  .header__right {
-    width: 100%;
-    justify-content: space-between;
-    margin-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    overflow-x: auto; /* Para scroll horizontal si no caben los enlaces */
-  }
-
-  .nav__list {
-    gap: 0.8rem;
-    font-size: 0.9rem;
-  }
-
-  .btn-reserva {
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-  }
-
-  /* SECCIÓN EMOCIONAL */
-  .seccion-emocional {
-    height: auto;
-    padding: 2rem 0;
-    margin-top: 70px;
-  }
-
-  .carrusel {
-    flex-direction: column-reverse; /* Imagen arriba, texto abajo */
-    padding: 0 1rem;
-  }
-
-  .carrusel__texto {
-    padding-right: 0;
-    margin-top: 1.5rem;
-    text-align: center;
-  }
-
-  .carrusel__imagen::before {
-    width: 100%; /* Elimina el efecto de opacidad lateral */
-    background: linear-gradient(to bottom, rgba(255,255,255,0.9), transparent);
-    height: 30%;
-  }
-
-  .imagen-fondo {
-    height: 50vh;
-    border-radius: 10px;
-  }
-
-  /* CONTROLES */
-  .controles {
-    bottom: 25%;
-    gap: 0.5rem;
-  }
-
-  .flecha-abajo-container {
-    bottom: 10px;
-  }
+/* Muestra los elementos normales del header */
+.header__right {
+    display: flex; /* Asegura que se vea en desktop */
 }

@@ -92,6 +92,25 @@ document.querySelector(".flecha-derecha").addEventListener("click", () => {
   reiniciarIntervalo();
 });
 
+// ===== TOGGLE MENÚ HAMBURGUESA =====
+const menuHamburguesa = document.getElementById('menu-hamburguesa');
+const headerRight = document.querySelector('.header__right');
+
+// Abrir/cerrar con el icono
+menuHamburguesa.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menuHamburguesa.classList.toggle('activo');
+    headerRight.classList.toggle('activo');
+});
+
+// Cerrar al hacer clic fuera
+document.addEventListener('click', (e) => {
+    if (!headerRight.contains(e.target)) { // ✅ Corrección aquí
+        menuHamburguesa.classList.remove('activo');
+        headerRight.classList.remove('activo');
+    }
+});
+
 // === INICIAR CARRUSEL ===
 crearIndicadores();
 iniciarAutoplay();
