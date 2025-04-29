@@ -114,3 +114,49 @@ document.addEventListener('click', (e) => {
 // === INICIAR CARRUSEL ===
 crearIndicadores();
 iniciarAutoplay();
+
+// Lista completa de notificaciones FOMO
+const fomoMessages = [
+  "¡Ana acaba de agendar su control prenatal para la semana 28! 👶📅",
+  "Luisa reservó su consulta de planificación familiar hace 5 minutos 💊⏱️",
+  "Dr. Martínez atendió 3 consultas ginecológicas en la última hora 🩺✨",
+  "¡Nuevo record! 5 mamás reservaron sus ecografías hoy 📊🤰",
+  "María acaba de confirmar su cita de obstetricia para mañana 🗓️❤️",
+  "3 pacientes atendidas en pediatría en los últimos 30 minutos 👩‍⚕️👶",
+  "¡Últimos 2 horarios disponibles para análisis clínicos esta semana! 💉⏳",
+  "Familia Pérez acaba de agendar consultas de medicina general para todos 👨‍👩‍👧‍👦💖",
+  "¡Atención! Solo quedan 3 cupos para controles prenatales este viernes 📅⚠️",
+  "5 mujeres embarazadas reservaron su primera consulta hoy 🤰🎉"
+];
+
+const fomoElement = document.querySelector('.fomo-notification');
+let lastIndex = -1;
+
+function showRandomNotification() {
+  fomoElement.style.animation = 'fadeOut 0.5s ease-out';
+  
+  setTimeout(() => {
+      let randomIndex;
+      // Evitar que se repita la misma notificación consecutivamente
+      do {
+          randomIndex = Math.floor(Math.random() * fomoMessages.length);
+      } while (randomIndex === lastIndex && fomoMessages.length > 1);
+      
+      lastIndex = randomIndex;
+      fomoElement.querySelector('.fomo-text').textContent = fomoMessages[randomIndex];
+      fomoElement.style.animation = 'fadeIn 0.5s ease-out';
+      fomoElement.style.display = 'flex';
+  }, 500);
+}
+
+// Iniciar el sistema de notificaciones
+setTimeout(() => {
+  // Mostrar primera notificación aleatoria
+  const initialIndex = Math.floor(Math.random() * fomoMessages.length);
+  lastIndex = initialIndex;
+  fomoElement.querySelector('.fomo-text').textContent = fomoMessages[initialIndex];
+  fomoElement.style.display = 'flex';
+  
+  // Cambiar cada 8 segundos (8000 milisegundos)
+  setInterval(showRandomNotification, 8000);
+}, 3000); // Inicio retrasado 3 segundos
