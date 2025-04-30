@@ -115,7 +115,7 @@ document.addEventListener('click', (e) => {
 crearIndicadores();
 iniciarAutoplay();
 
-// Lista completa de notificaciones FOMO
+// Lista completa de notificaciones FOMO (Fear Of Missing Out)
 const fomoMessages = [
   "¡Ana acaba de agendar su control prenatal para la semana 28! 👶📅",
   "Luisa reservó su consulta de planificación familiar hace 5 minutos 💊⏱️",
@@ -132,31 +132,47 @@ const fomoMessages = [
 const fomoElement = document.querySelector('.fomo-notification');
 let lastIndex = -1;
 
-function showRandomNotification() {
-  fomoElement.style.animation = 'fadeOut 0.5s ease-out';
-  
-  setTimeout(() => {
-      let randomIndex;
-      // Evitar que se repita la misma notificación consecutivamente
-      do {
-          randomIndex = Math.floor(Math.random() * fomoMessages.length);
-      } while (randomIndex === lastIndex && fomoMessages.length > 1);
-      
-      lastIndex = randomIndex;
-      fomoElement.querySelector('.fomo-text').textContent = fomoMessages[randomIndex];
-      fomoElement.style.animation = 'fadeIn 0.5s ease-out';
-      fomoElement.style.display = 'flex';
-  }, 500);
-}
+// Tiempo que la notificación estará visible (5 segundos)
+const displayDuration = 5000; 
 
-// Iniciar el sistema de notificaciones
-setTimeout(() => {
-  // Mostrar primera notificación aleatoria
-  const initialIndex = Math.floor(Math.random() * fomoMessages.length);
-  lastIndex = initialIndex;
-  fomoElement.querySelector('.fomo-text').textContent = fomoMessages[initialIndex];
+// Intervalos rotativos entre notificaciones (en ms)
+const waitIntervals = [5000, 10000, 15000]; // 5, 10, 15 segundos
+let currentWaitIndex = 0;
+
+function showNotification() {
+  // Seleccionar mensaje aleatorio sin repetición consecutiva
+  let randomIndex;
+  do {
+    randomIndex = Math.floor(Math.random() * fomoMessages.length);
+  } while (randomIndex === lastIndex && fomoMessages.length > 1);
+  
+  lastIndex = randomIndex;
+  fomoElement.querySelector('.fomo-text').textContent = fomoMessages[randomIndex];
+  
+  // Mostrar con animación
+  fomoElement.style.animation = 'fadeIn 0.5s ease-out';
   fomoElement.style.display = 'flex';
   
-  // Cambiar cada 8 segundos (8000 milisegundos)
-  setInterval(showRandomNotification, 8000);
-}, 3000); // Inicio retrasado 3 segundos
+  // Ocultar después del tiempo de visualización
+  setTimeout(() => {
+    fomoElement.style.animation = 'fadeOut 0.5s ease-out';
+    
+    setTimeout(() => {
+      fomoElement.style.display = 'none';
+      
+      // Programar próxima notificación después del intervalo de espera
+      scheduleNextNotification();
+    }, 500); // Tiempo para la animación de fadeOut
+  }, displayDuration);
+}
+
+function scheduleNextNotification() {
+  // Rotar entre los intervalos de espera
+  currentWaitIndex = (currentWaitIndex + 1) % waitIntervals.length;
+  const nextInterval = waitIntervals[currentWaitIndex];
+  
+  setTimeout(showNotification, nextInterval);
+}
+
+// Iniciar el sistema (primera notificación después de 3 segundos)
+setTimeout(showNotification, 3000);
