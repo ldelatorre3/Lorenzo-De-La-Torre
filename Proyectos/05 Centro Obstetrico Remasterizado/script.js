@@ -3,27 +3,27 @@ const slides = [
   {
       titulo: "Conviértete en madre sin preocupaciones",
       descripcion: "Nuestro compromiso es acompañarte en cada paso del camino, para que puedas disfrutar de tu embarazo sin las dudas que puedan surgir.",
-      imagen: "./img/emocional1.jpg"
+      imagen: "./img/imagen1.jpg"
   },
   {
       titulo: "El momento de tu vida está por llegar",
       descripcion: "Sabemos lo importante que es este viaje, y nuestro equipo está aquí para que todo salga perfecto.",
-      imagen: "./img/emocional2.jpg"
+      imagen: "./img/imagen2.jpg"
   },
   {
       titulo: "Tranquilidad en cada latido",
       descripcion: "Con nuestra orientación y cuidado, sentirás la paz de que tu bebé está bien, y tu salud también.",
-      imagen: "./img/emocional3.jpg"
+      imagen: "./img/imagen3.jpg"
   },
   {
-      titulo: "Juntas, todo es más fácil",
+      titulo: "Juntos, todo es más fácil",
       descripcion: "Nuestro equipo te brindará el apoyo necesario en cada momento, porque sabemos lo importante que es sentirte acompañada.",
-      imagen: "./img/emocional4.jpg"
+      imagen: "./img/imagen4.jpg"
   },
   {
       titulo: "Tu embarazo, nuestra pasión",
       descripcion: "Nos encanta ser parte de este hermoso momento de tu vida, brindándote el mejor cuidado y apoyo en todo momento.",
-      imagen: "./img/emocional5.jpg"
+      imagen: "./img/imagen5.jpg"
   }
 ];
 
