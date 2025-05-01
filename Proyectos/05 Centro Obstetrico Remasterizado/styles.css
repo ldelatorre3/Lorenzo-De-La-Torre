@@ -353,6 +353,32 @@ html {
   to { opacity: 0; }
 }
 
+.fomo-close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 24px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.fomo-close:hover, .fomo-close:focus {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
 /* === SECCIÓN BENEFICIO === */
 .seccion-beneficio {
   min-height: 100vh; /* Ocupa al menos un viewport completo */
@@ -438,7 +464,7 @@ html {
 }
 
 /* Flecha (consistente con la sección emocional) */
-.flecha-abajo-container {
+.flecha-abajo-container-b {
   position: absolute;
   bottom: 40px;
   left: 50%;

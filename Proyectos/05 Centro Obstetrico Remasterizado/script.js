@@ -105,7 +105,7 @@ menuHamburguesa.addEventListener('click', (e) => {
 
 // Cerrar al hacer clic fuera
 document.addEventListener('click', (e) => {
-    if (!headerRight.contains(e.target)) { // ✅ Corrección aquí
+    if (!headerRight.contains(e.target)) {
         menuHamburguesa.classList.remove('activo');
         headerRight.classList.remove('activo');
     }
@@ -129,50 +129,86 @@ const fomoMessages = [
   "5 mujeres embarazadas reservaron su primera consulta hoy 🤰🎉"
 ];
 
+// Configuración FOMO con botón de cierre
 const fomoElement = document.querySelector('.fomo-notification');
+fomoElement.innerHTML = `
+    <span class="fomo-text"></span>
+    <button class="fomo-close" aria-label="Cerrar notificación">×</button>
+`;
 let lastIndex = -1;
+let currentWaitIndex = 0;
+let isNotificationDismissed = false;
+let lastDismissTime = 0; // Nuevo: para controlar el tiempo de pausa
+
+// Función para cerrar manualmente
+function dismissNotification() {
+    fomoElement.style.animation = 'fadeOut 0.3s ease-out';
+    isNotificationDismissed = true;
+    lastDismissTime = Date.now(); // Registrar momento del cierre
+    
+    setTimeout(() => {
+        fomoElement.style.display = 'none';
+        
+        // Reanudar después de 5 segundos
+        setTimeout(() => {
+            isNotificationDismissed = false;
+            scheduleNextNotification(); // Programar normalmente
+        }, 5000);
+    }, 300);
+}
+
+// Eventos para el botón de cierre
+fomoElement.addEventListener('click', function(e) {
+    if (e.target.classList.contains('fomo-close')) {
+        dismissNotification();
+    }
+});
+
+fomoElement.addEventListener('touchend', function(e) {
+    if (e.target.classList.contains('fomo-close')) {
+        e.preventDefault();
+        dismissNotification();
+    }
+}, {passive: false});
+
+function showNotification() {
+  // Verificar si fue cerrado manualmente y aún no pasaron 5 segundos
+  if (isNotificationDismissed && (Date.now() - lastDismissTime < 5000)) return;
+  
+  // Seleccionar mensaje aleatorio sin repetición consecutiva
+  let randomIndex;
+  do {
+      randomIndex = Math.floor(Math.random() * fomoMessages.length);
+  } while (randomIndex === lastIndex && fomoMessages.length > 1);
+  
+  lastIndex = randomIndex;
+  fomoElement.querySelector('.fomo-text').textContent = fomoMessages[randomIndex];
+  fomoElement.style.animation = 'fadeIn 0.5s ease-out';
+  fomoElement.style.display = 'flex';
+  
+  // Ocultar después del tiempo de visualización (solo si no fue cerrado manualmente)
+  setTimeout(() => {
+      if (!isNotificationDismissed) {
+          fomoElement.style.animation = 'fadeOut 0.5s ease-out';
+          setTimeout(() => {
+              fomoElement.style.display = 'none';
+              scheduleNextNotification();
+          }, 500);
+      }
+  }, displayDuration);
+}
+
+function scheduleNextNotification() {
+  currentWaitIndex = (currentWaitIndex + 1) % waitIntervals.length;
+  const nextInterval = waitIntervals[currentWaitIndex];
+  setTimeout(showNotification, nextInterval);
+}
 
 // Tiempo que la notificación estará visible (5 segundos)
 const displayDuration = 5000; 
 
 // Intervalos rotativos entre notificaciones (en ms)
 const waitIntervals = [5000, 10000, 15000]; // 5, 10, 15 segundos
-let currentWaitIndex = 0;
-
-function showNotification() {
-  // Seleccionar mensaje aleatorio sin repetición consecutiva
-  let randomIndex;
-  do {
-    randomIndex = Math.floor(Math.random() * fomoMessages.length);
-  } while (randomIndex === lastIndex && fomoMessages.length > 1);
-  
-  lastIndex = randomIndex;
-  fomoElement.querySelector('.fomo-text').textContent = fomoMessages[randomIndex];
-  
-  // Mostrar con animación
-  fomoElement.style.animation = 'fadeIn 0.5s ease-out';
-  fomoElement.style.display = 'flex';
-  
-  // Ocultar después del tiempo de visualización
-  setTimeout(() => {
-    fomoElement.style.animation = 'fadeOut 0.5s ease-out';
-    
-    setTimeout(() => {
-      fomoElement.style.display = 'none';
-      
-      // Programar próxima notificación después del intervalo de espera
-      scheduleNextNotification();
-    }, 500); // Tiempo para la animación de fadeOut
-  }, displayDuration);
-}
-
-function scheduleNextNotification() {
-  // Rotar entre los intervalos de espera
-  currentWaitIndex = (currentWaitIndex + 1) % waitIntervals.length;
-  const nextInterval = waitIntervals[currentWaitIndex];
-  
-  setTimeout(showNotification, nextInterval);
-}
 
 // Iniciar el sistema (primera notificación después de 3 segundos)
 setTimeout(showNotification, 3000);
