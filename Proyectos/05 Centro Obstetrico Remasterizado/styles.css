@@ -149,6 +149,7 @@ html {
   margin-bottom: 1rem;
   color: var(--color-primario);
   line-height: 1.2;
+  text-transform: uppercase ;
 }
 
 .titulo-emocional,
@@ -161,7 +162,7 @@ html {
 }
 
 .descripcion-emocional {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
   line-height: 1.6;
   max-width: 500px;
@@ -460,4 +461,72 @@ html {
   width: 24px;
   height: 24px;
   stroke: #6A1B9A;
+}
+
+/* === AJUSTES PARA 4K === */
+
+/* === SECCIÓN EMOCIONAL === */
+
+@media screen and (min-width: 2560px) {
+
+
+  .carrusel__texto {
+    left: 25%; /* Ajusta este valor para alinear con el logo */
+    max-width: 600px; /* Puedes aumentar si necesitas más espacio */
+  }
+
+  .titulo-emocional {
+    font-size: 3.5rem; /* Texto más grande para 4K */
+  }
+
+  .descripcion-emocional {
+    font-size: 1.4rem;
+  }
+
+  /* === SECCIÓN BENEFICIO === */
+  .seccion-beneficio {
+    padding: 15vh 10%; /* Más espacio vertical y horizontal */
+  }
+
+  .beneficio-titulo {
+    font-size: 3.5rem; /* Título más grande */
+    margin-bottom: 5rem;
+  }
+
+  .beneficio-cards {
+    max-width: 1800px; /* Contenedor más ancho */
+    gap: 40px; /* Más espacio entre tarjetas */
+  }
+
+  .beneficio-card {
+    width: 350px; /* Tarjetas más grandes */
+    padding: 30px;
+  }
+
+  .beneficio-cards {
+    gap: 90px;
+  }
+
+  .beneficio-img {
+    width: 120px;
+    height: 120px; /* Iconos más grandes */
+  }
+
+  .beneficio-card-titulo {
+    font-size: 1.5rem;
+  }
+
+  .beneficio-card-texto {
+    font-size: 1.1rem; /* Texto más legible */
+  }
+
+  .beneficio-boton {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    margin-top: 80px;
+  }
+  .beneficio-desc{
+    margin-top: 25px;
+  }
+
 }
