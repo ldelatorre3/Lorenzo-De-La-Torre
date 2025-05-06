@@ -488,3 +488,84 @@ html {
   height: 24px;
   stroke: #6A1B9A;
 }
+
+/* ------------------------------------------------------------- */
+
+/* Ajustes para pantallas 4K (2560px) */
+@media screen and (min-width: 2560px) {
+
+  /* Alineación horizontal con el logo */
+  .header__container {
+    padding: 0 5rem; /* Más espacio a los lados */
+  }
+
+  .header__logo img {
+    width: 180px; /* Logo más grande */
+  }
+
+  .nav__list {
+    gap: 3rem; /* Más espacio entre enlaces */
+  }
+
+  .nav__list a {
+    font-size: 1.2rem; /* Texto más legible */
+  }
+
+  .btn-reserva {
+    padding: 1rem 2.5rem; /* Botón más grande */
+    font-size: 1.1rem;
+  }
+
+  /* Texto emocional más grande y alineado */
+  .carrusel__texto {
+    left: 25%; /* Alineado con el logo */
+    max-width: 700px; /* Más ancho */
+  }
+
+  .titulo-emocional {
+    font-size: 4.5rem; /* 40% más grande */
+    margin-bottom: 1.5rem;
+  }
+
+  .descripcion-emocional {
+    font-size: 2.5rem; /* 33% más grande */
+    margin-bottom: 3rem;
+  }
+
+  .btn-servicios {
+    padding: 3.2rem 4.5rem; /* Botón más grande */
+    font-size: 2.2rem;
+  }
+
+  /* Imagen cubre más espacio */
+  .carrusel__imagen::before {
+    width: 40%; /* Gradiente más ancho */
+  }
+
+    /* === BOTONES DE CONTROL DEL CARRUSEL === */
+  .controles {
+    bottom: 100px; /* Posición más elevada */
+  }
+
+  .flecha-control {
+    width: 70px; /* Flechas más grandes */
+    height: 70px;
+  }
+
+  .flecha-control svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .punto {
+    width: 20px; /* Puntos indicadores más grandes */
+    height: 20px;
+  }
+
+  /* === BOTÓN "CONOCE NUESTROS SERVICIOS" === */
+  .btn-servicios {
+    padding: 1.2rem 3rem;
+    font-size: 1.3rem;
+    border-width: 3px; /* Borde más grueso */
+  }
+}

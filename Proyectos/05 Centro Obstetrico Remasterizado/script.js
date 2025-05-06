@@ -3,27 +3,32 @@ const slides = [
   {
       titulo: "Conviértete en madre sin preocupaciones",
       descripcion: "Nuestro compromiso es acompañarte en cada paso del camino, para que puedas disfrutar de tu embarazo sin las dudas que puedan surgir.",
-      imagen: "./img/imagen1.jpg"
+      pc: "./img/PC/imagen1-pc.jpg",
+      mobile: "./img/mobile/imagen1-mobile.jpg"
   },
   {
       titulo: "El momento de tu vida está por llegar",
       descripcion: "Sabemos lo importante que es este viaje, y nuestro equipo está aquí para que todo salga perfecto.",
-      imagen: "./img/imagen2.jpg"
+      pc: "./img/PC/imagen2-pc.jpg",
+      mobile: "./img/mobile/imagen2-mobile.jpg"
   },
   {
       titulo: "Tranquilidad en cada latido",
       descripcion: "Con nuestra orientación y cuidado, sentirás la paz de que tu bebé está bien, y tu salud también.",
-      imagen: "./img/imagen3.jpg"
+      pc: "./img/PC/imagen3-pc.jpg",
+      mobile: "./img/mobile/imagen3-mobile.jpg"
   },
   {
       titulo: "Juntos, todo es más fácil",
       descripcion: "Nuestro equipo te brindará el apoyo necesario en cada momento, porque sabemos lo importante que es sentirte acompañada.",
-      imagen: "./img/imagen4.jpg"
+      pc: "./img/PC/imagen4-pc.jpg",
+      mobile: "./img/mobile/imagen4-mobile.jpg"
   },
   {
       titulo: "Tu embarazo, nuestra pasión",
       descripcion: "Nos encanta ser parte de este hermoso momento de tu vida, brindándote el mejor cuidado y apoyo en todo momento.",
-      imagen: "./img/imagen5.jpg"
+      pc: "./img/PC/imagen5-pc.jpg",
+      mobile: "./img/mobile/imagen5-mobile.jpg"
   }
 ];
 
@@ -55,23 +60,26 @@ function cambiarSlide(nuevoIndice) {
 
 // === ACTUALIZAR CONTENIDO DEL SLIDE ===
 function actualizarSlide() {
-  tituloSlide.textContent = slides[currentSlide].titulo;
-  descripcionSlide.textContent = slides[currentSlide].descripcion;
-  imagenSlide.src = slides[currentSlide].imagen;
+const esMobile = window.innerWidth <= 767; // Define el breakpoint
+  
+tituloSlide.textContent = slides[currentSlide].titulo;
+descripcionSlide.textContent = slides[currentSlide].descripcion;
+imagenSlide.src = esMobile ? slides[currentSlide].mobile 
+                          : slides[currentSlide].pc;
 
   // Actualizar puntos activos
   document.querySelectorAll(".punto").forEach((punto, index) => {
-      punto.classList.toggle("activo", index === currentSlide);
+  punto.classList.toggle("activo", index === currentSlide);
   });
 }
-
+window.addEventListener('resize', actualizarSlide);
 // === AUTOPLAY (5 SEGUNDOS) ===
-function iniciarAutoplay() {
-  intervalo = setInterval(() => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      actualizarSlide();
-  }, 5000);
-}
+// function iniciarAutoplay() {
+//   intervalo = setInterval(() => {
+//       currentSlide = (currentSlide + 1) % slides.length;
+//       actualizarSlide();
+//   }, 5000);
+// }
 
 // === REINICIAR INTERVALO AL INTERACTUAR ===
 function reiniciarIntervalo() {
@@ -112,8 +120,11 @@ document.addEventListener('click', (e) => {
 });
 
 // === INICIAR CARRUSEL ===
-crearIndicadores();
-iniciarAutoplay();
+document.addEventListener('DOMContentLoaded', () => {
+    actualizarSlide(); // Fuerza la primera carga correcta
+    crearIndicadores();
+    iniciarAutoplay();
+  });
 
 // Lista completa de notificaciones FOMO (Fear Of Missing Out)
 const fomoMessages = [
