@@ -1,571 +1,257 @@
-/* === VARIABLES GLOBALES === */
-:root {
-  --color-primario: #6a1b9a;
-  --color-secundario: #f8bbd0;
-  --color-texto: #333;
-  --max-width: 1400px;
-  --sombra: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* === RESET === */
+/* Estilos generales */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
 body {
-  overflow-x: hidden;
-  color: var(--color-texto);
-  line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Agrega esto en tu styles.css */
-#inicio {
-  scroll-margin-top: 70px; /* Altura exacta del navbar */
+/* Barra de Navegación */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 15px 0;
 }
 
-/* Opcional: Para un desplazamiento suave */
-html {
-  scroll-behavior: smooth;
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* === HEADER === */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 70px; /* Altura exacta */
-  width: 100%;
-  background: white;
-  box-shadow: var(--sombra);
-  z-index: 1000;
-  padding: 0.5rem 0; /* Reduce padding si es necesario */
+.logo img {
+    height: 50px;
 }
 
-.header__container {
-  height: 100%; /* Asegura que ocupe los 70px */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 2rem;
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
 }
 
-.header__logo img {
-  height: auto;
-  transition: transform 0.3s;
+.nav-menu li {
+    margin-left: 30px;
 }
 
-.header__logo img:hover {
-  transform: scale(1.05);
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
 }
 
-.header__right {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+.nav-menu a:hover {
+    color: #ff6fa2;
 }
 
-.nav__list {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
+.nav-menu a:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff6fa2;
 }
 
-.nav__list a {
-  text-decoration: none;
-  color: var(--color-texto);
-  font-weight: 500;
-  transition: color 0.3s;
-  position: relative;
+.btn-reservar {
+    background-color: #ff6fa2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    animation: pulse 2s infinite;
 }
 
-.nav__list a:hover {
-  color: var(--color-primario);
+.btn-reservar:hover {
+    background-color: #ff4d8d;
+    transform: translateY(-2px);
 }
 
-.nav__list a::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--color-primario);
-  transition: width 0.3s;
+.menu-toggle {
+    display: none;
+    cursor: pointer;
 }
 
-.nav__list a:hover::after {
-  width: 100%;
+/* Sección Emocional */
+.hero {
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10%;
+    color: #ff6fa2;
 }
 
-.btn-reserva {
-  background: var(--color-primario);
-  color: white;
-  border: none;
-  padding: 0.8rem 1.8rem;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s;
-  white-space: nowrap;
+.hero-content {
+    max-width: 600px;
+    z-index: 2;
 }
 
-.btn-reserva:hover {
-  background: #4a148c;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
 }
 
-/* === SECCIÓN EMOCIONAL === */
-
-.seccion-emocional {
-  height: calc(100vh - 70px);
-  margin-top: 70px;
-  position: relative;
-}
-
-.carrusel {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
-.carrusel__texto {
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
-  max-width: 500px;
-  z-index: 10;
-  text-align: left; /* Alineación izquierda */
-}
-
-.titulo-emocional {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--color-primario);
-  line-height: 1.2;
-  text-transform: uppercase ;
-}
-
-.titulo-emocional,
-.descripcion-emocional,
-.btn-servicios {
-  display: block;
-  width: fit-content;
-  margin-left: 0;
-  margin-right: auto;
-}
-
-.descripcion-emocional {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  max-width: 500px;
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
 .btn-servicios {
-  background: transparent;
-  color: var(--color-primario);
-  border: 2px solid var(--color-primario);
-  padding: 0.8rem 1.8rem;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s;
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: #ff6fa2;
+    border: 2px solid #ff6fa2;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    animation: pulse 2s infinite;
 }
 
 .btn-servicios:hover {
-  background: var(--color-primario);
-  color: white;
-  transform: translateY(-2px);
+    background-color: #ff6fa2;
+    color: white;
 }
 
-.carrusel__imagen {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+.hero-controls {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 3;
 }
 
-.imagen-fondo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;          /* Para versión sin espacios vacíos */
-  /* object-fit: contain; */  /* Usa ESTA línea en lugar de la anterior si prefieres ver la imagen completa (con fondos laterales) */
-  object-position: center 30%; /* Ajusta el 30% para mover el enfoque vertical */
-  display: block;
+.arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 111, 162, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ff6fa2;
+    transition: all 0.3s;
 }
 
-.carrusel__imagen::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 30%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(255,255,255,0.9), transparent);
-  z-index: 1;
+.arrow:hover {
+    background-color: rgba(255, 111, 162, 0.8);
 }
 
-/* === CONTROLES === */
-.controles {
-  position: absolute;
-  bottom: 60px; /* Ajusta esta distancia según necesites */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center; /* Alineación horizontal */
-  gap: 20px; /* Espacio entre elementos */
-  z-index: 20;
+.prev {
+    animation: floatLeft 2s infinite ease-in-out;
 }
 
-.indicadores {
-  display: flex;
-  gap: 10px;
+.next {
+    animation: floatRight 2s infinite ease-in-out;
 }
 
-.punto {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.5);
-  cursor: pointer;
-  transition: all 0.3s;
-  border: 2px solid var(--color-primario);
+.down {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatDown 2s infinite ease-in-out;
 }
 
-.punto.activo {
-  background: var(--color-primario);
-  transform: scale(1.2);
+.indicators {
+    display: flex;
 }
 
-.flecha-control {
-  background: rgba(255,255,255,0.8);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+.indicators span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 111, 162, 0.5);
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-.flecha-control:hover {
-  background: var(--color-primario);
-  color: white;
-  transform: scale(1.1);
+.indicators span.active {
+    background-color: #ff6fa2;
 }
 
-.flecha-control svg {
-  width: 20px;
-  height: 20px;
+/* Animaciones */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 111, 162, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 111, 162, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 111, 162, 0);
+    }
 }
 
-.flecha-abajo-container-e {
-  position: absolute;
-  bottom: -15px; /* Posición más baja que los controles */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 20;
+@keyframes floatLeft {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
 }
 
-.flecha-abajo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
+@keyframes floatRight {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
 }
 
-.flecha-abajo svg {
-  width: 24px;
-  height: 24px;
-  color: var(--color-primario); /* Color de la flecha */
-  transition: all 0.3s;
-  animation: levitar 2s infinite;
+@keyframes floatDown {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, 10px);
+    }
 }
 
-.flecha-abajo:hover svg {
-  color: #4a148c; /* Color al hover */
-  transform: scale(1.2);
-}
-
-@keyframes levitar {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* Oculta completamente el botón en desktop */
-.menu-hamburguesa {
-    display: none; /* Oculta siempre en desktop */
-}
-
-/* Muestra los elementos normales del header */
-.header__right {
-    display: flex; /* Asegura que se vea en desktop */
-}
-
-/* ===== NOTIFICACIONES FOMO (Fear Of Missing Out) ===== */
-.fomo-notification {
-  position: fixed;
-  bottom: 30px;
-  left: 30px;
-  max-width: 350px;
-  background: rgba(106, 27, 154, 0.95);
-  color: white;
-  padding: 15px 20px;
-  border-radius: 10px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-  z-index: 1001;
-  display: none;
-  animation: fadeIn 0.5s ease-out;
-  font-size: 0.95rem;
-  backdrop-filter: blur(3px);
-}
-
-.fomo-content {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.fomo-icon {
-  font-size: 1.3rem;
-}
-
-/* Animaciones (igual para ambos) */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-.fomo-close {
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  background: rgba(255, 255, 255, 0.3);
-  border: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 24px;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.fomo-close:hover, .fomo-close:focus {
-  background: rgba(255, 255, 255, 0.5);
-  transform: scale(1.1);
-}
-
-/* === SECCIÓN BENEFICIO === */
-.seccion-beneficio {
-  min-height: 100vh; /* Ocupa al menos un viewport completo */
-  padding: 10vh 20px 15vh; /* Unidades relativas */
-  background: #f9f5fd;
-  text-align: center;
-  position: relative;
-}
-
-.beneficio-titulo {
-  font-size: 2.3rem;
-  color: #6A1B9A;
-  padding: 20px;
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-
-.beneficio-cards {
-  display: flex;
-  justify-content: center;
-  margin: 20px auto 30px; /* Menor margen superior */
-  gap: 20px; /* Espacio entre tarjetas reducido */
-  max-width: 1200px;
-}
-
-.beneficio-card {
-  width: 300px; /* Ancho reducido */
-  background: white;
-  border-radius: 15px;
-  padding: 20px; /* Padding interno menor */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
-  margin-top: -25px;
-}
-
-.beneficio-card:hover {
-  transform: translateY(-5px);
-}
-
-.beneficio-img {
-  width: 90px; /* Imagen más pequeña */
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #f0e6f6;
-  margin-bottom: 15px;
-}
-
-.beneficio-card-titulo {
-  color: #6A1B9A;
-  font-size: 1.2rem; /* Título más compacto */
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-.beneficio-card-texto {
-  font-size: 0.9rem; /* Texto más ajustado */
-  line-height: 1.5;
-  color: #555;
-  padding: 0;
-}
-
-.beneficio-boton {
-  display: inline-block;
-  background: #6A1B9A;
-  color: white;
-  padding: 14px 35px;
-  border-radius: 50px;
-  font-weight: 600;
-  margin: -15px 0;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.beneficio-boton:hover {
-  background: #4a148c;
-}
-
-.beneficio-desc {
-  font-size: 0.95rem;
-  color: #666;
-  padding-top: 30px;
-}
-
-/* Flecha (consistente con la sección emocional) */
-.flecha-abajo-container-b {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
-
-.flecha-abajo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-
-  animation: levitar 2s infinite;
-}
-
-.flecha-abajo svg {
-  width: 24px;
-  height: 24px;
-  stroke: #6A1B9A;
-}
-
-/* ------------------------------------------------------------- */
-
-/* Ajustes para pantallas 4K (2560px) */
-@media screen and (min-width: 2560px) {
-
-  /* Alineación horizontal con el logo */
-  .header__container {
-    padding: 0 5rem; /* Más espacio a los lados */
-  }
-
-  .header__logo img {
-    width: 180px; /* Logo más grande */
-  }
-
-  .nav__list {
-    gap: 3rem; /* Más espacio entre enlaces */
-  }
-
-  .nav__list a {
-    font-size: 1.2rem; /* Texto más legible */
-  }
-
-  .btn-reserva {
-    padding: 1rem 2.5rem; /* Botón más grande */
-    font-size: 1.1rem;
-  }
-
-  /* Texto emocional más grande y alineado */
-  .carrusel__texto {
-    left: 25%; /* Alineado con el logo */
-    max-width: 700px; /* Más ancho */
-  }
-
-  .titulo-emocional {
-    font-size: 4.5rem; /* 40% más grande */
-    margin-bottom: 1.5rem;
-  }
-
-  .descripcion-emocional {
-    font-size: 2.5rem; /* 33% más grande */
-    margin-bottom: 3rem;
-  }
-
-  .btn-servicios {
-    padding: 3.2rem 4.5rem; /* Botón más grande */
-    font-size: 2.2rem;
-  }
-
-  /* Imagen cubre más espacio */
-  .carrusel__imagen::before {
-    width: 40%; /* Gradiente más ancho */
-  }
-
-    /* === BOTONES DE CONTROL DEL CARRUSEL === */
-  .controles {
-    bottom: 100px; /* Posición más elevada */
-  }
-
-  .flecha-control {
-    width: 70px; /* Flechas más grandes */
-    height: 70px;
-  }
-
-  .flecha-control svg {
-    width: 35px;
-    height: 35px;
-  }
-
-  .punto {
-    width: 20px; /* Puntos indicadores más grandes */
-    height: 20px;
-  }
-
-  /* === BOTÓN "CONOCE NUESTROS SERVICIOS" === */
-  .btn-servicios {
-    padding: 1.2rem 3rem;
-    font-size: 1.3rem;
-    border-width: 3px; /* Borde más grueso */
-  }
+/* Media Queries para pantallas grandes */
+@media (min-width: 2560px) {
+    .navbar-container {
+        max-width: 2400px;
+    }
+    
+    .hero h1 {
+        font-size: 4rem;
+    }
+    
+    .hero p {
+        font-size: 1.5rem;
+    }
 }

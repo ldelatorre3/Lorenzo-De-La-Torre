@@ -1,328 +1,130 @@
-/* ===== ESTILOS GENERALES PARA MÓVIL (max-width: 768px) ===== */
- html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 70px; /* Compensa el header */
-}
-/* 1. HEADER - MENÚ HAMBURGUESA (se mantiene igual) */
-.header {
-    padding: 0.5rem 1rem;
-}
-
-.menu-hamburguesa {
-    display: block;
-    background: none;
-    border: none;
-    padding: 10px;
-    margin-left: auto;
-    cursor: pointer;
-}
-
-.menu-hamburguesa svg {
-    width: 28px;
-    height: 28px;
-    stroke: var(--color-primario);
-    stroke-width: 2;
-}
-
-.header__right {
-    display: none;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: white;
-    flex-direction: column;
-    padding: 1rem;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-}
-
-.header__right.activo {
-    display: flex;
-}
-
-.nav__list {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-}
-
-.btn-reserva {
-    margin: 1rem auto 0;
-    width: 80%;
-}
-
-/* === SECCIÓN EMOCIONAL === */
-.seccion-emocional {
-    height: calc(100vh - 70px);
-    margin-top: 70px;
-    position: relative;
-    overflow: hidden;
-    width: 100vw; /* Elimina scroll horizontal */
-    left: 0;
-  }
-  
-  /* Imagen perfectamente ajustada */
-  .carrusel {
-    height: 100%;
-    width: 100%;
-  }
-
-  .titulo-emocional {
-    padding-top: 40px;
-    font-size: 1.5rem; /* Texto más grande para 4K */
-
-  }
-
-  .descripcion-emocional {
-    font-size: 1rem;
-  }
-  
-  .imagen-fondo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 40%; /* Enfoca mejor el contenido */
-    display: block;
-  }
-
-  .carrusel__imagen::before {
-    background: none;
-  }
-
-  /* Texto optimizado */
-  .carrusel__texto {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    z-index: 10;
-  }
-  
-  /* Controles en posición correcta */
-  .controles {
-    position: absolute;
-    bottom: 15%; /* Ajuste fino */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    gap: 10px;
-  }
-  
-  /* Flecha posición exacta */
-  .flecha-abajo-container-e {
-    position: absolute;
-    bottom: -10px; /* Un poco más arriba del borde */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-  }
-  
-  /* Eliminar scroll horizontal */
-  body {
-    overflow-x: hidden;
-  }
-
-/* ===== NOTIFICACIONES FOMO (Fear Of Missing Out)  ===== */
-.fomo-notification {
-    position: fixed;
-    bottom: 15px;
-    left: 10px;
-    right: 10px;
-    max-width: calc(100% - 20px);
-    background: rgba(106, 27, 154, 0.95);
-    color: white;
-    padding: 10px 12px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 1001;
-    display: none;
-    animation: fadeIn 0.5s ease-out;
-    font-size: 0.85rem;
-}
-
-.fomo-close {
-    position: absolute;
-    right: 12px;
-    top: 12px;
-    background: rgba(255, 255, 255, 0.3);
-    border: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 24px;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.fomo-close:hover, .fomo-close:focus {
-    background: rgba(255, 255, 255, 0.5);
-    transform: scale(1.1);
-}
-
-/* === SECCIÓN BENEFICIO === */
-.seccion-beneficio {
-    padding: 10vh 5% 15vh;
-    background: #f9f5fd;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .beneficio-titulo {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-size: 1.8rem;
-    color: #6A1B9A;
-}
-
-.beneficio-desc {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    padding: 0 10px;
-    font-size: 0.95rem;
-}  
-  .beneficio-cards {
-    height: 320px; /* Reducimos altura */
-    margin: 0 auto 1.5rem;
-    position: relative;
-    width: 100%;
-    flex-grow: 1;
-  }
-  
-  .beneficio-card {
-    position: absolute;
-    width: 85%;
-    left: 7.5%;
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
-    animation: carrusel-lectura 24s infinite linear;
-    will-change: transform, opacity;
-  }
-  
-  .beneficio-card:nth-child(1) {
-    animation-delay: 0s;
-    z-index: 3;
-  }
-  
-  .beneficio-card:nth-child(2) {
-    animation-delay: -8s;
-    z-index: 2;
-  }
-  
-  .beneficio-card:nth-child(3) {
-    animation-delay: -16s;
-    z-index: 1;
-  }
-  
-  @keyframes carrusel-lectura {
-    /* Tiempo de lectura extendido */
-    0%, 15% {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-      box-shadow: 0 15px 40px rgba(106,27,154,0.2);
+/* Estilos para dispositivos móviles */
+@media (max-width: 991px) {
+    .navbar-container {
+        padding: 0 15px;
     }
-    20%, 35% {
-      transform: translateY(-30px) scale(0.95);
-      opacity: 0.9;
+    
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 80px);
+        background-color: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        transition: right 0.3s ease;
     }
-    40%, 55% {
-      transform: translateY(-80px) scale(0.85);
-      opacity: 0;
-      z-index: 1;
+    
+    .nav-menu.active {
+        right: 0;
     }
-    60%, 75% {
-      transform: translateY(80px) scale(0.85);
-      opacity: 0;
+    
+    .nav-menu li {
+        margin: 15px 0;
     }
-    80%, 100% {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-      z-index: 3;
-      box-shadow: 0 15px 40px rgba(106,27,154,0.2);
+    
+    .nav-menu a {
+        font-size: 1.1rem;
     }
-  }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .menu-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: #333;
+        transition: all 0.3s;
+    }
+    
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    /* Sección Emocional */
+    .hero {
+        padding: 0 5%;
+        background-color: rgba(0, 0, 0, 0.5);
+        background-blend-mode: overlay;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-controls {
+        bottom: 30px;
+    }
 
-  .beneficio-titulo{
-    margin-top: -100px;
-  }
-  
-  /* Contenido mejorado para lectura */
-  .beneficio-card-titulo {
-    color: #6A1B9A;
-    font-size: 1.4rem;
-    margin-bottom: 1.2rem;
-    text-align: center;
-    font-weight: 600;
-    line-height: 1.3;
-  }
-  
-  .beneficio-card-texto {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    padding: 0;
-  }
-  
-  /* Botón con más énfasis */
-  .beneficio-boton {
-    display: inline-block;
-    background: #6A1B9A;
-    color: white;
-    padding: 14px 40px;
-    border-radius: 50px;
-    font-weight: 600;
-    margin: 1.5rem auto;
-    text-decoration: none;
-    font-size: 1.05rem;
-    box-shadow: 0 5px 15px rgba(106,27,154,0.3);
-  }
+    .hero-controls {
+    bottom: 120px;
+   }
+    .arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    
+    .indicators span {
+        width: 10px;
+        height: 10px;
+    }
+}
 
-  .beneficio-desc{
-    padding-top: 1px;
-  }
-  
-  /* Efecto de pausa al tocar */
-  .beneficio-cards:active .beneficio-card {
-    animation-play-state: paused;
-  }
-  
-  /* Resto de estilos se mantienen igual */
-  .beneficio-img {
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #f0e6f6;
-    margin: 0 auto 1.5rem;
-    display: block;
-  }
-  
-  .flecha-abajo-container-b {
-    position: absolute;
-    bottom: 110px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .flecha-abajo svg {
-    width: 28px;
-    height: 28px;
-    stroke: #6A1B9A;
-    animation: levitar 2.5s infinite ease-in-out;
-  }
-  
-  @keyframes levitar {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
+@media (max-width: 425px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+    }
+    
+    .btn-servicios {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 0.8rem;
+    }
+    
+    .btn-servicios {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}

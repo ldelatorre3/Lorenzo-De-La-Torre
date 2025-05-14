@@ -1,225 +1,157 @@
-// === DATOS DE LOS 5 SLIDES EMOCIONALES ===
-const slides = [
-  {
-      titulo: "Conviértete en madre sin preocupaciones",
-      descripcion: "Nuestro compromiso es acompañarte en cada paso del camino, para que puedas disfrutar de tu embarazo sin las dudas que puedan surgir.",
-      pc: "./img/PC/imagen1-pc.jpg",
-      mobile: "./img/mobile/imagen1-mobile.jpg"
-  },
-  {
-      titulo: "El momento de tu vida está por llegar",
-      descripcion: "Sabemos lo importante que es este viaje, y nuestro equipo está aquí para que todo salga perfecto.",
-      pc: "./img/PC/imagen2-pc.jpg",
-      mobile: "./img/mobile/imagen2-mobile.jpg"
-  },
-  {
-      titulo: "Tranquilidad en cada latido",
-      descripcion: "Con nuestra orientación y cuidado, sentirás la paz de que tu bebé está bien, y tu salud también.",
-      pc: "./img/PC/imagen3-pc.jpg",
-      mobile: "./img/mobile/imagen3-mobile.jpg"
-  },
-  {
-      titulo: "Juntos, todo es más fácil",
-      descripcion: "Nuestro equipo te brindará el apoyo necesario en cada momento, porque sabemos lo importante que es sentirte acompañada.",
-      pc: "./img/PC/imagen4-pc.jpg",
-      mobile: "./img/mobile/imagen4-mobile.jpg"
-  },
-  {
-      titulo: "Tu embarazo, nuestra pasión",
-      descripcion: "Nos encanta ser parte de este hermoso momento de tu vida, brindándote el mejor cuidado y apoyo en todo momento.",
-      pc: "./img/PC/imagen5-pc.jpg",
-      mobile: "./img/mobile/imagen5-mobile.jpg"
-  }
-];
-
-// === ELEMENTOS DEL DOM ===
-const tituloSlide = document.getElementById("titulo-slide");
-const descripcionSlide = document.getElementById("descripcion-slide");
-const imagenSlide = document.getElementById("imagen-slide");
-const indicadoresContainer = document.getElementById("indicadores");
-let currentSlide = 0;
-let intervalo;
-
-// === FUNCIÓN PARA CREAR INDICADORES (PUNTOS) ===
-function crearIndicadores() {
-  slides.forEach((_, index) => {
-      const punto = document.createElement("span");
-      punto.classList.add("punto");
-      if (index === 0) punto.classList.add("activo");
-      punto.addEventListener("click", () => cambiarSlide(index));
-      indicadoresContainer.appendChild(punto);
-  });
-}
-
-// === FUNCIÓN PARA CAMBIAR SLIDE ===
-function cambiarSlide(nuevoIndice) {
-  currentSlide = nuevoIndice;
-  actualizarSlide();
-  reiniciarIntervalo();
-}
-
-// === ACTUALIZAR CONTENIDO DEL SLIDE ===
-function actualizarSlide() {
-const esMobile = window.innerWidth <= 767; // Define el breakpoint
-  
-tituloSlide.textContent = slides[currentSlide].titulo;
-descripcionSlide.textContent = slides[currentSlide].descripcion;
-imagenSlide.src = esMobile ? slides[currentSlide].mobile 
-                          : slides[currentSlide].pc;
-
-  // Actualizar puntos activos
-  document.querySelectorAll(".punto").forEach((punto, index) => {
-  punto.classList.toggle("activo", index === currentSlide);
-  });
-}
-window.addEventListener('resize', actualizarSlide);
-// === AUTOPLAY (5 SEGUNDOS) ===
-// function iniciarAutoplay() {
-//   intervalo = setInterval(() => {
-//       currentSlide = (currentSlide + 1) % slides.length;
-//       actualizarSlide();
-//   }, 5000);
-// }
-
-// === REINICIAR INTERVALO AL INTERACTUAR ===
-function reiniciarIntervalo() {
-  clearInterval(intervalo);
-  iniciarAutoplay();
-}
-
-// === EVENTOS PARA FLECHAS ===
-document.querySelector(".flecha-izquierda").addEventListener("click", () => {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  actualizarSlide();
-  reiniciarIntervalo();
-});
-
-document.querySelector(".flecha-derecha").addEventListener("click", () => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  actualizarSlide();
-  reiniciarIntervalo();
-});
-
-// ===== TOGGLE MENÚ HAMBURGUESA =====
-const menuHamburguesa = document.getElementById('menu-hamburguesa');
-const headerRight = document.querySelector('.header__right');
-
-// Abrir/cerrar con el icono
-menuHamburguesa.addEventListener('click', (e) => {
-    e.stopPropagation();
-    menuHamburguesa.classList.toggle('activo');
-    headerRight.classList.toggle('activo');
-});
-
-// Cerrar al hacer clic fuera
-document.addEventListener('click', (e) => {
-    if (!headerRight.contains(e.target)) {
-        menuHamburguesa.classList.remove('activo');
-        headerRight.classList.remove('activo');
-    }
-});
-
-// === INICIAR CARRUSEL ===
-document.addEventListener('DOMContentLoaded', () => {
-    actualizarSlide(); // Fuerza la primera carga correcta
-    crearIndicadores();
-    iniciarAutoplay();
-  });
-
-// Lista completa de notificaciones FOMO (Fear Of Missing Out)
-const fomoMessages = [
-  "¡Ana acaba de agendar su control prenatal para la semana 28! 👶📅",
-  "Luisa reservó su consulta de planificación familiar hace 5 minutos 💊⏱️",
-  "Dr. Martínez atendió 3 consultas ginecológicas en la última hora 🩺✨",
-  "¡Nuevo record! 5 mamás reservaron sus ecografías hoy 📊🤰",
-  "María acaba de confirmar su cita de obstetricia para mañana 🗓️❤️",
-  "3 pacientes atendidas en pediatría en los últimos 30 minutos 👩‍⚕️👶",
-  "¡Últimos 2 horarios disponibles para análisis clínicos esta semana! 💉⏳",
-  "Familia Pérez acaba de agendar consultas de medicina general para todos 👨‍👩‍👧‍👦💖",
-  "¡Atención! Solo quedan 3 cupos para controles prenatales este viernes 📅⚠️",
-  "5 mujeres embarazadas reservaron su primera consulta hoy 🤰🎉"
-];
-
-// Configuración FOMO con botón de cierre
-const fomoElement = document.querySelector('.fomo-notification');
-fomoElement.innerHTML = `
-    <span class="fomo-text"></span>
-    <button class="fomo-close" aria-label="Cerrar notificación">×</button>
-`;
-let lastIndex = -1;
-let currentWaitIndex = 0;
-let isNotificationDismissed = false;
-let lastDismissTime = 0; // Nuevo: para controlar el tiempo de pausa
-
-// Función para cerrar manualmente
-function dismissNotification() {
-    fomoElement.style.animation = 'fadeOut 0.3s ease-out';
-    isNotificationDismissed = true;
-    lastDismissTime = Date.now(); // Registrar momento del cierre
+document.addEventListener('DOMContentLoaded', function() {
+    // Variables para el carrusel
+    const heroSection = document.querySelector('.hero');
+    const heroTitle = document.getElementById('hero-title');
+    const heroDescription = document.getElementById('hero-description');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const downBtn = document.querySelector('.down');
+    const indicatorsContainer = document.querySelector('.indicators');
     
-    setTimeout(() => {
-        fomoElement.style.display = 'none';
+    // Datos del carrusel
+    const carouselData = [
+        {
+            title: "Conviértete en madre sin preocupaciones",
+            description: "Nuestro compromiso es acompañarte en cada paso del camino, para que puedas disfrutar de tu embarazo sin las dudas que puedan surgir.",
+            pcImage: "img/PC/imagen1-pc.jpg",
+            mobileImage: "img/mobile/imagen1-mobile.jpg"
+        },
+        {
+            title: "El momento de tu vida está por llegar",
+            description: "Sabemos lo importante que es este viaje, y nuestro equipo está aquí para que todo salga perfecto.",
+            pcImage: "img/PC/imagen2-pc.jpg",
+            mobileImage: "img/mobile/imagen2-mobile.jpg"
+        },
+        {
+            title: "Tranquilidad en cada latido",
+            description: "Con nuestra orientación y cuidado, sentirás la paz de que tu bebé está bien, y tu salud también.",
+            pcImage: "img/PC/imagen3-pc.jpg",
+            mobileImage: "img/mobile/imagen3-mobile.jpg"
+        },
+        {
+            title: "Juntos, todo es más fácil",
+            description: "Nuestro equipo te brindará el apoyo necesario en cada momento, porque sabemos lo importante que es sentirte acompañada.",
+            pcImage: "img/PC/imagen4-pc.jpg",
+            mobileImage: "img/mobile/imagen4-mobile.jpg"
+        },
+        {
+            title: "Tu embarazo, nuestra pasión",
+            description: "Nos encanta ser parte de este hermoso momento de tu vida, brindándote el mejor cuidado y apoyo en todo momento.",
+            pcImage: "img/PC/imagen5-pc.jpg",
+            mobileImage: "img/mobile/imagen5-mobile.jpg"
+        }
+    ];
+    
+    let currentIndex = 0;
+    let intervalId;
+    
+    // Crear indicadores
+    function createIndicators() {
+        indicatorsContainer.innerHTML = '';
+        carouselData.forEach((_, index) => {
+            const indicator = document.createElement('span');
+            indicator.dataset.index = index;
+            if (index === currentIndex) {
+                indicator.classList.add('active');
+            }
+            indicator.addEventListener('click', () => {
+                goToSlide(index);
+            });
+            indicatorsContainer.appendChild(indicator);
+        });
+    }
+    
+    // Cambiar slide
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlide();
+        resetInterval();
+    }
+    
+    // Actualizar slide
+    function updateSlide() {
+        const slide = carouselData[currentIndex];
+        heroTitle.textContent = slide.title;
+        heroDescription.textContent = slide.description;
         
-        // Reanudar después de 5 segundos
-        setTimeout(() => {
-            isNotificationDismissed = false;
-            scheduleNextNotification(); // Programar normalmente
-        }, 5000);
-    }, 300);
-}
-
-// Eventos para el botón de cierre
-fomoElement.addEventListener('click', function(e) {
-    if (e.target.classList.contains('fomo-close')) {
-        dismissNotification();
+        // Cambiar imagen según el tamaño de pantalla
+        if (window.innerWidth < 992) {
+            heroSection.style.backgroundImage = `url(${slide.mobileImage})`;
+        } else {
+            heroSection.style.backgroundImage = `url(${slide.pcImage})`;
+        }
+        
+        // Actualizar indicadores
+        const indicators = document.querySelectorAll('.indicators span');
+        indicators.forEach((indicator, i) => {
+            if (i === currentIndex) {
+                indicator.classList.add('active');
+            } else {
+                indicator.classList.remove('active');
+            }
+        });
     }
+    
+    // Siguiente slide
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % carouselData.length;
+        updateSlide();
+    }
+    
+    // Slide anterior
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + carouselData.length) % carouselData.length;
+        updateSlide();
+    }
+    
+    // Reiniciar intervalo
+    function resetInterval() {
+        clearInterval(intervalId);
+        startInterval();
+    }
+    
+    // Iniciar intervalo
+    function startInterval() {
+        intervalId = setInterval(nextSlide, 5000);
+    }
+    
+    // Event listeners
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetInterval();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetInterval();
+    });
+    
+    downBtn.addEventListener('click', () => {
+        document.querySelector('#beneficios').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Menú móvil
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Cambiar imagen al redimensionar la ventana
+    window.addEventListener('resize', updateSlide);
+    
+    // Inicializar
+    createIndicators();
+    updateSlide();
+    startInterval();
 });
-
-fomoElement.addEventListener('touchend', function(e) {
-    if (e.target.classList.contains('fomo-close')) {
-        e.preventDefault();
-        dismissNotification();
-    }
-}, {passive: false});
-
-function showNotification() {
-  // Verificar si fue cerrado manualmente y aún no pasaron 5 segundos
-  if (isNotificationDismissed && (Date.now() - lastDismissTime < 5000)) return;
-  
-  // Seleccionar mensaje aleatorio sin repetición consecutiva
-  let randomIndex;
-  do {
-      randomIndex = Math.floor(Math.random() * fomoMessages.length);
-  } while (randomIndex === lastIndex && fomoMessages.length > 1);
-  
-  lastIndex = randomIndex;
-  fomoElement.querySelector('.fomo-text').textContent = fomoMessages[randomIndex];
-  fomoElement.style.animation = 'fadeIn 0.5s ease-out';
-  fomoElement.style.display = 'flex';
-  
-  // Ocultar después del tiempo de visualización (solo si no fue cerrado manualmente)
-  setTimeout(() => {
-      if (!isNotificationDismissed) {
-          fomoElement.style.animation = 'fadeOut 0.5s ease-out';
-          setTimeout(() => {
-              fomoElement.style.display = 'none';
-              scheduleNextNotification();
-          }, 500);
-      }
-  }, displayDuration);
-}
-
-function scheduleNextNotification() {
-  currentWaitIndex = (currentWaitIndex + 1) % waitIntervals.length;
-  const nextInterval = waitIntervals[currentWaitIndex];
-  setTimeout(showNotification, nextInterval);
-}
-
-// Tiempo que la notificación estará visible (5 segundos)
-const displayDuration = 5000; 
-
-// Intervalos rotativos entre notificaciones (en ms)
-const waitIntervals = [5000, 10000, 15000]; // 5, 10, 15 segundos
-
-// Iniciar el sistema (primera notificación después de 3 segundos)
-setTimeout(showNotification, 3000);

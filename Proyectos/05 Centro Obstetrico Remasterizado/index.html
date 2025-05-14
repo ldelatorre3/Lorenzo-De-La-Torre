@@ -3,128 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultorio Obstétrico | Inicio</title>
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./mobile.css" media="screen and (max-width: 768px)">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Centro Médico Mujer - Consultorio Obstétrico</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 991px)">
 </head>
 <body>
-    <!-- === NAVBAR (LOGO IZQUIERDA, NAV+BOTÓN DERECHA) === -->
-    <header class="header">
-        <div class="header__container">
-            <div class="header__logo">
-                <img src="./img/logo.png" alt="Logo Consultorio" width="150">
-            </div>
-
-    <!-- BOTÓN HAMBURGUESA-->
-      <button class="menu-hamburguesa" id="menu-hamburguesa">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-              <path d="M3 12h18M3 6h18M3 18h18"/>
-          </svg>
-      </button>
-            
-            <div class="header__right">
-                <nav class="header__nav">
-                    <ul class="nav__list">
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#beneficios">Beneficios</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#equipo">Equipo Médico</a></li>
-                    </ul>
-                </nav>
-                <button class="btn-reserva">Reserva tu cita</button>
-            </div>
-        </div>
-    </header>
-
-    <!-- === SECCIÓN EMOCIONAL === -->
-    <section id="inicio" class="seccion-emocional">
-        <div class="carrusel">
-            <div class="carrusel__texto">
-                <h3 class="titulo-emocional" id="titulo-slide">Conviértete en madre sin preocupaciones</h3>
-                <p class="descripcion-emocional" id="descripcion-slide">Nuestro compromiso es acompañarte en cada paso del camino.</p>
-                <button class="btn-servicios">Conoce Nuestros Servicios</button>
-            </div>
-            <div class="carrusel__imagen">
-                <img src="./img/PC/imagen1-pc.jpg" alt="Paciente feliz" class="imagen-fondo" id="imagen-slide">
-            </div>
-        </div>
-
-        <!-- === CONTROLES (FLECHAS + PUNTOS) === -->
-        <div class="controles">
-            <button class="flecha-control flecha-izquierda">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M15 18l-6-6 6-6"/>
-                </svg>
-            </button>
-            
-            <div class="indicadores" id="indicadores"></div>
-            
-            <button class="flecha-control flecha-derecha">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 18l6-6-6-6"/>
-                </svg>
-            </button>
-        </div>
-
-        <!-- === FLECHA HACIA ABAJO === -->
-        <div class="flecha-abajo-container-e">
-            <a href="#beneficios" class="flecha-abajo">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M19 12l-7 7-7-7"/>
-                </svg>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#inicio" class="logo">
+                <img src="img/logo.jpg" alt="Centro Médico Mujer">
             </a>
-        </div>
-    </section>
-
-        <!-- Notificación FOMO -->
-        <div class="fomo-notification">
-            <div class="fomo-content">
-                <span class="fomo-icon">🔔</span>
-                <span class="fomo-text">¡Ana acaba de agendar su control prenatal para la semana 28!</span>
-                <button class="fomo-close">×</button>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#" class="btn-reservar">Reservar cita</a></li>
+            </ul>
         </div>
-        
-    <!-- === SECCIÓN BENEFICIO === -->
-    <section id="beneficios" class="seccion-beneficio">
-        <h2 class="beneficio-titulo">NUESTROS BENEFICIOS</h2>
-        
-        <div class="beneficio-cards">
-        <!-- Tarjeta 1 -->
-        <div class="beneficio-card">
-            <img src="./img/card1.jpg" alt="Acompañamiento cercano" class="beneficio-img">
-            <h3 class="beneficio-card-titulo">Acompañamiento cercano</h3>
-            <p class="beneficio-card-texto">De principio a fin. Desde tu primera consulta hasta el postparto, estarás en manos de profesionales comprometidos con tu tranquilidad.</p>
+    </nav>
+
+    <!-- Sección Emocional -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1 id="hero-title">Conviértete en madre sin preocupaciones</h1>
+            <p id="hero-description">Nuestro compromiso es acompañarte en cada paso del camino, para que puedas disfrutar de tu embarazo sin las dudas que puedan surgir.</p>
+            <a href="#servicios" class="btn-servicios">Nuestros Servicios</a>
         </div>
-        
-        <!-- Tarjeta 2 -->
-        <div class="beneficio-card">
-            <img src="./img/card2.jpg" alt="Todo en un solo lugar" class="beneficio-img">
-            <h3 class="beneficio-card-titulo">Todo en un solo lugar</h3>
-            <p class="beneficio-card-texto">Sin complicaciones. Agenda rápida, atención puntual y servicios integrales.</p>
-        </div>
-        
-        <!-- Tarjeta 3 -->
-        <div class="beneficio-card">
-            <img src="./img/card3.jpg" alt="Espacio seguro" class="beneficio-img">
-            <h3 class="beneficio-card-titulo">Un espacio seguro</h3>
-            <p class="beneficio-card-texto">Cálido y hecho para ti. Privacidad, respeto y una atención pensada especialmente para la mujer.</p>
-        </div>
-        </div>
-        
-        <a href="./docs/beneficios.pdf" class="beneficio-boton" download="Beneficios.pdf">VER BENEFICIOS AQUÍ</a>
-        <p class="beneficio-desc">Incluye todos nuestros planes y beneficios especiales para tu salud.</p>
-        
-        <div class="flecha-abajo-container-b">
-        <a href="#servicios" class="flecha-abajo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 5v14M19 12l-7 7-7-7"/>
-            </svg>
-        </a>
+        <div class="hero-controls">
+            <div class="arrow prev">&#10094;</div>
+            <div class="indicators"></div>
+            <div class="arrow next">&#10095;</div>
+            <div class="arrow down">&#8964;</div>
         </div>
     </section>
 
-    <script src="./script.js"></script>
+    <!-- Secciones adicionales irán aquí -->
+    
+    <script src="script.js"></script>
 </body>
 </html>
