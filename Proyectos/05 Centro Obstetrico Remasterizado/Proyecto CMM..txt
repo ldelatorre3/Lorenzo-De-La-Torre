@@ -1,4 +1,4 @@
-Hola buen día, quisiera por favor una página web: 
+Hola buen día, haremos un proyecto quisiera por favor la siguiente página web: 
 
 Antes que todo exijo que en todas las secciones que haremos, se vean bien en pantallas de celular, tablets, laptops y monitores de 4k y 5k, creo que usarías el método max-width para todas nuestras secciones que se adapte a las medidas del inspector:
 
@@ -85,8 +85,6 @@ y una flecha más de color #ff6fa2 debajo de los indicadores, centrada y al puls
 que estos controles estén antes del final de la sección Emocional y visible en dicha sección.
 para las 3 flechas utiliza estos diseños: &#10094, &#10095, &#8964 (este es para la fleca de abajo, pero busca algo parecido ya que es una referencia.) en un círculo medio transparente, centrados en el circulo las flechas y que tenga un efecto flotante left y right (que floten de izquierda a derecha) y down (de arriba abajo)
 
--------------------------------hasta aquí acabamos con la sección Emocional-------------------------------
-
 -----------------------------------------------BENEFICIO-----------------------------------------------
 
 En esta sección quiero un título centrado y llamado "Nuestros Beneficios"
@@ -119,7 +117,7 @@ debajo de ellos y centrado habrá un botón llamado "Nuestros Paquetes" este bot
 En esta sección quiero un título centrado y llamado "Servicios"
 
 Línea abajo que valla 7 cards estáticas y centradas
-Dentro de ellas habrá un símbolo tipo Font Awesome o algún tipo simple y sin mucho código
+Dentro de ellas habrá un símbolo que represente a cada servicio tipo Font Awesome
 Y que lo represente según los siguientes títulos para cada Símbolo
 
 Ginecología
@@ -166,9 +164,7 @@ Y de bajo de ellos sus horarios, por ejemplo:
 (Carlos) Previa Cita
 (Maria) Previa Cita
 
-y de bajo de ellos 2 botones, uno con un símbolo de usuario o icono de usuario y otro el logo de LinkedIn tipo Font Awesome o algún tipo simple y sin mucho código que al pulsar:
-
-el botón de símbolo de usuario me lleve a un modal y se muestre los siguiente:
+y de bajo de ellos 2 botones, uno con un símbolo de doctor o doctora depende el personaje y otro el logo de LinkedIn los 2 tipo Font Awesome que al pulsar el botón de símbolo de usuario me lleve a un modal y se muestre los siguiente:
 
 Un título que es el nombre del doctor (Ejem: Dra. Graciela Barzola)
 Una descripción que fomente su carrera, tiempo de experiencia y profesión.
@@ -346,5 +342,5 @@ imagen3-mobile.jpg
 imagen4-mobile.jpg
 imagen5-mobile.jpg
 
-
+enviame todo en HTML, sin explicaciones(para que me lo pases mas rapido.) solo codigo
 envíame el index.html, styles.css, mobile.css y script.js no quiero explicaciones para ir probando en mi vscode
