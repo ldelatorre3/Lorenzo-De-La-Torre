@@ -345,3 +345,195 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Notificaciones FOMO
+const fomoMessages = [
+    "¡Ana acaba de agendar su control prenatal para la semana 28! 👶📅",
+    "Luisa reservó su consulta de planificación familiar hace 5 minutos 💊⏱️",
+    "Dr. Martínez atendió 3 consultas ginecológicas en la última hora 🩺✨",
+    "¡Nuevo record! 5 mamás reservaron sus ecografías hoy 📊🤰",
+    "María acaba de confirmar su cita de obstetricia para mañana 🗓️❤️",
+    "3 pacientes atendidas en pediatría en los últimos 30 minutos 👩‍⚕️👶",
+    "¡Últimos 2 horarios disponibles para análisis clínicos esta semana! 💉⏳",
+    "Familia Pérez acaba de agendar consultas de medicina general para todos 👨‍👩‍👧‍👦💖",
+    "¡Atención! Solo quedan 3 cupos para controles prenatales este viernes 📅⚠️",
+    "5 mujeres embarazadas reservaron su primera consulta hoy 🤰🎉"
+];
+
+let fomoPaused = false;
+let fomoTimeout;
+
+function showRandomFomoNotification() {
+    if (fomoPaused) return;
+    
+    // Crear notificación si no existe
+    let fomo = document.querySelector('.fomo-notification');
+    if (!fomo) {
+        fomo = document.createElement('div');
+        fomo.className = 'fomo-notification';
+        fomo.innerHTML = `
+            <div class="fomo-content"></div>
+            <button class="close-btn">&times;</button>
+            <div class="fomo-timer">
+                <div class="fomo-timer-progress"></div>
+            </div>
+        `;
+        document.body.appendChild(fomo);
+        
+        // Evento para cerrar
+        fomo.querySelector('.close-btn').addEventListener('click', () => {
+            fomo.classList.remove('show');
+            fomoPaused = true;
+            clearTimeout(fomoTimeout);
+            setTimeout(() => {
+                fomoPaused = false;
+                scheduleFomoNotification();
+            }, 30000); // 30s de pausa
+        });
+    }
+    
+    // Mensaje aleatorio
+    const randomMsg = fomoMessages[Math.floor(Math.random() * fomoMessages.length)];
+    fomo.querySelector('.fomo-content').textContent = randomMsg;
+    
+    // Mostrar notificación
+    fomo.classList.add('show');
+    
+    // Tiempo aleatorio (5s, 10s o 15s)
+    const displayTimes = [5000, 10000, 15000];
+    const randomTime = displayTimes[Math.floor(Math.random() * displayTimes.length)];
+    
+    // Animación del timer
+    const timer = fomo.querySelector('.fomo-timer-progress');
+    timer.style.transition = `width ${randomTime/1000}s linear`;
+    timer.style.width = '0%';
+    setTimeout(() => {
+        timer.style.width = '100%';
+    }, 10);
+    
+    // Ocultar después del tiempo
+    clearTimeout(fomoTimeout);
+    fomoTimeout = setTimeout(() => {
+        fomo.classList.remove('show');
+        scheduleFomoNotification();
+    }, randomTime);
+}
+
+function scheduleFomoNotification() {
+    // Tiempo aleatorio hasta la próxima notificación (5-15s)
+    const nextTime = Math.floor(Math.random() * 10000) + 5000;
+    setTimeout(showRandomFomoNotification, nextTime);
+}
+
+// Iniciar sistema de notificaciones
+setTimeout(showRandomFomoNotification, 5000); // Primera notificación a los 5s
+
+// Chatbot WhatsApp
+document.addEventListener('DOMContentLoaded', function() {
+    const bubble = document.querySelector('.chatbot-bubble');
+    const chatWindow = document.querySelector('.chatbot-window');
+    const chatMessages = document.querySelector('.chatbot-messages');
+    const closeBtn = document.querySelector('.chatbot-close');
+    const quickReplies = document.querySelectorAll('.chatbot-quick-replies button');
+    
+    // Abrir/cerrar chat
+    bubble.addEventListener('click', function() {
+        chatWindow.style.display = 'flex';
+        if (chatMessages.children.length === 0) {
+            showGreeting();
+        }
+    });
+    
+    closeBtn.addEventListener('click', function() {
+        chatWindow.style.display = 'none';
+    });
+    
+    // Respuestas rápidas
+    quickReplies.forEach(button => {
+        button.addEventListener('click', function() {
+            const replyText = this.getAttribute('data-reply');
+            addUserMessage(replyText);
+            
+            // Mostrar "escribiendo" antes de responder
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                removeTypingIndicator();
+                
+                if (replyText.includes('ecografía')) {
+                    addBotMessage('La ecografía está costando S/. 60.00.');
+                } else if (replyText.includes('descarte')) {
+                    addBotMessage('El descarte está costando S/. 30.00.');
+                } else if (replyText.includes('consulta')) {
+                    addBotMessage('La consulta está costando S/. 50.00.');
+                } else if (replyText.includes('persona')) {
+                    addBotMessage('Un momento, te conectaré con un especialista...');
+                    setTimeout(() => {
+                        window.open('https://wa.me/51988218054', '_blank');
+                    }, 1500);
+                }
+            }, 1500); // Tiempo que muestra "escribiendo" (1.5 segundos)
+        });
+    });
+    
+    // Mostrar saludo según hora
+    function showGreeting() {
+        const hour = new Date().getHours();
+        let greeting;
+        
+        if (hour < 12) greeting = 'Buenos días';
+        else if (hour < 19) greeting = 'Buenas tardes';
+        else greeting = 'Buenas noches';
+        
+        showTypingIndicator();
+        
+        setTimeout(() => {
+            removeTypingIndicator();
+            addBotMessage(`${greeting}, ¿te ayudo a reservar una cita?`);
+        }, 2000);
+    }
+    
+    // Funciones auxiliares
+    function addBotMessage(text) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message bot-message';
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    function addUserMessage(text) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message user-message';
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    function showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message bot-message typing-indicator';
+        typingDiv.id = 'typing-indicator';
+        typingDiv.innerHTML = `
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        `;
+        chatMessages.appendChild(typingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    function removeTypingIndicator() {
+        const typing = document.getElementById('typing-indicator');
+        if (typing) typing.remove();
+    }
+    
+    // Detección de frases para WhatsApp
+    chatWindow.addEventListener('click', function(e) {
+        if (e.target.classList.contains('message') && 
+            (e.target.textContent.includes('WhatsApp') || 
+             e.target.textContent.includes('persona'))) {
+            window.open('https://wa.me/51988218054', '_blank');
+        }
+    });
+});

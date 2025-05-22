@@ -484,3 +484,16 @@
     padding: 15px 0;
     font-size: 0.8rem;
 }
+
+@media (max-width: 768px) {
+    .fomo-notification {
+        overflow: visible; /* Permite que el temporizador sea visible */
+        padding-bottom: 5px; /* Espacio extra para el timer */
+    }
+    
+    .fomo-timer {
+        height: 3px;
+        bottom: -1px; /* Pequeño ajuste de posición */
+        z-index: 9999; /* Asegura que esté sobre otros elementos */
+    }
+}
