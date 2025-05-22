@@ -265,7 +265,7 @@ y ya al final un texto el año y copyright.
 
 -----------------------------------------------NOTIFICACIONES FOMO-----------------------------------------------
 
-Realizar notificaciones emergentes estilo burbuja con temporizador visual que aparezcan en la parte inferior izquierda cada 5s,10s y 15s. que esta aparición sea al azar. tanto de la lista de notificaciones como la variedad de tiempo establecido. con un botón para cerrar de la cual si se cierra la notificación se reanudará durante 30s (no mostrar aviso de la pausa de los 30s), que solo aparezca una notificación.
+Realizar notificaciones emergentes estilo burbuja con temporizador visual que aparezcan de abajo para arriba en la parte inferior izquierda cada 5s,10s y 15s. que esta aparición sea al azar. tanto de la lista de notificaciones como la variedad de tiempo establecido. con un botón para cerrar de la cual si se cierra la notificación se reanudará durante 30s (no mostrar aviso de la pausa de los 30s), que solo aparezca una notificación.
 
 Lista de Notificaciones:
   ¡Ana acaba de agendar su control prenatal para la semana 28! 👶📅,
@@ -342,5 +342,6 @@ imagen3-mobile.jpg
 imagen4-mobile.jpg
 imagen5-mobile.jpg
 
-enviame todo en HTML, sin explicaciones(para que me lo pases mas rapido.) solo codigo
 envíame el index.html, styles.css, mobile.css y script.js no quiero explicaciones para ir probando en mi vscode
+
+enviame todo en HTML, sin explicaciones(para que me lo pases mas rapido.) solo codigo

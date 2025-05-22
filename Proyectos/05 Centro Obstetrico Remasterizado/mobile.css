@@ -1,36 +1,52 @@
-/* mobile.css - Versión para dispositivos móviles */
+/* Estilos para móviles (hasta 991px) */
 @media (max-width: 991px) {
-    /* Barra de Navegación */
     .nav-menu {
         position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
+        top: var(--nav-height);
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - var(--nav-height));
         background-color: var(--white);
         flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 30px;
+        align-items: flex-start;
+        padding: 20px;
         transition: var(--transition);
-        z-index: 999;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     }
     
     .nav-menu.active {
-        left: 0;
+        right: 0;
     }
     
     .nav-links {
-        margin: 15px 0;
-        font-size: 1.2rem;
+        width: 100%;
+        padding: 15px 0;
+        margin: 5px 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .nav-links:hover::after {
+        display: none;
     }
     
     .btn-reserva {
-        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
     }
     
     .menu-toggle {
         display: block;
+    }
+    
+    .menu-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: var(--text-color);
+        transition: var(--transition);
     }
     
     .menu-toggle.active .bar:nth-child(1) {
@@ -45,152 +61,226 @@
         transform: translateY(-8px) rotate(-45deg);
     }
     
-    /* Sección Emocional */
+    /* Hero Section Mobile */
     .hero-section {
-        height: calc(100vh - 60px);
-        margin-top: 60px;
+        background-color: rgba(0, 0, 0, 0.3);
     }
     
-    .hero-content {
-        left: 5%;
-        right: 5%;
-        max-width: none;
-        text-align: center;
-    }
-    
-    .hero-content h1 {
+    .hero-section h1 {
         font-size: 2rem;
     }
     
-    .hero-content p {
+    .hero-section p {
         font-size: 1rem;
     }
     
-    .slider-controls {
-        bottom: 60px;
-    }
-    
-    /* Sección Beneficios */
-    .benefits-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .benefit-card {
-        width: 100%;
-        max-width: 350px;
-    }
-    
-    /* Sección Servicios */
-    .services-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .service-card {
-        width: 100%;
-        padding: 20px;
-    }
-    
-    /* Sección Equipo Médico */
-    .team-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .team-card {
-        width: 100%;
-        max-width: 350px;
-    }
-    
-    /* Sección Testimonios */
-    .testimonial-content {
-        flex-direction: column;
-        gap: 30px;
-        padding: 20px;
-    }
-    
-    .testimonial-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .testimonial-rating {
-        width: 100%;
-        justify-content: space-between;
-    }
-    
-    .testimonial-logo {
-        width: 60px;
-        bottom: 10px;
-        right: 10px;
-    }
-    
-    /* Sección Contacto */
-    .contact-container {
-        flex-direction: column;
-    }
-    
-    .contact-info {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        max-width: none;
-        margin-top: 20px;
-    }
-    
-    /* Notificación FOMO */
-    .fomo-notification {
-        width: calc(100% - 40px);
-        left: 20px;
-        right: 20px;
-    }
-    
-    /* Chatbot */
-    .chatbot-window {
-        width: calc(100% - 40px);
-        right: 20px;
+    .hero-controls {
+        bottom: 30px;
     }
 }
 
 @media (max-width: 425px) {
-    .services-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-content h1 {
+    .hero-section h1 {
         font-size: 1.8rem;
     }
     
-    .testimonial-img {
-        width: 120px;
-        height: 120px;
-    }
-}
-
-@media (max-width: 375px) {
-    .hero-content h1 {
-        font-size: 1.6rem;
+    .hero-section p {
+        font-size: 0.9rem;
     }
     
-    .btn-hero, .btn-benefits, .btn-reserva {
+    .btn-servicios {
         padding: 10px 20px;
         font-size: 0.9rem;
     }
 }
 
+@media (max-width: 375px) {
+    .hero-section h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-section p {
+        font-size: 0.85rem;
+    }
+}
+
 @media (max-width: 320px) {
-    .hero-content h1 {
+    .hero-section h1 {
         font-size: 1.4rem;
     }
     
-    .hero-content p {
+    .hero-section p {
+        font-size: 0.8rem;
+    }
+    
+    .btn-servicios {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Beneficios en móviles pequeños */
+@media (max-width: 375px) {
+    .benefits-section {
+        padding: 50px 10px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .benefit-card {
+        min-width: 250px;
+        padding: 20px;
+    }
+    
+    .card-image-container {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .benefit-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .btn-paquetes {
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 320px) {
+    .section-title {
+        font-size: 1.4rem;
+    }
+    
+    .benefit-card {
+        min-width: 220px;
+    }
+}
+
+/* Servicios y Equipo en móviles pequeños */
+@media (max-width: 375px) {
+    .services-section, .team-section {
+        padding: 60px 15px;
+    }
+    
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .team-card {
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 320px) {
+    .modal-content {
+        padding: 30px 20px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .modal-content p {
+        font-size: 1rem;
+    }
+}
+
+/* FAQ en móviles pequeños */
+@media (max-width: 375px) {
+    .faq-section {
+        padding: 60px 15px;
+    }
+    
+    .faq-question {
+        padding: 12px 15px;
+    }
+    
+    .faq-answer {
+        padding: 0 15px;
+    }
+    
+    .faq-answer.active {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 320px) {
+    .faq-question {
         font-size: 0.9rem;
     }
     
-    .benefit-card, .team-card {
-        padding: 20px 15px;
+    .faq-icon, .faq-toggle {
+        font-size: 1rem;
+    }
+}
+
+/* Testimonios en móviles pequeños */
+@media (max-width: 375px) {
+    .testimonials-container {
+        padding: 40px 20px;
+    }
+    
+    .testimonial-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .testimonial-header h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .testimonial-text p {
+        font-size: 0.9rem;
+    }
+    
+    .testimonial-logo {
+        width: 50px;
+    }
+}
+
+/* Contacto en móviles pequeños */
+@media (max-width: 375px) {
+    .form-group input,
+    .form-group textarea {
+        padding: 12px;
+    }
+    
+    .contact-info-box {
+        padding: 12px;
+    }
+    
+    .contact-info-box p {
+        margin: 10px 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .contact-info-box i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .contact-section {
+        padding: 50px 10px 15px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.9rem;
+    }
+    
+    .submit-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
     }
 }

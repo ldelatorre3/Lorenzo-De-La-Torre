@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centro Médico Mujer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile.css" media="(max-width: 991px)">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 991px)">
 </head>
 <body>
     <!-- Barra de Navegación -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="#inicio" class="logo"><img src="./img/logo.jpg" alt="Centro Médico Mujer"></a>
+            <a href="#inicio" class="logo">
+                <img src="./img/logo.jpg" alt="Centro Médico Mujer">
+            </a>
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -23,263 +25,437 @@
                 <li><a href="#beneficios" class="nav-links">Beneficios</a></li>
                 <li><a href="#servicios" class="nav-links">Servicios</a></li>
                 <li><a href="#equipo-medico" class="nav-links">Equipo Médico</a></li>
-                <li><a href="#contacto" class="nav-links btn-reserva">Reservar Cita</a></li>
+                <li><a href="#" class="nav-links btn-reserva">Reservar Cita</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Sección Emocional -->
     <section id="inicio" class="hero-section">
-        <div class="hero-slider">
-            <!-- Las imágenes se cargarán dinámicamente desde JS -->
-            <div class="hero-content">
-                <h1>Conviértete en madre sin preocupaciones</h1>
-                <p>Nuestro compromiso es acompañarte en cada paso del camino, para que puedas disfrutar de tu embarazo sin las dudas que puedan surgir.</p>
-                <a href="#servicios" class="btn-hero">Nuestros Servicios</a>
+        <div class="hero-content">
+            <h1 id="hero-title">Conviértete en madre sin preocupaciones</h1>
+            <p id="hero-description">Nuestro compromiso es acompañarte en cada paso del camino, para que puedas disfrutar de tu embarazo sin las dudas que puedan surgir.</p>
+            <a href="#servicios" class="btn-servicios">Nuestros Servicios</a>
+        </div>
+        <div class="hero-controls">
+            <div class="arrows-container">
+                <button class="arrow prev" onclick="prevSlide()">&#10094;</button>
+                <div class="dots-container" id="dots-container"></div>
+                <button class="arrow next" onclick="nextSlide()">&#10095;</button>
             </div>
-            <div class="slider-controls">
-                <button class="slider-arrow prev">&#10094;</button>
-                <div class="slider-dots"></div>
-                <button class="slider-arrow next">&#10095;</button>
-            </div>
-            <a href="#beneficios" class="scroll-down">&#8964;</a>
+            <button class="arrow down" onclick="scrollToSection('beneficios')">&#8964;</button>
         </div>
     </section>
 
     <!-- Sección Beneficios -->
     <section id="beneficios" class="benefits-section">
-        <h2>Nuestros Beneficios</h2>
+        <h2 class="section-title">Nuestros Beneficios</h2>
         <div class="benefits-container">
             <div class="benefit-card">
-                <div class="benefit-img">
-                    <img src="./img/card1.jpg" alt="Acompañamiento cercano">
+                <div class="card-image-container">
+                    <img src="./img/card1.jpg" alt="Acompañamiento cercano" class="card-image">
                 </div>
                 <h3>Acompañamiento cercano</h3>
                 <p>De principio a fin. Desde tu primera consulta hasta el postparto, estarás en manos de profesionales comprometidos con tu tranquilidad.</p>
             </div>
             <div class="benefit-card">
-                <div class="benefit-img">
-                    <img src="./img/card2.jpg" alt="Todo en un solo lugar">
+                <div class="card-image-container">
+                    <img src="./img/card2.jpg" alt="Todo en un solo lugar" class="card-image">
                 </div>
                 <h3>Todo en un solo lugar</h3>
                 <p>Sin complicaciones. Agenda rápida, atención puntual y servicios integrales.</p>
             </div>
             <div class="benefit-card">
-                <div class="benefit-img">
-                    <img src="./img/card3.jpg" alt="Un espacio seguro">
+                <div class="card-image-container">
+                    <img src="./img/card3.jpg" alt="Un espacio seguro" class="card-image">
                 </div>
                 <h3>Un espacio seguro</h3>
                 <p>Cálido y hecho para ti. Privacidad, respeto y una atención pensada especialmente para la mujer.</p>
             </div>
         </div>
-        <a href="./docs/beneficios.pdf" download class="btn-benefits">Nuestros Paquetes</a>
+        <a href="./docs/beneficios.pdf" download="Beneficios_Centro_Medico_Mujer.pdf" class="btn-paquetes">Nuestros Paquetes</a>
     </section>
-
     <!-- Sección Servicios -->
     <section id="servicios" class="services-section">
-        <h2>Servicios</h2>
+        <h2 class="section-title">Servicios</h2>
         <div class="services-container">
-            <div class="service-card" data-service="ginecologia">
-                <i class="fas fa-female"></i>
+            <!-- Card 1 -->
+            <div class="service-card" onclick="openModal('Ginecología', 'Diagnóstico y tratamiento de enfermedades del sistema reproductor femenino, incluyendo exámenes preventivos y seguimiento de condiciones ginecológicas.')">
+                <i class="fas fa-female service-icon"></i>
                 <h3>Ginecología</h3>
             </div>
-            <div class="service-card" data-service="obstetricia">
-                <i class="fas fa-baby"></i>
+            <!-- Card 2 -->
+            <div class="service-card" onclick="openModal('Obstetricia', 'Acompañamiento durante el embarazo, parto y puerperio. Control prenatal, ecografías y preparación para el parto.')">
+                <i class="fas fa-baby service-icon"></i>
                 <h3>Obstetricia</h3>
             </div>
-            <div class="service-card" data-service="medicina-general">
-                <i class="fas fa-stethoscope"></i>
+            <!-- Card 3 -->
+            <div class="service-card" onclick="openModal('Medicina General', 'Atención primaria de salud para mujeres, diagnóstico y tratamiento de enfermedades comunes.')">
+                <i class="fas fa-stethoscope service-icon"></i>
                 <h3>Medicina General</h3>
             </div>
-            <div class="service-card" data-service="pediatria">
-                <i class="fas fa-child"></i>
+            <!-- Card 4 -->
+            <div class="service-card" onclick="openModal('Pediatría', 'Cuidado de la salud infantil desde el nacimiento hasta la adolescencia, con enfoque en prevención y desarrollo.')">
+                <i class="fas fa-child service-icon"></i>
                 <h3>Pediatría</h3>
             </div>
-            <div class="service-card" data-service="controles-prenatales">
-                <i class="fas fa-heartbeat"></i>
+            <!-- Card 5 -->
+            <div class="service-card" onclick="openModal('Controles Prenatales', 'Seguimiento médico del embarazo para garantizar la salud de la madre y el bebé durante la gestación.')">
+                <i class="fas fa-heartbeat service-icon"></i>
                 <h3>Controles Prenatales</h3>
             </div>
-            <div class="service-card" data-service="planificacion-familiar">
-                <i class="fas fa-pills"></i>
+            <!-- Card 6 -->
+            <div class="service-card" onclick="openModal('Planificación Familiar', 'Asesoramiento y métodos anticonceptivos para una sexualidad responsable y salud reproductiva.')">
+                <i class="fas fa-heart service-icon"></i>
                 <h3>Planificación Familiar</h3>
             </div>
-            <div class="service-card" data-service="analisis-clinicos">
-                <i class="fas fa-flask"></i>
+            <!-- Card 7 -->
+            <div class="service-card" onclick="openModal('Análisis Clínicos', 'Exámenes de laboratorio para diagnóstico, prevención y seguimiento de condiciones médicas.')">
+                <i class="fas fa-flask service-icon"></i>
                 <h3>Análisis Clínicos</h3>
             </div>
         </div>
-    </section>
 
-    <!-- Modales de Servicios -->
-    <div class="modal" id="service-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 id="modal-title"></h2>
-            <p id="modal-description"></p>
+        <!-- Modal Servicios -->
+        <div id="serviceModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <p id="modalDescription"></p>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- Sección Equipo Médico -->
     <section id="equipo-medico" class="team-section">
-        <h2>Equipo Médico</h2>
+        <h2 class="section-title">Equipo Médico</h2>
         <div class="team-container">
+            <!-- Doctor 1 -->
             <div class="team-card">
-                <img src="./img/doctora1.jpg" alt="Dra. Graciela Barzola" class="doctor-img">
+                <img src="./img/doctora1.jpg" alt="Dra. Graciela Barzola" class="team-image" onclick="openDoctorModal('Dra. Graciela Barzola', 'Obstetra con más de 15 años de experiencia en seguimiento de embarazos de alto y bajo riesgo. Especializada en medicina fetal y atención personalizada.')">
                 <h3>Dra. Graciela Barzola</h3>
                 <h4>*Obstetra*</h4>
                 <p>Lunes a Viernes de 8:00am a 7:00pm</p>
-                <div class="doctor-buttons">
-                    <button class="btn-doctor"><i class="fas fa-user-md"></i></button>
-                    <a href="#" class="btn-linkedin"><i class="fab fa-linkedin"></i></a>
+                <div class="team-buttons">
+                    <button class="team-btn" onclick="openDoctorModal('Dra. Graciela Barzola', 'Obstetra con más de 15 años de experiencia en seguimiento de embarazos de alto y bajo riesgo. Especializada en medicina fetal y atención personalizada.')">
+                        <i class="fas fa-user-md"></i>
+                    </button>
+                    <a href="https://www.linkedin.com" class="team-btn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                 </div>
             </div>
+            <!-- Doctor 2 -->
             <div class="team-card">
-                <img src="./img/doctor1.jpg" alt="Dr. Carlos Honores" class="doctor-img">
+                <img src="./img/doctor1.jpg" alt="Dr. Carlos Honores" class="team-image" onclick="openDoctorModal('Dr. Carlos Honores', 'Ginecólogo con especialización en cirugía laparoscópica y tratamiento de endometriosis. Más de 10 años de experiencia en consulta privada.')">
                 <h3>Dr. Carlos Honores</h3>
                 <h4>*Ginecólogo*</h4>
                 <p>Previa Cita</p>
-                <div class="doctor-buttons">
-                    <button class="btn-doctor"><i class="fas fa-user-md"></i></button>
-                    <a href="#" class="btn-linkedin"><i class="fab fa-linkedin"></i></a>
+                <div class="team-buttons">
+                    <button class="team-btn" onclick="openDoctorModal('Dr. Carlos Honores', 'Ginecólogo con especialización en cirugía laparoscópica y tratamiento de endometriosis. Más de 10 años de experiencia en consulta privada.')">
+                        <i class="fas fa-user-md"></i>
+                    </button>
+                    <a href="https://www.linkedin.com" class="team-btn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                 </div>
             </div>
+            <!-- Doctor 3 -->
             <div class="team-card">
-                <img src="./img/doctora2.jpg" alt="Dra. Maria Casas" class="doctor-img">
+                <img src="./img/doctora2.jpg" alt="Dra. Maria Casas" class="team-image" onclick="openDoctorModal('Dra. Maria Casas', 'Pediatra especializada en neonatología y seguimiento del desarrollo infantil. Atención cálida y personalizada para cada pequeño paciente.')">
                 <h3>Dra. Maria Casas</h3>
                 <h4>*Pediatría*</h4>
                 <p>Previa Cita</p>
-                <div class="doctor-buttons">
-                    <button class="btn-doctor"><i class="fas fa-user-md"></i></button>
-                    <a href="#" class="btn-linkedin"><i class="fab fa-linkedin"></i></a>
+                <div class="team-buttons">
+                    <button class="team-btn" onclick="openDoctorModal('Dra. Maria Casas', 'Pediatra especializada en neonatología y seguimiento del desarrollo infantil. Atención cálida y personalizada para cada pequeño paciente.')">
+                        <i class="fas fa-user-md"></i>
+                    </button>
+                    <a href="https://www.linkedin.com" class="team-btn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Modales de Equipo Médico -->
-    <div class="modal" id="doctor-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 id="doctor-name"></h2>
-            <p id="doctor-info"></p>
-        </div>
-    </div>
-
-    <!-- Sección Preguntas Frecuentes -->
-    <section class="faq-section">
-        <h2>Preguntas Frecuentes</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-question">
-                    <i class="fas fa-heartbeat"></i>
-                    <span>¿Requisitos para la toma de muestra del Papanicolaou?</span>
-                    <i class="fas fa-plus"></i>
-                </button>
-                <div class="faq-answer">
-                    <ul>
-                        <li>No relaciones sexuales 48h antes.</li>
-                        <li>No estar con la menstruación.</li>
-                        <li>No colocarse óvulos.</li>
-                    </ul>
-                </div>
+        <!-- Modal Equipo Médico -->
+        <div id="doctorModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeDoctorModal()">&times;</span>
+                <h2 id="doctorModalTitle"></h2>
+                <p id="doctorModalDescription"></p>
             </div>
-            <!-- Más preguntas frecuentes se agregarán desde JS -->
         </div>
-    </section>
-
-    <!-- Sección Testimonios -->
-    <section class="testimonials-section">
-        <h2>Testimonios</h2>
-        <div class="testimonials-container">
-            <div class="testimonial active">
-                <div class="testimonial-content">
-                    <img src="./img/paciente-test1.jpg" alt="Testimonio 1" class="testimonial-img">
-                    <div class="testimonial-text">
-                        <div class="testimonial-header">
-                            <h3>Lita Chavez</h3>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Lima</span>
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>"Excelente atención por parte del Dr. Honores. Me sentí muy cómoda durante toda mi gestación y el parto fue maravilloso gracias a su equipo."</p>
+         </section>
+        <!-- Sección Preguntas Frecuentes -->
+        <section id="preguntas-frecuentes" class="faq-section">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <!-- Pregunta 1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <i class="fas fa-heartbeat faq-icon"></i>
+                        <span>¿Requisitos para la toma de muestra del Papanicolaou?</span>
+                        <i class="fas fa-plus faq-toggle"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <ul>
+                            <li>No relaciones sexuales 48h antes.</li>
+                            <li>No estar con la menstruación.</li>
+                            <li>No colocarse óvulos.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <i class="fas fa-baby faq-icon"></i>
+                        <span>¿A partir de qué semana se puede escuchar el latido del bebé?</span>
+                        <i class="fas fa-plus faq-toggle"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>El latido cardíaco fetal puede detectarse mediante ecografía transvaginal a partir de la semana 5-6 de gestación, y con ecografía abdominal a partir de la semana 7-8.</p>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <i class="fas fa-pills faq-icon"></i>
+                        <span>¿Qué suplementos debo tomar durante el embarazo?</span>
+                        <i class="fas fa-plus faq-toggle"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <ul>
+                            <li><strong>Ácido fólico:</strong> 400-800 mcg diarios (idealmente desde antes del embarazo)</li>
+                            <li><strong>Hierro:</strong> Según indicación médica basada en tus niveles</li>
+                            <li><strong>Calcio:</strong> 1000-1300 mg diarios</li>
+                            <li><strong>Vitamina D:</strong> 600 UI diarias</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <i class="fas fa-calendar-check faq-icon"></i>
+                        <span>¿Con qué frecuencia debo asistir a controles prenatales?</span>
+                        <i class="fas fa-plus faq-toggle"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>El esquema recomendado es:</p>
+                        <ul>
+                            <li>Hasta la semana 28: Cada 4 semanas</li>
+                            <li>De la semana 28 a 36: Cada 2 semanas</li>
+                            <li>De la semana 36 hasta el parto: Cada semana</li>
+                        </ul>
+                        <p>Este esquema puede variar según tu condición particular.</p>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 5 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <i class="fas fa-procedures faq-icon"></i>
+                        <span>¿Cuándo debo acudir a emergencias durante el embarazo?</span>
+                        <i class="fas fa-plus faq-toggle"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Debes acudir inmediatamente si presentas:</p>
+                        <ul>
+                            <li>Sangrado vaginal</li>
+                            <li>Dolor abdominal intenso</li>
+                            <li>Contracciones regulares antes de la semana 37</li>
+                            <li>Dolor de cabeza intenso con visión borrosa</li>
+                            <li>Disminución o ausencia de movimientos fetales</li>
+                            <li>Pérdida de líquido amniótico</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-dots"></div>
-            <img src="./img/logo-testimonio.png" alt="Logo Testimonio" class="testimonial-logo">
-        </div>
-    </section>
-
-    <!-- Sección Contacto -->
-    <section id="contacto" class="contact-section">
-        <h2>Contáctanos</h2>
-        <div class="contact-container">
-            <div class="contact-form">
-                <form id="form-contacto">
-                    <input type="text" placeholder="Tu nombre" required>
-                    <input type="tel" placeholder="Número telefónico" required>
-                    <input type="email" placeholder="Correo electrónico" required>
-                    <textarea placeholder="Escribe tu mensaje aquí" required></textarea>
-                    <button type="submit" class="btn-send">Enviar mensaje <i class="fas fa-paper-plane"></i></button>
-                </form>
+        </section>
+        <!-- Sección Testimonios -->
+        <section id="testimonios" class="testimonials-section">
+            <div class="testimonials-container">
+                <h2 class="section-title white">Testimonios</h2>
+                
+                <div class="testimonials-slider">
+                    <!-- Testimonio 1 -->
+                    <div class="testimonial active">
+                        <div class="testimonial-content">
+                            <div class="testimonial-image">
+                                <img src="./img/paciente-test1.jpg" alt="Lita Chávez">
+                            </div>
+                            <div class="testimonial-text">
+                                <div class="testimonial-header">
+                                    <h3>Lita Chávez</h3>
+                                    <div class="testimonial-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Lima, Perú</span>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p>"El equipo del Centro Médico Mujer hizo que mi embarazo fuera una experiencia maravillosa. Su atención personalizada y profesionalismo me hicieron sentir segura en todo momento."</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonio 2 -->
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="testimonial-image">
+                                <img src="./img/paciente-test2.jpg" alt="María Fernández">
+                            </div>
+                            <div class="testimonial-text">
+                                <div class="testimonial-header">
+                                    <h3>María Fernández</h3>
+                                    <div class="testimonial-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Arequipa, Perú</span>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                                <p>"Gracias a la Dra. Graciela por su paciencia y dedicación durante todo mi control prenatal. Siempre respondió todas mis dudas con claridad y empatía."</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonio 3 -->
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="testimonial-image">
+                                <img src="./img/paciente-test3.jpg" alt="Carlos Mendoza">
+                            </div>
+                            <div class="testimonial-text">
+                                <div class="testimonial-header">
+                                    <h3>Carlos Mendoza</h3>
+                                    <div class="testimonial-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Trujillo, Perú</span>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p>"Como padre primerizo, el apoyo del Dr. Carlos fue invaluable. Su orientación nos ayudó a mi esposa y a mí a prepararnos mejor para la llegada de nuestro bebé."</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonio 4 -->
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="testimonial-image">
+                                <img src="./img/paciente-test4.jpg" alt="Ana Torres">
+                            </div>
+                            <div class="testimonial-text">
+                                <div class="testimonial-header">
+                                    <h3>Ana Torres</h3>
+                                    <div class="testimonial-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Cusco, Perú</span>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <p>"La atención pediátrica de la Dra. María es excepcional. Mi hija se siente cómoda en cada visita y eso como madre me da mucha tranquilidad."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonials-dots" id="testimonials-dots"></div>
+                
+                <img src="./img/logo-testimonio.png" alt="Logo" class="testimonial-logo">
             </div>
-            <div class="contact-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.62615916525!2d-77.0164785257933!3d-12.069222842317533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c89c37951b0b%3A0xa2c621128a26c547!2sJr.%20Antonio%20Bazo%201088%2C%20La%20Victoria%2015018!5e0!3m2!1ses!2spe!4v1744936652204!5m2!1ses!2spe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> Jr Antonio Bazo 1088, La Victoria <br>Referencia: Cruce con Jr. Italia</p>
-                    <p><i class="fas fa-mobile-alt"></i> 960848454 | 982530525 | 982652953</p>
-                    <p><i class="fas fa-envelope"></i> consultoriomujer21@gmail.com</p>
+        </section>
+        <!-- Sección Contacto -->
+        <section id="contacto" class="contact-section">
+            <h2 class="section-title">Contáctanos</h2>
+            
+            <div class="contact-container">
+                <!-- Formulario -->
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Número telefónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Enviar mensaje <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Google Maps -->
+                <div class="contact-map">
+                    <div class="map-overlay">
+                        <div class="contact-info-box">
+                            <p><i class="fas fa-map-marker-alt"></i> Jr Antonio Bazo 1088, La Victoria <br>Referencia: Cruce con Jr. Italia</p>
+                            <p><i class="fas fa-mobile-alt"></i> 960848454 | 982530525 | 982652953</p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:consultoriomujer21@gmail.com">consultoriomujer21@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.62615916525!2d-77.0164785257933!3d-12.069222842317533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c89c37951b0b%3A0xa2c621128a26c547!2sJr.%20Antonio%20Bazo%201088%2C%20La%20Victoria%2015018!5e0!3m2!1ses!2spe!4v1744936652204!5m2!1ses!2spe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; <span id="current-year"></span> Centro Médico Mujer. Todos los derechos reservados.</p>
+            </footer>
+        </section>
+        <!-- Notificaciones FOMO -->
+        <div class="fomo-container" id="fomoContainer"></div>
+        <!-- Chatbot -->
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-bubble" id="chatbotBubble">
+                <img src="./img/icon-whatsapp.jpg" alt="Chatbot" class="chatbot-icon">
+            </div>
+            
+            <div class="chatbot-window" id="chatbotWindow">
+                <div class="chatbot-header">
+                    <h3>Asistente Virtual</h3>
+                    <button class="chatbot-close">&times;</button>
+                </div>
+                <div class="chatbot-messages" id="chatbotMessages"></div>
+                <div class="chatbot-quick-replies">
+                    <button class="quick-reply" data-reply="Precio por ecografía">Precio por ecografía</button>
+                    <button class="quick-reply" data-reply="Precio por descarte de embarazo">Precio por descarte</button>
+                    <button class="quick-reply" data-reply="Precio por consulta Ginecológica">Consulta Ginecológica</button>
+                    <button class="quick-reply" data-reply="Comunícame con una persona...">Hablar con alguien</button>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; <span id="current-year"></span> Centro Médico Mujer. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- Notificación FOMO -->
-    <div class="fomo-notification">
-        <div class="fomo-content">
-            <span class="fomo-message"></span>
-            <button class="close-fomo">&times;</button>
-        </div>
-        <div class="fomo-timer"></div>
-    </div>
-
-    <!-- Chatbot -->
-    <div class="chatbot-container">
-        <div class="chatbot-bubble">
-            <img src="./img/icon-whatsapp.jpg" alt="Chatbot">
-        </div>
-        <div class="chatbot-window">
-            <div class="chatbot-header">
-                <h3>Centro Médico Mujer</h3>
-                <button class="close-chatbot">&times;</button>
-            </div>
-            <div class="chatbot-messages">
-                <div class="chatbot-message">
-                    <p class="bot-message"></p>
-                </div>
-            </div>
-            <div class="chatbot-quick-replies">
-                <button class="quick-reply">Precio por ecografía</button>
-                <button class="quick-reply">Precio por descarte de embarazo</button>
-                <button class="quick-reply">Precio por consulta Ginecológica</button>
-                <button class="quick-reply">Comunícame con una persona...</button>
-            </div>
-        </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
