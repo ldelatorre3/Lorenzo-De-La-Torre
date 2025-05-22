@@ -1,286 +1,486 @@
-/* Estilos para móviles (hasta 991px) */
-@media (max-width: 991px) {
-    .nav-menu {
-        position: fixed;
-        top: var(--nav-height);
-        right: -100%;
+:root {
+    --primary-color: #ff6fa2;
+    --white-color: #ffffff;
+    --text-color: #333333;
+    --navbar-height: 60px;
+    --transition: all 0.3s ease;
+}
+
+.navbar-container {
+    padding: 0 15px;
+    height: var(--navbar-height);
+}
+
+.navbar-logo img {
+    height: 40px;
+}
+
+.navbar-menu {
+    position: fixed;
+    top: var(--navbar-height);
+    right: -100%;
+    width: 70%;
+    height: calc(100vh - var(--navbar-height));
+    background-color: var(--white-color);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    transition: var(--transition);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-menu.active {
+    right: 0;
+}
+
+.navbar-item {
+    margin: 15px 0;
+    width: 100%;
+}
+
+.navbar-link {
+    font-size: 18px;
+    display: block;
+    padding: 10px 0;
+}
+
+.navbar-button {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 16px;
+}
+
+.navbar-toggle {
+    display: block;
+    width: 30px;
+    height: 20px;
+    position: relative;
+}
+
+.bar {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: var(--transition);
+}
+
+.bar:nth-child(1) {
+    top: 0;
+}
+
+.bar:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bar:nth-child(3) {
+    bottom: 0;
+}
+
+.navbar-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Media Queries específicas para móviles */
+@media screen and (max-width: 424px) {
+    .navbar-menu {
         width: 80%;
-        max-width: 300px;
-        height: calc(100vh - var(--nav-height));
-        background-color: var(--white);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-        transition: var(--transition);
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .nav-menu.active {
-        right: 0;
-    }
-    
-    .nav-links {
-        width: 100%;
-        padding: 15px 0;
-        margin: 5px 0;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .nav-links:hover::after {
-        display: none;
-    }
-    
-    .btn-reserva {
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
-    }
-    
-    .menu-toggle {
-        display: block;
-    }
-    
-    .menu-toggle .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        background-color: var(--text-color);
-        transition: var(--transition);
-    }
-    
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-    
-    /* Hero Section Mobile */
-    .hero-section {
-        background-color: rgba(0, 0, 0, 0.3);
-    }
-    
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-section p {
-        font-size: 1rem;
-    }
-    
-    .hero-controls {
-        bottom: 30px;
     }
 }
 
-@media (max-width: 425px) {
-    .hero-section h1 {
+@media screen and (max-width: 374px) {
+    .navbar-menu {
+        width: 85%;
+    }
+    
+    .navbar-link {
+        font-size: 16px;
+    }
+    
+    .navbar-button {
+        font-size: 14px;
+    }
+}
+
+/* Hero Section Mobile */
+.hero-section {
+    height: calc(100vh - var(--navbar-height));
+    padding: 0 5%;
+    position: relative;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 100%;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.hero-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.hero-button {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+}
+
+.hero-controls {
+    bottom: 70px;
+}
+
+.hero-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+}
+
+.hero-indicator {
+    width: 10px;
+    height: 10px;
+}
+
+.hero-down-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 424px) {
+    .hero-title {
         font-size: 1.8rem;
     }
     
-    .hero-section p {
+    .hero-description {
         font-size: 0.9rem;
     }
     
-    .btn-servicios {
-        padding: 10px 20px;
+    .hero-button {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-description {
+        font-size: 0.85rem;
+    }
+    
+    .hero-button {
+        padding: 7px 18px;
+    }
+}
+
+/* Benefits Section Mobile */
+.benefits-section {
+    padding: 50px 0;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+}
+
+.benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 15px;
+}
+
+.benefit-card {
+    padding: 25px 20px;
+}
+
+.card-image-container {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.3rem;
+}
+
+.card-description {
+    font-size: 0.9rem;
+}
+
+.benefits-button {
+    padding: 10px 25px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 374px) {
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+    }
+    
+    .benefits-button {
+        padding: 8px 20px;
         font-size: 0.9rem;
     }
 }
 
-@media (max-width: 375px) {
-    .hero-section h1 {
-        font-size: 1.6rem;
+/* Services Section Mobile */
+.services-section {
+    padding: 50px 0;
+}
+
+.services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 10px;
+}
+
+.service-card {
+    padding: 20px 15px;
+    max-width: 100%;
+}
+
+.service-icon {
+    font-size: 2rem;
+}
+
+.service-title {
+    font-size: 1.1rem;
+}
+
+.service-modal {
+    padding: 30px 20px;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.modal-description {
+    font-size: 0.95rem;
+}
+
+.modal-watermark {
+    font-size: 7rem;
+}
+
+@media screen and (max-width: 374px) {
+    .services-grid {
+        grid-template-columns: 1fr;
     }
     
-    .hero-section p {
+    .service-icon {
+        font-size: 1.8rem;
+    }
+    
+    .service-title {
+        font-size: 1rem;
+    }
+}
+
+/* Team Section Mobile */
+.team-section {
+    padding: 50px 0;
+}
+
+.team-card {
+    padding: 25px 20px;
+}
+
+.team-image-container {
+    width: 150px;
+    height: 150px;
+}
+
+.team-name {
+    font-size: 1.3rem;
+}
+
+.team-specialty {
+    font-size: 1rem;
+}
+
+.team-modal {
+    padding: 30px 20px;
+}
+
+.team-modal-title {
+    font-size: 1.5rem;
+}
+
+.team-modal-description {
+    font-size: 0.95rem;
+}
+
+@media screen and (max-width: 374px) {
+    .team-image-container {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .team-name {
+        font-size: 1.2rem;
+    }
+    
+    .team-buttons {
+        gap: 10px;
+    }
+    
+    .team-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+/* FAQ Section Mobile */
+.faq-section {
+    padding: 50px 0;
+}
+
+.faq-container {
+    padding: 0 15px;
+}
+
+.faq-question span {
+    font-size: 0.95rem;
+}
+
+.faq-answer p, .faq-answer ul {
+    font-size: 0.9rem;
+}
+
+@media screen and (max-width: 374px) {
+    .faq-question span {
+        font-size: 0.9rem;
+    }
+    
+    .faq-answer p, .faq-answer ul {
         font-size: 0.85rem;
     }
 }
 
-@media (max-width: 320px) {
-    .hero-section h1 {
-        font-size: 1.4rem;
-    }
-    
-    .hero-section p {
-        font-size: 0.8rem;
-    }
-    
-    .btn-servicios {
-        padding: 8px 16px;
-        font-size: 0.8rem;
-    }
+/* Testimonials Section Mobile */
+.testimonials-section {
+    padding: 50px 0;
+    min-height: 60vh;
 }
 
-/* Beneficios en móviles pequeños */
-@media (max-width: 375px) {
-    .benefits-section {
-        padding: 50px 10px;
-    }
-    
-    .section-title {
-        font-size: 1.6rem;
-    }
-    
-    .benefit-card {
-        min-width: 250px;
-        padding: 20px;
-    }
-    
-    .card-image-container {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .benefit-card h3 {
-        font-size: 1.2rem;
-    }
-    
-    .btn-paquetes {
-        padding: 10px 25px;
-    }
+.testimonials-slider {
+    padding: 0 15px;
 }
 
-@media (max-width: 320px) {
-    .section-title {
-        font-size: 1.4rem;
-    }
-    
-    .benefit-card {
-        min-width: 220px;
-    }
+.testimonial-content {
+    gap: 20px;
 }
 
-/* Servicios y Equipo en móviles pequeños */
-@media (max-width: 375px) {
-    .services-section, .team-section {
-        padding: 60px 15px;
-    }
-    
-    .services-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .service-card h3 {
-        font-size: 1.2rem;
-    }
-    
-    .team-card {
-        min-width: 250px;
-    }
+.testimonial-photo {
+    width: 100px;
+    height: 100px;
 }
 
-@media (max-width: 320px) {
-    .modal-content {
-        padding: 30px 20px;
-    }
-    
-    .modal-content h2 {
-        font-size: 1.5rem;
-    }
-    
-    .modal-content p {
-        font-size: 1rem;
-    }
+.testimonial-name {
+    font-size: 1.2rem;
 }
 
-/* FAQ en móviles pequeños */
-@media (max-width: 375px) {
-    .faq-section {
-        padding: 60px 15px;
-    }
-    
-    .faq-question {
-        padding: 12px 15px;
-    }
-    
-    .faq-answer {
-        padding: 0 15px;
-    }
-    
-    .faq-answer.active {
-        padding: 15px;
-    }
+.testimonial-text {
+    font-size: 0.95rem;
 }
 
-@media (max-width: 320px) {
-    .faq-question {
+.testimonial-logo {
+    width: 50px;
+    bottom: 15px;
+    right: 15px;
+}
+
+@media screen and (max-width: 374px) {
+    .testimonial-photo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .testimonial-name {
+        font-size: 1.1rem;
+    }
+    
+    .testimonial-text {
         font-size: 0.9rem;
     }
     
-    .faq-icon, .faq-toggle {
-        font-size: 1rem;
+    .testimonial-header {
+        gap: 10px;
     }
 }
 
-/* Testimonios en móviles pequeños */
-@media (max-width: 375px) {
-    .testimonials-container {
-        padding: 40px 20px;
-    }
-    
-    .testimonial-image {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .testimonial-header h3 {
-        font-size: 1.3rem;
-    }
+/* Contact Section Mobile */
+.contact-section {
+    padding: 50px 0;
 }
 
-@media (max-width: 320px) {
-    .testimonial-text p {
-        font-size: 0.9rem;
-    }
-    
-    .testimonial-logo {
-        width: 50px;
-    }
+.contact-container {
+    gap: 30px;
+    margin-top: 30px;
 }
 
-/* Contacto en móviles pequeños */
-@media (max-width: 375px) {
-    .form-group input,
-    .form-group textarea {
-        padding: 12px;
-    }
-    
-    .contact-info-box {
-        padding: 12px;
-    }
-    
-    .contact-info-box p {
-        margin: 10px 0;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-    
-    .contact-info-box i {
-        font-size: 1rem;
-    }
+.map-info-box {
+    padding: 15px;
+    max-width: 100%;
+}
+.map-container {
+    box-shadow: none;
 }
 
-@media (max-width: 320px) {
-    .contact-section {
-        padding: 50px 10px 15px;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-        font-size: 0.9rem;
-    }
-    
-    .submit-btn {
-        padding: 12px 20px;
-        font-size: 1rem;
-    }
+.info-item {
+    margin-bottom: 10px;
+}
+
+.info-item i {
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
+
+.footer {
+    padding: 15px 0;
+    font-size: 0.8rem;
 }
