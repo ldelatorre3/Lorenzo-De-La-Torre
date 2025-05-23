@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 767px)">
 </head>
 <body>
+    <!-- Barra de Navegación -->
     <header class="header">
         <nav class="navbar">
             <div class="navbar-container">
                 <a href="#inicio" class="navbar-logo">
-                    <img src="./img/logo.jpg" alt="Centro Médico Mujer">
+                    <img src="./img/logo.png" alt="Centro Médico Mujer">
                 </a>
                 
                 <div class="navbar-toggle" id="mobile-menu">
@@ -44,6 +45,7 @@
     </header>
 
     <main>
+        <!-- Emocional -->
         <section id="inicio" class="hero-section">
             <div class="hero-content">
                 <h1 class="hero-title"></h1>
@@ -59,7 +61,8 @@
             
             <a href="#beneficios" class="hero-down-arrow">&#8964;</a>
         </section>
-    
+
+            <!-- Beneficios -->
             <section id="beneficios" class="benefits-section">
             <div class="container">
                 <h2 class="section-title">Nuestros Beneficios</h2>
@@ -67,7 +70,9 @@
                 <div class="benefits-grid">
                     <div class="benefit-card">
                         <div class="card-image-container">
-                            <img src="./img/card1.jpg" alt="Acompañamiento cercano" class="card-image">
+                            <video autoplay loop muted playsinline class="card-video">
+                                <source src="./video/card1.mp4" type="video/mp4">
+                            </video>
                         </div>
                         <h3 class="card-title">Acompañamiento cercano</h3>
                         <p class="card-description">De principio a fin. Desde tu primera consulta hasta el postparto, estarás en manos de profesionales comprometidos con tu tranquilidad.</p>
@@ -75,7 +80,9 @@
                     
                     <div class="benefit-card">
                         <div class="card-image-container">
-                            <img src="./img/card2.jpg" alt="Todo en un solo lugar" class="card-image">
+                            <video autoplay loop muted playsinline class="card-video">
+                                <source src="./video/card2.mp4" type="video/mp4">
+                            </video>
                         </div>
                         <h3 class="card-title">Todo en un solo lugar</h3>
                         <p class="card-description">Sin complicaciones. Agenda rápida, atención puntual y servicios integrales.</p>
@@ -83,7 +90,9 @@
                     
                     <div class="benefit-card">
                         <div class="card-image-container">
-                            <img src="./img/card3.jpg" alt="Un espacio seguro" class="card-image">
+                            <video autoplay loop muted playsinline class="card-video">
+                                <source src="./video/card3.mp4" type="video/mp4">
+                            </video>
                         </div>
                         <h3 class="card-title">Un espacio seguro</h3>
                         <p class="card-description">Cálido y hecho para ti. Privacidad, respeto y una atención pensada especialmente para la mujer.</p>
@@ -96,6 +105,7 @@
             </div>
         </section>
 
+        <!-- Servicios -->
         <section id="servicios" class="services-section">
             <div class="container">
                 <h2 class="section-title">Servicios</h2>
@@ -205,6 +215,7 @@
             <p class="modal-description">Realización de pruebas de laboratorio para diagnóstico, seguimiento y prevención de diversas condiciones de salud.</p>
         </div>
 
+        <!-- Equipo Médico -->
         <section id="equipo-medico" class="team-section">
             <div class="container">
                 <h2 class="section-title">Equipo Médico</h2>
@@ -306,6 +317,7 @@
             </p>
         </div>
 
+        <!-- Preguntas Frecuentes -->
         <section id="preguntas-frecuentes" class="faq-section">
             <div class="container">
                 <h2 class="section-title">Preguntas Frecuentes</h2>
@@ -388,6 +400,7 @@
             </div>
         </section>
 
+        <!-- Testimonios -->
         <section id="testimonios" class="testimonials-section">
             <div class="container">
                 <h2 class="section-title white-title">Testimonios</h2>
@@ -595,6 +608,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- NOTIFICACIONES FOMO -->
+        <div id="fomo-container"></div>
     </main>
 
     <script src="script.js"></script>

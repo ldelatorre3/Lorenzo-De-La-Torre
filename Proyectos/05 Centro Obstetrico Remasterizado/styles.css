@@ -461,14 +461,20 @@ section[id]:not(#inicio) {
 }
 
 .card-image-container {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto 25px;
     margin-bottom: 15px; /* Menos espacio bajo la imagen */
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--primary-color);
-    padding: 5px;
+}
+
+.card-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Ajusta el video para cubrir el espacio sin deformarse */
+    display: block;
 }
 
 .card-image {
@@ -1436,56 +1442,6 @@ section[id]:not(#inicio) {
     }
 }
 
-/* Notificaciones FOMO */
-.fomo-notification {
-    position: fixed;
-    bottom: -100px;
-    left: 20px;
-    background-color: #ff6fa2;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: bottom 0.5s ease;
-}
-
-.fomo-notification.show {
-    bottom: 20px;
-}
-
-.fomo-notification .close-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-left: 15px;
-}
-
-.fomo-timer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
-    border-radius: 0 0 10px 10px;
-    z-index: 2; /* Encima de la notificación pero debajo del contenido */
-}
-
-.fomo-timer-progress {
-    height: 100%;
-    background-color: white;
-    border-radius: 0 0 0 10px;
-    transition: width linear;
-    z-index: 3; /* Encima del fondo del timer */
-}
-
 /* Chatbot WhatsApp */
 .chatbot-container {
     position: fixed;
@@ -1647,5 +1603,80 @@ section[id]:not(#inicio) {
     .chatbot-window {
         width: 280px;
         bottom: 80px;
+    }
+}
+
+/* Notificaciones FOMO */
+#fomo-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+}
+
+.fomo-notification {
+    position: relative;
+    background-color: #ff6fa2;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin-bottom: 15px;
+    transform: translateX(-150%);
+    transition: transform 0.5s ease;
+}
+
+.fomo-notification.show {
+    transform: translateX(0);
+}
+
+.fomo-notification .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.fomo-timer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
+.fomo-timer-progress {
+    height: 100%;
+    width: 0;
+    background-color: white;
+    transition: width linear;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #fomo-container {
+        bottom: 15px;
+        left: 10px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .fomo-notification {
+        max-width: 100%;
+        width: calc(100% - 20px);
+    }
+    
+    .fomo-timer {
+        height: 3px;
     }
 }
