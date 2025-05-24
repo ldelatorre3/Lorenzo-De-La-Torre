@@ -302,7 +302,7 @@ section[id]:not(#inicio) {
     height: 40px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.9);
-    color: #ff6fa2;
+    color: var(--primary-color);
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -312,7 +312,7 @@ section[id]:not(#inicio) {
     transition: all 0.3s ease;
     z-index: 10;
     animation: floatDown 3s infinite ease-in-out;
-    border: 2px solid #ff6fa2;
+    border: 2px solid var(--primary-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -447,7 +447,7 @@ section[id]:not(#inicio) {
     height: 40px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.9);
-    color: #ff6fa2;
+    color: var(--primary-color);
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -457,7 +457,7 @@ section[id]:not(#inicio) {
     transition: all 0.3s ease;
     z-index: 10;
     animation: floatDown 3s infinite ease-in-out;
-    border: 2px solid #ff6fa2;
+    border: 2px solid var(--primary-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -647,7 +647,7 @@ section {
     width: 100%;
     max-width: 220px;
     box-shadow: 0 5px 15px rgba(255, 111, 162, 0.2);
-    border: 2px solid #ff6fa2;
+    border: 2px solid var(--primary-color);
     transition: var(--transition);
     cursor: pointer;
 }
@@ -659,12 +659,12 @@ section {
 
 .service-icon {
     font-size: 2.5rem;
-    color: #ff6fa2;
+    color: var(--primary-color);
     margin-bottom: 15px;
 }
 
 .service-title {
-    color: #ff6fa2;
+    color: var(--primary-color);
     font-size: 1.2rem;
 }
 
@@ -714,7 +714,7 @@ section {
     position: absolute;
     font-size: 10rem;
     opacity: 0.1;
-    color: #ff6fa2;
+    color: var(--primary-color);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -722,7 +722,7 @@ section {
 }
 
 .modal-title {
-    color: #ff6fa2;
+    color: var(--primary-color);
     font-size: 1.8rem;
     margin-bottom: 20px;
     text-align: center;
@@ -742,7 +742,7 @@ section {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #ff6fa2;
+    color: var(--primary-color);
     cursor: pointer;
     transition: var(--transition);
 }
@@ -821,7 +821,7 @@ section {
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
-    border: 2px solid #ff6fa2;
+    border: 2px solid var(--primary-color);
 }
 
 .team-card:hover {
@@ -835,7 +835,7 @@ section {
     margin: 0 auto 20px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid #ff6fa2;
+    border: 3px solid var(--primary-color);
     padding: 5px;
     cursor: pointer;
 }
@@ -848,7 +848,7 @@ section {
 }
 
 .team-name {
-    color: #ff6fa2;
+    color: var(--primary-color);
     font-size: 1.4rem;
     margin-bottom: 5px;
 }
@@ -886,7 +886,7 @@ section {
 }
 
 .profile-btn {
-    background-color: #ff6fa2;
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -928,7 +928,7 @@ section {
     display: none;
     transition: all 0.3s ease;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    border: 2px solid #ff6fa2;
+    border: 2px solid var(--primary-color);
 }
 
 .team-modal.active {
@@ -943,7 +943,7 @@ section {
 }
 
 .team-modal-title {
-    color: #ff6fa2;
+    color: var(--primary-color);
     font-size: 1.8rem;
     margin-bottom: 20px;
     text-align: center;
@@ -963,7 +963,7 @@ section {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #ff6fa2;
+    color: var(--primary-color);
     cursor: pointer;
     transition: var(--transition);
 }
@@ -1052,7 +1052,7 @@ section {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ff6fa2;
+    border: 1px solid var(--primary-color);
 }
 
 .faq-question {
@@ -1073,7 +1073,7 @@ section {
 }
 
 .faq-icon {
-    color: #ff6fa2;
+    color: var(--primary-color);
     margin-right: 15px;
     font-size: 1.2rem;
     width: 25px;
@@ -1089,7 +1089,7 @@ section {
 }
 
 .faq-toggle {
-    color: #ff6fa2;
+    color: var(--primary-color);
     font-size: 1.2rem;
     transition: transform 0.3s ease;
 }
@@ -1162,7 +1162,7 @@ section {
 /* Testimonials Section */
 .testimonials-section {
     padding: 20px 0;
-    background-color: #ff6fa2;
+    background-color: var(--primary-color);
     min-height: auto;
     display: flex;
     align-items: center;
@@ -1404,7 +1404,7 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ff6fa2;
+    background-color: var(--primary-color);
     color: white;
     padding: 25px;
     border-radius: 10px;
@@ -1446,7 +1446,7 @@ section {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #ff6fa2;
+    border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 0 3px rgba(255, 111, 162, 0.2);
 }
@@ -1457,7 +1457,7 @@ section {
 }
 
 .submit-btn {
-    background-color: #ff6fa2;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 12px 25px;
@@ -1697,7 +1697,7 @@ section {
 
 .fomo-notification {
     position: relative;
-    background-color: #ff6fa2;
+    background-color: var(--primary-color);
     color: white;
     padding: 15px 20px;
     border-radius: 10px;
@@ -1764,18 +1764,18 @@ section {
 
 /* Estilo para enlace activo */
 .navbar-item .navbar-link.is-active {
-    color: #ff6fa2;
+    color: var(--primary-color);
     font-weight: 600;
 }
 
 .navbar-item .navbar-link.is-active::after {
     width: 100%;
-    background-color: #ff6fa2;
+    background-color: var(--primary-color);
 }
 
 /* Para el botón de reserva */
 .navbar-item .navbar-button.is-active {
-    background-color: #ff5a92;
+    background-color: var(--primary-color);
     animation: none;
 }
 
@@ -1823,7 +1823,7 @@ section {
 }
 
 .schedule-card p strong {
-    color: #ff6fa2;
+    color: var(--primary-color);
     display: inline-block;
     width: 110px;
 }
