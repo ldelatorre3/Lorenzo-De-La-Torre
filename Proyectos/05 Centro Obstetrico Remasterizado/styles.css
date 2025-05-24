@@ -309,7 +309,7 @@ section[id]:not(#inicio) {
     justify-content: center;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     z-index: 10;
     animation: floatDown 3s infinite ease-in-out;
     border: 2px solid var(--primary-color);
@@ -454,7 +454,7 @@ section[id]:not(#inicio) {
     justify-content: center;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     z-index: 10;
     animation: floatDown 3s infinite ease-in-out;
     border: 2px solid var(--primary-color);
@@ -695,7 +695,7 @@ section {
     width: 90%;
     opacity: 0;
     display: none;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
 
@@ -926,7 +926,7 @@ section {
     width: 90%;
     opacity: 0;
     display: none;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     border: 2px solid var(--primary-color);
 }
@@ -1065,7 +1065,7 @@ section {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .faq-question:hover {
@@ -1276,7 +1276,7 @@ section {
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .indicator.active {
@@ -1541,7 +1541,7 @@ section {
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .chatbot-bubble:hover {
@@ -1803,7 +1803,7 @@ section {
     width: 220px;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .schedule-card.active {
