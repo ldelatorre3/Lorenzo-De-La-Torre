@@ -455,84 +455,123 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-// Notificaciones FOMO - Versión definitiva
+// ===== NOTIFICACIONES FOMO (VERSIÓN FINAL) ===== //
 const fomoMessages = [
-    "¡Ana acaba de agendar su control prenatal para la semana 28! 👶📅",
-    "Luisa reservó su consulta de planificación familiar hace 5 minutos 💊⏱️",
-    "Dr. Martínez atendió 3 consultas ginecológicas en la última hora 🩺✨",
-    "¡Nuevo record! 5 mamás reservaron sus ecografías hoy 📊🤰",
-    "María acaba de confirmar su cita de obstetricia para mañana 🗓️❤️",
-    "3 pacientes atendidas en pediatría en los últimos 30 minutos 👩‍⚕️👶",
-    "¡Últimos 2 horarios disponibles para análisis clínicos esta semana! 💉⏳",
-    "Familia Pérez acaba de agendar consultas de medicina general para todos 👨‍👩‍👧‍👦💖",
-    "¡Atención! Solo quedan 3 cupos para controles prenatales este viernes 📅⚠️",
-    "5 mujeres embarazadas reservaron su primera consulta hoy 🤰🎉"
+  "¡Ana acaba de agendar su control prenatal para la semana 28! 👶📅",
+  "Luisa reservó su consulta de planificación familiar hace 5 minutos 💊⏱️",
+  "Dr. Martínez atendió 3 consultas ginecológicas en la última hora 🩺✨",
+  "¡Nuevo record! 5 mamás reservaron sus ecografías hoy 📊🤰",
+  "María acaba de confirmar su cita de obstetricia para mañana 🗓️❤️",
+  "3 pacientes atendidas en pediatría en los últimos 30 minutos 👩‍⚕️👶",
+  "¡Últimos 2 horarios disponibles para análisis clínicos esta semana! 💉⏳",
+  "Familia Pérez acaba de agendar consultas de medicina general para todos 👨‍👩‍👧‍👦💖",
+  "¡Atención! Solo quedan 3 cupos para controles prenatales este viernes 📅⚠️",
+  "5 mujeres embarazadas reservaron su primera consulta hoy 🤰🎉"
 ];
 
-let fomoPaused = false;
-let fomoCooldown = false;
+let isFomoActive = false;
+let fomoTimeout;
 
-function createFomoNotification() {
-    if (fomoPaused || fomoCooldown) return;
-    
-    const container = document.getElementById('fomo-container');
-    const notification = document.createElement('div');
-    notification.className = 'fomo-notification';
-    
-    // Mensaje aleatorio
-    const randomMsg = fomoMessages[Math.floor(Math.random() * fomoMessages.length)];
-    
-    notification.innerHTML = `
-        <button class="close-btn">&times;</button>
-        <div class="fomo-content">${randomMsg}</div>
-        <div class="fomo-timer">
-            <div class="fomo-timer-progress"></div>
-        </div>
-    `;
-    
-    container.appendChild(notification);
-    
-    // Forzar reflow para activar la animación
-    void notification.offsetWidth;
-    notification.classList.add('show');
-    
-    // Configurar timer visual
-    const timer = notification.querySelector('.fomo-timer-progress');
-    const displayTime = [5000, 10000, 15000][Math.floor(Math.random() * 3)];
-    
-    timer.style.transition = `width ${displayTime/1000}s linear`;
-    setTimeout(() => timer.style.width = '100%', 10);
-    
-    // Cerrar al hacer clic en la X
-    notification.querySelector('.close-btn').addEventListener('click', () => {
-        notification.classList.remove('show');
-        fomoPaused = true;
-        setTimeout(() => {
-            notification.remove();
-            fomoPaused = false;
-        }, 300);
-        
-        // Pausar nuevas notificaciones por 30s
-        fomoCooldown = true;
-        setTimeout(() => fomoCooldown = false, 30000);
-    });
-    
-    // Auto-eliminar después del tiempo
+function showFomoNotification() {
+  if (isFomoActive) return;
+  
+  isFomoActive = true;
+  const container = document.getElementById('fomo-container');
+  container.innerHTML = '';
+  
+  const notification = document.createElement('div');
+  notification.className = 'fomo-notification';
+  const randomMsg = fomoMessages[Math.floor(Math.random() * fomoMessages.length)];
+  const displayTime = [5000, 10000, 15000][Math.floor(Math.random() * 3)]; // 5s, 10s o 15s
+  
+  notification.innerHTML = `
+    <button class="close-btn">&times;</button>
+    <div class="fomo-content">${randomMsg}</div>
+    <div class="fomo-timer">
+      <div class="fomo-timer-progress"></div>
+    </div>
+  `;
+  
+  container.appendChild(notification);
+  
+  // Forzar reflow para activar animación
+  void notification.offsetWidth;
+  notification.classList.add('show');
+  
+  // Iniciar temporizador
+  const timer = notification.querySelector('.fomo-timer-progress');
+  timer.style.transition = `width ${displayTime/1000}s linear`;
+  setTimeout(() => timer.style.width = '100%', 10);
+  
+  // Cerrar manualmente
+  notification.querySelector('.close-btn').addEventListener('click', () => {
+    clearTimeout(fomoTimeout);
+    notification.classList.remove('show');
     setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => notification.remove(), 500);
-    }, displayTime);
+      notification.remove();
+      isFomoActive = false;
+      scheduleNextFomo(30000); // 30s de pausa
+    }, 300);
+  });
+  
+  // Auto-eliminar
+  fomoTimeout = setTimeout(() => {
+    notification.classList.remove('show');
+    setTimeout(() => {
+      notification.remove();
+      isFomoActive = false;
+      scheduleNextFomo([5000, 10000, 15000][Math.floor(Math.random() * 3)]);
+    }, 300);
+  }, displayTime);
 }
 
-// Programar notificaciones aleatorias
-function scheduleFomo() {
-    const nextTime = [5000, 10000, 15000][Math.floor(Math.random() * 3)];
-    setTimeout(() => {
-        createFomoNotification();
-        if (!fomoPaused) scheduleFomo();
-    }, nextTime);
+function scheduleNextFomo(delay) {
+  setTimeout(showFomoNotification, delay);
 }
 
 // Iniciar sistema
-setTimeout(scheduleFomo, 5000);
+setTimeout(showFomoNotification, 5000); // Primer mensaje después de 5 segundos
+});
+
+// Scroll Spy mejorado
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.navbar-link');
+    const navbar = document.querySelector('.navbar');
+    
+    function updateActiveMenu() {
+        let current = '';
+        const scrollPosition = window.scrollY + navbar.offsetHeight + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && 
+                scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('is-active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('is-active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', throttle(updateActiveMenu, 100));
+    updateActiveMenu();
+    
+    // Optimización de rendimiento
+    function throttle(fn, wait) {
+        let time = Date.now();
+        return function() {
+            if ((time + wait - Date.now()) < 0) {
+                fn();
+                time = Date.now();
+            }
+        }
+    }
 });
