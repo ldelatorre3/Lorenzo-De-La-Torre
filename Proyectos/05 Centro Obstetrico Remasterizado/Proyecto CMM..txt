@@ -10,7 +10,7 @@ Laptop (1024px)
 Laptop L (1440px)
 Monitores 4K (2560px)
 
-No usar la regla !important en los archivos HTML/CSS/JS para mejorar en CEO.
+No usar la regla !important en los archivos HTML/CSS/JS para mejorar en SEO.
 
 y trabajemos con variables CSS y la temática de la página es con white y #ff6fa2
 

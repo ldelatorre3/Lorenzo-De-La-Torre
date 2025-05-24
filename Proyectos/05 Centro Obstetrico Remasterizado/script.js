@@ -575,3 +575,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// Reloj Horario
+const clockIcon = document.getElementById('clockIcon');
+const scheduleCard = document.getElementById('scheduleCard');
+
+// Mostrar/ocultar horario
+clockIcon.addEventListener('click', function(e) {
+    e.stopPropagation();
+    scheduleCard.classList.toggle('active');
+});
+
+// Cerrar al hacer clic fuera
+document.addEventListener('click', function() {
+    scheduleCard.classList.remove('active');
+});
+
+// Ocultar al hacer scroll (usa tu función existente si ya tienes una)
+let lastScroll = 0;
+window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > lastScroll) {
+        scheduleCard.classList.remove('active');
+    }
+    
+    lastScroll = currentScroll;
+});

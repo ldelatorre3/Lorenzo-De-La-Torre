@@ -1778,3 +1778,68 @@ section {
     background-color: #ff5a92;
     animation: none;
 }
+
+/* Reloj y horarios */
+.clock-icon {
+    position: absolute;
+    right: 700px;  /* Ajusta este valor según necesites */
+    transform: translateX(-50%);
+    color: var(--primary-color);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.schedule-card {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 220px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.schedule-card.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.schedule-card p {
+    margin: 8px 30px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+}
+
+.schedule-card p:last-child {
+    border-bottom: none;
+}
+
+.schedule-card p strong {
+    color: #ff6fa2;
+    display: inline-block;
+    width: 110px;
+}
+
+/* Para móvil */
+@media (max-width: 767px) {
+    .clock-icon {
+        left: auto;
+        right: 20px;
+        transform: none;
+    }
+    
+    .schedule-card {
+        left: auto;
+        right: 0;
+        transform: none;
+        width: 200px;
+    }
+}
