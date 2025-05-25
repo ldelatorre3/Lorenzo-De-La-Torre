@@ -1487,6 +1487,12 @@ section {
 }
 
 /* Responsive Styles */
+@media screen and (min-width: 2560px) {
+    .clock-icon {
+        padding-left: 170px; /* Más espacio en pantallas grandes */
+    }
+}
+
 @media screen and (max-width: 992px) {
     .contact-container {
         flex-direction: column;
