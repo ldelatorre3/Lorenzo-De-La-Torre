@@ -330,6 +330,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Iniciar slider automático
     startTestimonialInterval();
 
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const testimonialContainer = document.querySelector('.testimonials-slider');
+
+    testimonialContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    clearInterval(testimonialInterval); // Pausa el auto-slide
+    });
+
+    testimonialContainer.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    startTestimonialInterval(); // Reanuda el auto-slide
+    });
+
+    function handleSwipe() {
+    const swipeThreshold = 50; // Mínimo de movimiento (en píxeles)
+    
+    if (touchStartX - touchEndX > swipeThreshold) {
+        // Deslizó izquierda: Siguiente testimonio
+        nextTestimonial();
+    } else if (touchEndX - touchStartX > swipeThreshold) {
+        // Deslizó derecha: Anterior testimonio
+        currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(currentTestimonial);
+    }
+    }
+
     
     // Actualizar año en el footer
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -602,3 +631,5 @@ window.addEventListener('scroll', function() {
     
     lastScroll = currentScroll;
 });
+
+// Interruptor Día/Noche
