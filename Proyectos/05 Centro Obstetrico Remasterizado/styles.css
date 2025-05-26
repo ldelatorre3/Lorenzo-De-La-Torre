@@ -1124,6 +1124,52 @@ section {
     font-size: 0.9rem;
 }
 
+<<<<<<< HEAD
+=======
+/* Responsive Styles */
+@media screen and (min-width: 2560px) {
+    .clock-icon {
+        padding-left: 170px; /* Más espacio en pantallas grandes */
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .map-container iframe {
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact-section {
+        padding: 60px 0;
+    }
+    
+    .map-info-box {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .map-info-box {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 20px auto;
+        width: 100%;
+    }
+    
+    .map-container iframe {
+        height: 300px;
+    }
+}
+
+>>>>>>> f0dc499833f9d5dc246c0bbab0ee1a0b2c0736d6
 /* Chatbot WhatsApp */
 .chatbot-container {
     position: fixed;
