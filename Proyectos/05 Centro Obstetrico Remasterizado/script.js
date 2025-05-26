@@ -164,6 +164,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize slider
     updateSlide();
     resetInterval();
+
+    // Control táctil para hero slider
+let touchStartX = 0;
+
+heroSection.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    clearInterval(slideInterval); // Pausa el auto-play
+});
+
+heroSection.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    
+    // Umbral de desplazamiento (ajusta si es necesario)
+    if (diff > 50) nextSlide(); // Deslizó izquierda (siguiente)
+    if (diff < -50) prevSlide(); // Deslizó derecha (anterior)
+    
+    resetInterval(); // Reanuda el auto-play
+});
 });
 
 // Servicios Modal Functionality
