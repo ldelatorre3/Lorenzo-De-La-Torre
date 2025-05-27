@@ -382,16 +382,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Actualizar año en el footer
     document.getElementById('year').textContent = new Date().getFullYear();
     
-    // Validación básica del formulario
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Aquí iría la lógica para enviar el formulario
-            alert('Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.');
-            this.reset();
-        });
-    }
+    // Enviar de formulario a WhatsApp
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const nombre = document.getElementById('nombre').value;
+    const telefono = document.getElementById('telefono').value;
+    const email = document.getElementById('email').value;
+    const mensaje = document.getElementById('mensaje').value;
+    
+    const texto = `*Nuevo mensaje de contacto*%0A%0A
+                    *Nombre:* ${nombre}%0A
+                    *Teléfono:* ${telefono}%0A
+                    *Email:* ${email}%0A
+                    *Mensaje:* ${mensaje}`;
+    
+    window.open(`https://wa.me/51988218054?text=${texto}`, '_blank');
+    });
 });
 
 // Chatbot WhatsApp
