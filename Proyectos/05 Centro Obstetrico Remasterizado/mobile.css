@@ -499,6 +499,7 @@
     .clock-icon {
         right: 60px;  /* A la izquierda del menú hamburguesa */
         left: auto;
+        top: 15px; /* Ajusta la posición vertical según sea necesario */
     }
 
       #equipo-medico .section-down-arrow {

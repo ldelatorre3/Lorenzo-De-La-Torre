@@ -1346,6 +1346,7 @@ section {
 .clock-icon {
     position: absolute;
     right: 700px;  /* Ajusta este valor según necesites */
+    top: 25px;
     transform: translateX(-50%);
     color: var(--primary-color);
     font-size: 24px;
@@ -1421,6 +1422,10 @@ section {
         padding: 15px 35px;
         font-size: 1.2rem;
     }
+
+    .clock-icon {
+    right: 790px;
+}
 }
 
 /* Pantallas grandes (1440px - 2559px) */
