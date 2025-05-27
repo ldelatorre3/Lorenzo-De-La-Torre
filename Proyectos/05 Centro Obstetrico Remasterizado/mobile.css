@@ -380,6 +380,10 @@
     z-index: 9999;
 }
 
+ .social-floating {
+  top: 25%;
+}
+
 /* Media Queries específicas para móviles */
 @media screen and (max-width: 374px) {
     .navbar-menu {

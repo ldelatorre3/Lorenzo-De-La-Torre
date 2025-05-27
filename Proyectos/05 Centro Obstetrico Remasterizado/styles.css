@@ -123,10 +123,7 @@ body {
 }
 
 /* Hero Section */
-section[id]:not(#inicio) {
-    scroll-margin-top: 100px; /* Altura navbar + 20px */
-    padding-top: 20px;
-}
+
 
 /* Ajuste especial para el hero section */
 #inicio {
@@ -314,7 +311,7 @@ section[id]:not(#inicio) {
 /* Benefits Section */
 /* Ajuste específico para Beneficios */
 #beneficios .benefits-button-container {
-    margin-bottom: 35px; /* Espacio extra antes de la flecha */
+    margin: 50px; /* Espacio extra antes de la flecha */
 }
 
 #beneficios .section-down-arrow {
@@ -372,7 +369,7 @@ section {
     text-align: center;
     color: var(--primary-color);
     font-size: 2.5rem;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-bottom: 50px;
     position: relative;
 }
@@ -396,7 +393,7 @@ section {
 .benefit-card {
     background-color: var(--white-color);
     border-radius: 15px;
-    padding: 20px 15px;
+    padding: 40px 30px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
@@ -487,8 +484,9 @@ section {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
+    gap: 30px;
     justify-items: center;
+    padding: 50px;
 }
 
 .service-card {
@@ -874,6 +872,7 @@ section {
     overflow: hidden;
     z-index: 1;
     padding-bottom: 80px;
+    padding-top: 50px;
 }
 
 .testimonials-section .section-down-arrow {
@@ -1122,6 +1121,45 @@ section {
     text-align: center;
     color: #666;
     font-size: 0.9rem;
+}
+
+/* REDES SOCIALES FLOTANTES */
+
+ .social-floating {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 0.4rem;
+  z-index: 999;
+}
+
+.social-floating a {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.social-floating a:hover {
+  background-color: #c2185b;
+}
+
+.follow-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 /* Chatbot WhatsApp */
