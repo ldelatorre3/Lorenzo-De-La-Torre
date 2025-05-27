@@ -1153,7 +1153,7 @@ section {
 }
 
 .social-floating a:hover {
-  background-color: #c2185b;
+  background-color: var(--primary-color);
 }
 
 .follow-text {
