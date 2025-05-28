@@ -244,8 +244,12 @@
     padding: 50px 0;
 }
 
+.team-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .team-card {
-    padding: 25px 20px;
+    padding: 10px 5px;
 }
 
 .team-image-container {
@@ -513,7 +517,7 @@
     }
 
       #equipo-medico .section-down-arrow {
-        bottom: 5px
+        bottom: -15px
     }
 }
 
@@ -527,5 +531,9 @@
         height: 3px;
         bottom: -1px; /* Pequeño ajuste de posición */
         z-index: 9999; /* Asegura que esté sobre otros elementos */
+    }
+    
+     .social-floating {
+        top: 50%;
     }
 }
