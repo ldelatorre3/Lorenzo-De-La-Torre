@@ -1,0 +1,84 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Efecto Parallax */
+.parallax {
+    height: 100vh; /* Ocupa toda la pantalla */
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+/* Fondos de cada producto (ajusta las imágenes) */
+#producto1 {
+    background-image: url('./img/acido_borico.avif');
+}
+
+#producto2 {
+    background-image: url('./img/acido_borico_acido_lactico.webp');
+}
+
+#producto3 {
+    background-image: url('./img/srtav.jpg');
+}
+
+#producto4 {
+    background-image: url('./img/srp.webp');
+}
+
+/* Contenido */
+.contenido {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0;
+}
+
+button {
+    background: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #45a049;
+}
