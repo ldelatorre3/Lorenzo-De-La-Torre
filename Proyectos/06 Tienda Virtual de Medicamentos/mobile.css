@@ -1,84 +1,75 @@
-/* Reset básico */
-* {
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    color: #333;
 }
 
 /* Efecto Parallax */
-.parallax {
-    height: 100vh; /* Ocupa toda la pantalla */
-    width: 100%;
+.parallax-section {
+    height: 100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    color: white;
     position: relative;
+    overflow: hidden;
 }
 
-/* Fondos de cada producto (ajusta las imágenes) */
-#producto1 {
-    background-image: url('./img/acido_borico.avif');
+/* Fondos de cada sección */
+#portada {
+    background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
 }
 
-#producto2 {
-    background-image: url('./img/acido_borico_acido_lactico.webp');
+#manzana {
+    background-image: url('https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
 }
 
-#producto3 {
-    background-image: url('./img/srtav.jpg');
+#platano {
+    background-image: url('https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
 }
 
-#producto4 {
-    background-image: url('./img/srp.webp');
+#uva {
+    background-image: url('https://images.unsplash.com/photo-1578829779691-99b60bd8c7be?q=80&w=3167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 }
 
-/* Contenido */
-.contenido {
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 80%;
+#mandarina {
+    background-image: url('https://images.unsplash.com/photo-1482012792084-a0c3725f289f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbmRhcmluYXxlbnwwfHwwfHx8MA%3D%3D');
 }
 
-h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+/* Contenido del Parallax */
+.parallax-content {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 600px;
+    color: #333;
 }
 
-p {
-    font-size: 1rem;
-    margin-bottom: 15px;
+.parallax-content h1, h2 {
+    font-family: 'Pacifico', cursive;
+    margin: 0;
 }
 
-.precio {
-    font-size: 1.5rem;
+/* Secciones normales */
+.normal-section {
+    padding: 4rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.normal-section h2 {
+    color: #4CAF50;
+    font-size: 2.5rem;
+}
+
+.price {
     font-weight: bold;
-    display: block;
-    margin: 10px 0;
-}
-
-button {
-    background: #4CAF50; /* Verde */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #45a049;
+    color: #E91E63;
+    font-size: 1.5rem;
 }
