@@ -651,6 +651,45 @@ html{
         margin-bottom: -55px;
         margin-left: 5px;
     }
+
+    /* Reproductor fondo de sonido */
+    .audio-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    }
+
+    .music-toggle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(40, 40, 40, 0.8);
+    border: 2px solid #ffffff;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    outline: none;
+    }
+
+    .music-toggle:hover {
+    background: rgba(70, 70, 70, 0.9);
+    transform: scale(1.1);
+    }
+
+    .music-icon {
+    transition: transform 0.3s;
+    }
+
+    .music-toggle.playing .music-icon {
+    transform: scale(1.2);
+    color: #4CAF50;
+    }
+
     /* SECCION RESPONSIVE */
     @media screen and (max-width:980px){
         nav{

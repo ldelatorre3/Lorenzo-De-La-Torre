@@ -36,3 +36,66 @@ function efectoHabilidades(){
 window.onscroll=function(){
     efectoHabilidades();
 }
+
+// Actualizar año en el footer
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Reproductor fondo de sonido */
+// Configuración inicial
+const music = document.getElementById('backgroundMusic');
+music.src = './Imagine Dragons - Believer.mp3';
+music.volume = 0.5;
+
+const toggleBtn = document.querySelector('.music-toggle');
+
+// Estrategia de autoplay mejorada
+function initAudio() {
+  // Intenta reproducir inmediatamente (puede fallar)
+  const playPromise = music.play();
+  
+  if (playPromise !== undefined) {
+    playPromise
+      .then(() => {
+        toggleBtn.classList.add('playing');
+      })
+      .catch(() => {
+        // Si falla, espera interacción del usuario
+        document.addEventListener('click', startAudioAfterInteraction, { once: true });
+      });
+  }
+}
+
+function startAudioAfterInteraction() {
+  music.play()
+    .then(() => {
+      toggleBtn.classList.add('playing');
+    })
+    .catch(e => console.log("Error al reproducir:", e));
+}
+
+// Control manual
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  
+  if (music.paused) {
+    music.play();
+    toggleBtn.classList.add('playing');
+  } else {
+    music.pause();
+    toggleBtn.classList.remove('playing');
+  }
+});
+
+// Intenta iniciar la música cuando:
+// 1. La página carga
+window.addEventListener('load', initAudio);
+
+// 2. Después de un pequeño retraso (como respaldo)
+setTimeout(initAudio, 1000);
+
+// 3. Cuando la página gana el foco (útil para pestañas)
+window.addEventListener('focus', () => {
+  if (!music.paused) {
+    music.play().catch(e => console.log("Error al retomar:", e));
+  }
+});
