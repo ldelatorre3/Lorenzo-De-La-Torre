@@ -23,23 +23,23 @@ body, html {
 
 /* Fondos de cada sección */
 #portada {
-    background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+    background-image: url('./img/banner.jpeg');
 }
 
-#manzana {
-    background-image: url('https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+#acido_borico {
+    background-image: url('./img/SOSborico-Acido_Borico.png');
 }
 
-#platano {
-    background-image: url('https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+#acido_borico_acido_lactico {
+    background-image: url('./img/SOSborico-Acido_Borico+Acido_Lactico.png');
 }
 
-#uva {
-    background-image: url('https://images.unsplash.com/photo-1578829779691-99b60bd8c7be?q=80&w=3167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+#srtav {
+    background-image: url('./img/srtav.png');
 }
 
-#mandarina {
-    background-image: url('https://images.unsplash.com/photo-1482012792084-a0c3725f289f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbmRhcmluYXxlbnwwfHwwfHx8MA%3D%3D');
+#srp {
+    background-image: url('./img/SRP.png');
 }
 
 /* Contenido del Parallax */
@@ -63,13 +63,46 @@ body, html {
     text-align: center;
 }
 
-.normal-section h2 {
-    color: #4CAF50;
+.SOSborico1 {
+    color: #9D4EDD;
     font-size: 2.5rem;
 }
 
-.price {
+.price-SOSborico1 {
     font-weight: bold;
-    color: #E91E63;
+    color: #9D4EDD;
+    font-size: 1.5rem;
+}
+
+.SOSborico2 {
+    color: #BD0000;
+    font-size: 2.5rem;
+}
+
+.price-SOSborico2 {
+    font-weight: bold;
+    color: #BD0000;
+    font-size: 1.5rem;
+}
+
+.srtav {
+    color: #dd0888;
+    font-size: 2.5rem;
+}
+
+.price-srtav {
+    font-weight: bold;
+    color: #dd0888;
+    font-size: 1.5rem;
+}
+
+.srp {
+    color: #0281bf;
+    font-size: 2.5rem;
+}
+
+.price-srp {
+    font-weight: bold;
+    color: #0281bf  ;
     font-size: 1.5rem;
 }
