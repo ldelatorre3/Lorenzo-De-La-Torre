@@ -43,7 +43,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 /* Reproductor fondo de sonido */
 // Configuración inicial
 const music = document.getElementById('backgroundMusic');
-music.src = './Imagine Dragons - Believer.mp3';
+music.src = './Imagine Dragons - Believerr.mp3';
 music.volume = 0.5;
 
 const toggleBtn = document.querySelector('.music-toggle');
