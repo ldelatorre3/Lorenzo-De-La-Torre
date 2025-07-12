@@ -1,0 +1,230 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0a0a1a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* Título principal */
+.main-title {
+    font-size: clamp(24px, 6vw, 32px);
+    color: #ffcc00;
+    text-shadow: 0 0 8px #ff6600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.5s;
+}
+
+/* Grupo de globos - Versión responsiva */
+.balloon-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    opacity: 0;
+    animation: fadeIn 1s forwards 1s;
+    margin-bottom: 1rem;
+}
+
+.name-line {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.balloon {
+    width: 40px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3);
+    position: relative;
+    animation: float 4s ease-in-out infinite;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    width: 2px;
+    height: 10px;
+    background: rgba(255,255,255,0.6);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Torta - Versión responsiva */
+.cake-container {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px; /* 50px de espacio arriba */
+    opacity: 0;
+    animation: fadeIn 1s forwards 1.5s;
+}
+
+.cake {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, #4b6cb7, #182848);
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.cake-bottom {
+    width: 110%;
+    height: 40px;
+    background: linear-gradient(to bottom, #182848, #0a0e1a);
+    border-radius: 0 0 10px 10px;
+    margin-top: -5px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.frosting {
+    position: absolute;
+    width: 90%;
+    height: 15px;
+    background: #5d7cc7;
+    border-radius: 15px;
+    top: 15px;
+    left: 5%;
+    opacity: 0.9;
+}
+
+.candle {
+    position: absolute;
+    width: 8px;
+    height: 50px;
+    background: linear-gradient(to bottom, #8e9eab, #eef2f3);
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+    z-index: 3;
+}
+
+.flame {
+    position: absolute;
+    width: 12px;
+    height: 25px;
+    background: #ffef00;
+    background: radial-gradient(#fff700 10%, #ff9f43 70%, transparent 90%);
+    border-radius: 50% 50% 20% 20%;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 12px #ff8c00, 0 0 24px #ff4500;
+    animation: flicker 1.5s infinite alternate;
+    z-index: 4;
+}
+
+/* Mensaje de cumpleaños */
+.birthday-message {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards 2s;
+    text-shadow: 0 0 6px #4b6cb7;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+/* Fuegos artificiales */
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Decoraciones */
+.decoration {
+    position: absolute;
+    font-size: 16px;
+    z-index: 0;
+    animation: float-around 15s linear infinite;
+    opacity: 0.7;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes flicker {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+    25% { transform: translateX(-50%) scale(1.1, 0.9); }
+    50% { transform: translateX(-50%) scale(0.9, 1.1) translateY(-3px); }
+    75% { transform: translateX(-50%) scale(1.05); }
+}
+
+@keyframes float-around {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    100% { transform: translate(80px, -80px) rotate(360deg); opacity: 0; }
+}
+
+/* Media queries para desktop */
+@media (min-width: 768px) {
+    .balloon {
+        width: 50px;
+        height: 60px;
+        font-size: 22px;
+    }
+    
+    .cake-container {
+        width: 220px;
+        margin-top: 60px; /* Más espacio en desktop */
+    }
+    
+    .cake {
+        height: 100px;
+    }
+    
+    .birthday-message {
+        font-size: 18px;
+    }
+}

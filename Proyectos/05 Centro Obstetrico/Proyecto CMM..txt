@@ -1,0 +1,347 @@
+Hola buen día, haremos un proyecto quisiera por favor la siguiente página web: 
+
+Antes que todo exijo que en todas las secciones que haremos, se vean bien en pantallas de celular, tablets, laptops y monitores de 4k y 5k, creo que usarías el método max-width para todas nuestras secciones que se adapte a las medidas del inspector:
+
+Dispositivo móvil S (320px)
+Dispositivo móvil M (375px)
+Dispositivo móvil L (425px)
+Tablet (768px)
+Laptop (1024px)
+Laptop L (1440px)
+Monitores 4K (2560px)
+
+No usar la regla !important en los archivos HTML/CSS/JS para mejorar en SEO.
+
+y trabajemos con variables CSS y la temática de la página es con white y #ff6fa2
+
+continuemos…
+
+la página es para un consultorio Obstétrico llamado Centro Médico Mujer y va a estar conformado por 7 secciones.
+
+Emocional
+Beneficio
+Servicios
+Equipo Medico
+Preguntas Frecuentes
+Testimonios
+Contacto
+
+pero lo haremos por etapas, primero:
+
+-------------------------------------BARRA DE NAVEGACIÓN-------------------------------------
+
+Especificación técnica para la barra de navegación:
+
+Barra en modo fixed.
+Imagen: ./img/logo.jpg a la izquierda.
+Vínculos a la derecha #inicio, #beneficios, #servicios, #equipo-médico y (botón (Reservar cita) color de botón #ff6fa2 letras blancas, atractivo botón, que tenga un efecto de parpadeo como latido) y que el vínculo posicione exactamente en la sección correspondiente.
+Hover subrayados en los vínculos color #ff6fa2
+al estar en tamaño móvil pasar a Menú colapsable (icono ☰).
+Al abrirse: Muestra links + botón en columna (a la derecha).
+Cierra automáticamente al seleccionar opción.
+
+-----------------------------------------------EMOCIONAL-----------------------------------------------
+
+Imagen (./img/PC/imagen1-pc.jpg) de fondo completa a su tamaño. Usa toda la altura de la pantalla pero resta el alto de la barra de navegación (ejemplo: height: calc(100vh - 80px);), Mostrar la imagen de fondo completa (sin recortes), centrada y no utilizar ninguna sombra solo en modo móvil un oscuro bajo, usa el mismo método de cambio de imágenes responsive: móvil (./img/mobile/imagenX-mobile.jpg) para <992px y desktop (./img/PC/imagenX-pc.jpg) para ≥992px. estas imágenes decláralas en el JS. NO EN HTML NI CSS
+
+Posición de imagen, textos y botones:
+
+Sobre la imagen lo siguiente:
+Titulo color #ff6fa2
+Descripción color #ff6fa2
+Botón "Nuestros Servicios" (enlace a #servicios) color #ff6fa2
+Textos y botón alineados verticalmente y a la izquierda altura del logo.jpg
+
+Interacciones de imagen, textos y botones:
+
+Imágenes Carrusel automático transición 5s y hacer cambios de imagen si es PC ./imagen1-pc.jpg y si es móvil ./img/mobile/imagen1-mobile.jpg
+
+son 10 imágenes de las cuales 5 son para PC (2K y 4K) y 5 son para móviles pequeños.
+
+nombre y ubicación de las imágenes: ./img/PC/imagen1-pc.jpg al ./img/PC/imagen5-pc.jpg y ./img/mobile/imagen1-mobile.jpg al ./img/PC/imagen5-mobile.jpg
+
+Títulos y sus descripciones:
+
+Título: Conviértete en madre sin preocupaciones
+Descripción: Nuestro compromiso es acompañarte en cada paso del camino, para que puedas disfrutar de tu embarazo sin las dudas que puedan surgir.
+
+Título: El momento de tu vida está por llegar
+Descripción: Sabemos lo importante que es este viaje, y nuestro equipo está aquí para que todo salga perfecto.
+
+Título: Tranquilidad en cada latido
+Descripción: "Con nuestra orientación y cuidado, sentirás la paz de que tu bebé está bien, y tu salud también.
+
+Título: Juntos, todo es más fácil
+Descripción: Nuestro equipo te brindará el apoyo necesario en cada momento, porque sabemos lo importante que es sentirte acompañada.
+
+Título:  Tu embarazo, nuestra pasión
+Descripción: Nos encanta ser parte de este hermoso momento de tu vida, brindándote el mejor cuidado y apoyo en todo momento.
+
+botón "Nuestros Servicios" (enlace a #servicios) y que tenga un efecto de parpadeo como latido
+agregar los siguientes controles:
+Indicadores de puntos (paginación). color #ff6fa2
+Flechas laterales (prev/next). el prev a la izquierda de los indicadores y el next a la derecha de los indicadores color #ff6fa2
+y una flecha más de color #ff6fa2 debajo de los indicadores, centrada y al pulsar me lleve a la sección siguiente sección #Beneficios
+que estos controles estén antes del final de la sección Emocional y visible en dicha sección.
+para las 3 flechas utiliza estos diseños: &#10094, &#10095, &#8964 (este es para la fleca de abajo, pero busca algo parecido ya que es una referencia.) en un círculo medio transparente, centrados en el circulo las flechas y que tenga un efecto flotante left y right (que floten de izquierda a derecha) y down (de arriba abajo)
+
+-----------------------------------------------BENEFICIO-----------------------------------------------
+
+En esta sección quiero un título centrado y llamado "Nuestros Beneficios"
+
+de bajo 3 tarjetas estáticas y cada tarjeta está conformada con una imagen a la que debemos darle un marco circular.
+
+esta son sus nombres y rutas:
+
+./img/card1.jpg
+./img/card2.jpg
+./img/card3jpg
+
+tendrán un título y una descripción y es la siguiente:
+
+Título: Acompañamiento cercano
+Descripción: De principio a fin. Desde tu primera consulta hasta el postparto, estarás en manos de profesionales comprometidos con tu tranquilidad.
+
+Título: Todo en un solo lugar
+Descripción: Sin complicaciones. Agenda rápida, atención puntual y servicios integrales.
+
+Título: Un espacio seguro
+Descripción: Cálido y hecho para ti. Privacidad, respeto y una atención pensada especialmente para la mujer.
+
+debajo de ellos y centrado habrá un botón llamado "Nuestros Paquetes" este botón descargará un PDF te dejo la ruta y nombre del archivo y que tenga un efecto de parpadeo como latido.
+
+./docs/beneficios.pdf
+
+-----------------------------------------------SERVICIOS-----------------------------------------------
+
+En esta sección quiero un título centrado y llamado "Servicios"
+
+Línea abajo que valla 7 cards estáticas y centradas
+Dentro de ellas habrá un símbolo que represente a cada servicio tipo Font Awesome
+Y que lo represente según los siguientes títulos para cada Símbolo
+
+Ginecología
+Obstetricia
+Medicina General
+Pediatría
+Controles Prenatales
+Planificación Familiar
+Análisis Clínicos
+
+las cards que tengan un borde redondeado sombreado y de color #ff6fa2
+
+Interacciones de las cards:
+
+Al pulsar cada cards me muestre un modal donde ira el título de la cards y una pequeña descripción de ese servicio
+
+Y como wallpaper del modal el mismo símbolo de la cards, pero como marca de agua.
+
+-----------------------------------------------EQUIPO MEDICO-----------------------------------------------
+
+En esta sección quiero un título centrado y llamado "Equipo Médico"
+
+Línea abajo de ello 3 cards estáticas centradas y cada cards en su interior está conformada con una imagen circular te paso nombre y rutas de las 3 imágenes:
+
+./img/doctora1.jpg
+./img/doctor1.jpg
+./img/doctora2.jpg
+
+serán 3 doctores y de bajo de cada imagen de doctor un título que digan:
+
+Dra. Graciela Barzola
+Dr. Carlos Honores
+Dra. Maria Casas
+
+Y debajo de los títulos otro pequeño título que diga:
+
+*Obstetra*
+*Ginecólogo*
+*Pediatría*
+
+Y de bajo de ellos sus horarios, por ejemplo:
+
+(Graciela) Lunes a Viernes de 8:00am a 7:00pm
+(Carlos) Previa Cita
+(Maria) Previa Cita
+
+y de bajo de ellos 2 botones, uno con un símbolo de doctor o doctora depende el personaje y otro el logo de LinkedIn los 2 tipo Font Awesome que al pulsar el botón de símbolo de usuario me lleve a un modal y se muestre los siguiente:
+
+Un título que es el nombre del doctor (Ejem: Dra. Graciela Barzola)
+Una descripción que fomente su carrera, tiempo de experiencia y profesión.
+
+Tanto ese botón como la imagen de cada doctor mostrara el modal.
+
+Y el segundo botón me cargue otra página con el LinkedIn del doctor. lo mismo para los 2 doctores restantes.
+
+Esos 2 botones que estén alineados a la misma altura horizontal de las demás cards
+
+-----------------------------------------------PREGUNTAS FRECUENTES-----------------------------------------------
+
+En esta sección quiero un título centrado y llamado "Preguntas Frecuentes"
+
+De bajo de ello un botón largo que en el lado izquierdo de ese botón halla un símbolo de Salud, a su lado este como pregunta: ¿Requisitos para la toma de muestra del Papanicolaou? y al final del botón lado derecho halla un símbolo de +
+
+que al pulsar ese símbolo + se desglose la respuesta por debajo de la pregunta y la respuesta es:
+
+* No relaciones sexuales 48h antes.
+* No estar con la menstruación.
+* No colocarse óvulos.
+
+ya mostrando las respuestas el símbolo de + pasa a - que al pulsar el - se oculta la respuesta o si pulsa otro símbolo + se cierra el anterior automáticamente.
+
+Realiza 4 preguntas y respuestas más con tu criterio y con la misma interacción que acabo de explicar.
+
+-----------------------------------------------TESTIMONIOS-----------------------------------------------
+
+En esta sección quiero un título en el centro de la página llamado "Testimonios"
+
+Contenedor principal:
+con fondo rosado (#ff6fa2) ocupe todo el ancho de la pantalla, ocupe exactamente la mitad de la altura y esté centrado verticalmente en el medio de la pantalla
+
+Logo testimonio ./img/logo-testimonio.png en esquina inferior derecha del Contenedor.
+
+dentro de ello y centrado los siguiente:
+
+a lado izquierdo y que ocupe nombre, testimonio e indicadores una foto del paciente (circular y sin borde)
+ruta y nombres de las imágenes a usar:
+./img/paciente-test1.jpg  al ./img/paciente-test4.jpg
+
+al lado derecho de la foto Nombre (Lita Chavez), ubicación(Font Awesome) y calificación (estrellas - Font Awesome) todo en una sola línea.
+
+de bajo Texto del testimonio
+
+de bajo Puntos de navegación (indicadores) alineados con testimonios
+
+Características Clave
+Diseño responsive: Se adapta a móviles y tablets
+
+Slider automático: Cambia testimonios cada 5 segundos
+
+Efecto visual: Transición suave (fadeIn) entre testimonios
+
+Puntos indicadores de testimonio activo
+
+Funcionamiento JavaScript
+Controla qué testimonio se muestra (clase active)
+
+Maneja el cambio automático y por clics en los dots
+
+Animación simple de fade-in al cambiar testimonios
+
+Estilo Visual
+Fondo rosado (#ff6fa2) con texto blanco
+
+Foto circular del autor con borde blanco
+
+Diseño limpio y centrado en el contenido
+
+-----------------------------------------------CONTÁCTANOS-----------------------------------------------
+
+En esta sección quiero un título en el centro de la página llamado "Contáctanos"
+
+de bajo de ello para el lado izquierdo un formulario que tenga 3 cajas de texto y contengan lo siguiente:
+
+Tu nombre
+Número telefónico
+Correo electrónico
+
+y una caja de texto más grande que diga "Escribe tu mensaje aquí"
+
+y más abajo un botón que diga "Enviar mensaje" (y a su lado un avión de papel - Font Awesome).
+
+para lado derecho un google maps con esta dirección: <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.62615916525!2d-77.0164785257933!3d-12.069222842317533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c89c37951b0b%3A0xa2c621128a26c547!2sJr.%20Antonio%20Bazo%201088%2C%20La%20Victoria%2015018!5e0!3m2!1ses!2spe!4v1744936652204!5m2!1ses!2spe" width="100%" height="555" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+sobre ese google maps y centrado en él, un recuadro color (#ff6fa2) donde se muestren los siguientes datos:
+
+(icono ubicación - Font Awesome) Jr Antonio Bazo 1088, La Victoria <br>Referencia: Cruce con Jr. Italia
+(icono celular - Font Awesome) 960848454 | 982530525 | 982652953
+(icono carta - Font Awesome) consultoriomujer21@gmail.com">consultoriomujer21@gmail.com
+
+dicho cuadro este centrado sobre el google maps
+
+ también que el formulario y google maps, tengan la misma altura.
+
+y ya al final un texto el año y copyright.
+
+-----------------------------------------------NOTIFICACIONES FOMO-----------------------------------------------
+
+Realizar notificaciones emergentes estilo burbuja con temporizador visual que aparezcan de abajo para arriba en la parte inferior izquierda cada 5s,10s y 15s. que esta aparición sea al azar. tanto de la lista de notificaciones como la variedad de tiempo establecido. con un botón para cerrar de la cual si se cierra la notificación se reanudará durante 30s (no mostrar aviso de la pausa de los 30s), que solo aparezca una notificación.
+
+Lista de Notificaciones:
+  ¡Ana acaba de agendar su control prenatal para la semana 28! 👶📅,
+  Luisa reservó su consulta de planificación familiar hace 5 minutos 💊⏱️,
+  Dr. Martínez atendió 3 consultas ginecológicas en la última hora 🩺✨,
+  ¡Nuevo record! 5 mamás reservaron sus ecografías hoy 📊🤰,
+  María acaba de confirmar su cita de obstetricia para mañana 🗓️❤️,
+  3 pacientes atendidas en pediatría en los últimos 30 minutos 👩‍⚕️👶,
+  ¡Últimos 2 horarios disponibles para análisis clínicos esta semana! 💉⏳,
+  Familia Pérez acaba de agendar consultas de medicina general para todos 👨‍👩‍👧‍👦💖,
+  ¡Atención! Solo quedan 3 cupos para controles prenatales este viernes 📅⚠️,
+  5 mujeres embarazadas reservaron su primera consulta hoy 🤰🎉
+
+-----------------------------------------------CHATBOT-----------------------------------------------
+
+Crear un chatbot moderno muy amigable que sea una burbuja flotante con una imagen que ya tengo icon-whatsapp.jpg que al pulsar la imagen cargar el chat y te dice según el horario que estamos, "Buenos días, ¿te ayudo a reservar una cita?", "Buenas tardes, ¿te ayudo a reservar una cita?" o "Buenas noches, ¿te ayudo a reservar una cita? después de un pequeño retraso y haga como que está escribiendo.".
+
+y que hallan unas respuestas rápidas como por ejemplo estas:
+
+    "Precio por ecografía"
+    "Precio por descarte de embarazo"
+    "Precio por consulta Ginecológica "
+    "Comunícame con una persona..."
+
+le respondan esto:
+
+"La ecografía está costando S/. 60.00."
+"El descarte está costando S/. 30.00."
+"La consulta está costando S/. 50.00."
+"Un momento, te conectaré con un especialista..."
+"Un momento, abriendo WhatsApp para atención personalizada..."
+
+y al decir "comunicarme con alguien" o "quiero hablar con una persona" me habrá la página de la web WhatsApp o la app de WhatsApp (sea donde este navegando abra la aplicación y navegador) me redirecciones al siguiente número +51988218054.
+
+-----------------------------------------------ESTRUCTURA DE PROYECTO-----------------------------------------------
+
+Mi Estructura General de mi Proyecto se define así:
+
+05 Centro Obstétrico Remasterizado(carpeta):
+
+index.html
+mobile.css ---> para los móviles
+styles.css ---> para las Tablet, Laptop, PC y pantallas con más de 2K y 4K
+script.js
+
+docs:
+beneficios.pdf
+
+img:
+card1.jpg
+card2.jpg
+card3.jpg
+doctora1.jpg
+doctor1.jpg
+doctora2.jpg
+icon-whatsapp.jpg
+logo.jpg
+testimonio1.jpg
+testimonio2.jpg
+testimonio3.jpg
+testimonio4.jpg
+
+PC:
+imagen1-pc.jpg
+imagen2-pc.jpg
+imagen3-pc.jpg
+imagen4-pc.jpg
+imagen5-pc.jpg
+
+Mobile:
+imagen1-mobile.jpg
+imagen2-mobile.jpg
+imagen3-mobile.jpg
+imagen4-mobile.jpg
+imagen5-mobile.jpg
+
+envíame el index.html, styles.css, mobile.css y script.js no quiero explicaciones para ir probando en mi vscode
+
+enviame todo en HTML, sin explicaciones(para que me lo pases mas rapido.) solo codigo
