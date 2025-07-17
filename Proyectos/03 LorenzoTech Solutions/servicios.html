@@ -1,0 +1,28 @@
+<!-- (Agrega el mismo header y footer que index.html) -->
+<section class="tabla-servicios">
+    <h2>Nuestros Precios</h2>
+    <div class="filtros">
+        <button class="filtro-btn active" data-categoria="todos">Todos</button>
+        <button class="filtro-btn" data-categoria="software">Software</button>
+        <button class="filtro-btn" data-categoria="hardware">Hardware</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Servicio</th>
+                <th>Descripción</th>
+                <th>Precio (PEN)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-categoria="software">
+                <td>Formateo + Office</td>
+                <td>Windows + Drivers + Office 2019</td>
+                <td>180</td>
+            </tr>
+            <!-- Añade más filas -->
+        </tbody>
+    </table>
+</section>
+
+<script src="js/servicios.js"></script>
