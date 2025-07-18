@@ -1,9 +1,9 @@
 // Configuración
-const nameText = "Pequeño Matis";
+const nameText = "Nombre y Apellido"; // Cambia esto por el nombre del cumpleañero
 const balloonColors = ['#4b6cb7', '#3a5683', '#5d7cc7', '#2c3e50', '#3498db', 
                      '#2980b9', '#1f618d', '#154360', '#5dade2', '#2e86c1'];
 
-// Crear globos con el nombre (cumpleañero en una línea, Morales en otra)
+// Crear globos con el nombre (cumpleañero en una línea, apellido en otra)
 function createNameBalloons() {
     const balloonContainer = document.getElementById('balloons');
     const nameParts = nameText.split(' ');
