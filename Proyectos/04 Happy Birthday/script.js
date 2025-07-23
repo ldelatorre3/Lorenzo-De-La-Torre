@@ -1,5 +1,5 @@
 // Configuración
-const nameText = "Nombre y Apellido"; // Cambia esto por el nombre del cumpleañero
+const nameText = "Primario Joel"; // Cambia esto por el nombre del cumpleañero
 const balloonColors = ['#4b6cb7', '#3a5683', '#5d7cc7', '#2c3e50', '#3498db', 
                      '#2980b9', '#1f618d', '#154360', '#5dade2', '#2e86c1'];
 
